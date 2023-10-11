@@ -14,16 +14,24 @@ body{
      height: 100vh;
 }
 .hero{
-   height: 80vh;
+   height: 100vh;
+   width: 100vh;
    color: yellowgreen;
    display:flex;
    flex-direction: column; 
    text-align: center;
    justify-content: center;
-   background: url("/assets/images/eclipse.jpg") no-repeat center center;
+   background: url("../images/eclipse.jpg") no-repeat center center;
    background-size: cover;
    background-position: center;
 }
+
+#nameInput{
+   margin: 0;
+   padding: 0;
+   border: none; 
+}
+
 
 
 
