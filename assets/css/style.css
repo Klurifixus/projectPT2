@@ -20,7 +20,7 @@ body{
    flex-direction: column; 
    text-align: center;
    justify-content: center;
-   background: url("../assets/images/eclipse-1492818_1920.jpg") no-repeat center center;
+   background: url("/assets/images/eclipse.jpg") no-repeat center center;
    background-size: cover;
    background-position: center;
 }
