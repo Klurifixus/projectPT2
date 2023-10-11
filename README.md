@@ -1,7 +1,7 @@
 Steps for doing this pp2!
 1. Balsalmiq make a ground base of how it should look.
 2. Choose Coloring pallet.
-3. Unsplashbackground.
+3. Pixarbay img for background.
 
 4. Step by step in (how to do it)
     1. Create and setup Js, Css and Html + backgroud picture in folders and so on. 
