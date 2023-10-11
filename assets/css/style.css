@@ -46,7 +46,10 @@ body{
 .btn-spin {
     margin: 0;
     padding: 0;
-    border: none;
+    border: yellowgreen solid 1px ;
+    background-color: black;
+    font-family: 'Black Ops One', 'lato';
+    color: yellowgreen;
 }
 .top-text{
     margin-top: 2rem;
@@ -56,8 +59,18 @@ body{
     font-family: 'Black Ops One', 'lato';
     font-weight: 600;
     
+    
 }
-
+#spins-left{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+#total-score{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
 
 
 
