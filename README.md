@@ -1,3 +1,26 @@
+Steps for doing this pp2!
+1. Balsalmiq make a ground base of how it should look.
+2. Choose Coloring pallet.
+3. Unsplashbackground.
+
+4. Step by step in (how to do it)
+    1. Create and setup Js, Css and Html + backgroud picture in folders and so on. 
+    2. Setup your HTML structure
+        1. link stylesheet & script src
+        2. create "spinnwheel container & class for your spinwheel"
+        3. Add segments for the spinwheel
+        4. create input type = text, placeholder="name" required
+        5. create button
+5. Style the spinwheel
+    1. Make rules for container,wheel, segment and each segment
+6. Add the functions in JavaScript
+
+
+
+7. View functions and do the testings
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome,
