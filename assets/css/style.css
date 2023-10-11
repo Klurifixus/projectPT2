@@ -13,7 +13,17 @@ body{
      align-items: center;
      height: 100vh;
 }
-
+.hero{
+   height: 80vh;
+   color: yellowgreen;
+   display:flex;
+   flex-direction: column; 
+   text-align: center;
+   justify-content: center;
+   background: url("../assets/images/eclipse-1492818_1920.jpg") no-repeat center center;
+   background-size: cover;
+   background-position: center;
+}
 
 
 
