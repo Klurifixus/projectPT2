@@ -14,22 +14,33 @@ let bseconds = document.getElementById('bseconds');
 //timer variable reference
 let startTimer;
 
+startBtn.addEventListener('click', function(){
+    if(startTimer === undefined){
+        startTimer = setInterval(timer, 1000)
+    } else{
+      alert("Timer is already running");
+    }
+
+
+})
+
+
 function timer(){
     //work timer
     if(seconds.innerText != 0){
         seconds.innerText --;
-    } else if(minutes.innerText != 0 && seconds.innertext ==0){
-        seconds.innertext = 59;
-        minutes.innertext--;
+    } else if(minutes.innerText != 0 && seconds.innerText ==0){
+        seconds.innerText = 59;
+        minutes.innerText--;
     }
 
     //break timer
     if(minutes.innerText == 0 && seconds.innerText == 0){
         if(bseconds.innerText != 0){
             bseconds.innerText --;
-        } else if(bminutes.innerText != 0 && bseconds.innertext ==0){
-            bseconds.innertext = 59;
-            bminutes.innertext--;
+        } else if(bminutes.innerText != 0 && bseconds.innerText ==0){
+            bseconds.innerText = 59;
+            bminutes.innerText--;
         }
     }  
     
