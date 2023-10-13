@@ -15,6 +15,7 @@ let bseconds = document.getElementById('bseconds');
 let startTimer;
 
 function timer(){
+    //work timer
     if(seconds.innerText != 0){
         seconds.innerText --;
     } else if(minutes.innerText != 0 && seconds.innertext ==0){
@@ -22,6 +23,7 @@ function timer(){
         minutes.innertext--;
     }
 
+    //break timer
     if(minutes.innerText == 0 && seconds.innerText == 0){
         if(bseconds.innerText != 0){
             bseconds.innerText --;
@@ -29,7 +31,20 @@ function timer(){
             bseconds.innertext = 59;
             bminutes.innertext--;
         }
-    }    
+    }  
+    
+    //cycletimer
+    if(minutes.innerText == 0 && seconds.innerText == bminutes.innerText == 0 && bseconds.innerText == 0){
+        minutes.innerText == 25;
+        seconds.innerText == "00";
+
+        bminutes.innerText == 5;
+        bseconds.innerText == "00";
+
+        document.getElementById('cycles').innerText++;
+    }
 }
+
+
 
 
