@@ -95,7 +95,9 @@ breakMin.addEventListener('input', function() {
 let isMuted = false; // 
 
 let muteBtn = document.getElementById('mute-btn');
-muteBtn.addEventListener('click', function() {
+muteBtn.addEventListener('click', 
+
+function() {
     isMuted = !isMuted; // toggle the mute state
 
     if (isMuted) {
