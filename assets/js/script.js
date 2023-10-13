@@ -14,13 +14,12 @@ let bseconds = document.getElementById('bseconds');
 
 //timer variable reference
 let startTimer;
-let stopTimer;
-let resetTimer;
-}
+
+
 
 startBtn.addEventListener('click', function(){
     if(startTimer === undefined){
-        startTimer = setInterval(timer, 1000)
+        startTimer = setInterval(timer, 1000);
     } else{
       alert("Timer is already running");
     }
@@ -32,7 +31,7 @@ startBtn.addEventListener('click', function(){
 
 stopBtn.addEventListener('click', function(){
     if(stopTimer === undefined){
-        stopInterval() 
+        stopInterval(); 
         
     }
     startTimer = undefined;
