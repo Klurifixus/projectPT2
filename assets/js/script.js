@@ -11,9 +11,9 @@ let bminutes = document.getElementById('bminutes');
 let bseconds = document.getElementById('bseconds');
 
 // Create a new Audio object for the alarm sound
-let alarmSound1 = new Audio('/assets/sounds/battle_horn_1-6931.mp3');
+let alarmSound1 = new Audio('assets/sounds/battle_horn_1-6931.mp3');
 alarmSound1.load();
-let alarmSound2 = new Audio('/assets/sounds/tadaa-47995.mp3');
+let alarmSound2 = new Audio('assets/sounds/tadaa-47995.mp3');
 alarmSound2.load();
 // Timer variable reference
 let startTimer;
