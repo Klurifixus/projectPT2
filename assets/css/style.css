@@ -1,1 +1,38 @@
+  @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'lato', 'Montserrat';
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'lato', 'Montserrat';
+    background-color: aquamarine;
+    justify-content: center;
+    
+}
+.container{
+    padding: 2rem;
+    border-radius: 15%;
+    
+}
+.timer{
+    font-size: 3rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+.controls, .session-controls{
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.6rem;;
+
+}
+.workout-label{
+    font-family: 'Delta-Force-One', 'Montserrat';
+}
