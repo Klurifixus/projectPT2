@@ -55,8 +55,8 @@ body{
 }
 #work-length, #break-length{
     margin: 0 auto;
-    border-radius: 30%;
-    width: 2rem;
+    border-radius: 10%;
+    width: 4rem;
     height: 2rem;
     font-size: 1.1rem;
 }
@@ -76,8 +76,8 @@ body{
     
     padding-top: 2.5re
 }
-#start-btn, #stop-btn, #reset-btn{
-    font-size: 3rem;
+#start-btn, #stop-btn, #reset-btn, #mute-btn {
+    font-size: 3.1rem;
     border-radius: 30%;
     margin-bottom: 2rem;
     gap: 1.5rem;
