@@ -33,10 +33,18 @@ body{
 .controls, .session-length-controls{
     display: flex;
     justify-content: center;
-    gap: 0.6rem;
-    margin-top: 0.6rem;;
+    gap: 1.5rem;
+    margin-top: 0.6rem;
+    cursor: pointer;
 
 }
+
+
 .workout-label{
-    font-family: 'Delta-Force-One', 'Montserrat';
+    font-family: 'Black Ops One', 'Montserrat';
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    color:orangered;
+
 }
