@@ -1,3 +1,4 @@
+
 let startBtn = document.getElementById('start-btn');
 let stopBtn = document.getElementById('stop-btn');
 let resetBtn = document.getElementById('reset-btn');
@@ -15,6 +16,7 @@ let bseconds = document.getElementById('bseconds');
 let startTimer;
 let stopTimer;
 let resetTimer;
+}
 
 startBtn.addEventListener('click', function(){
     if(startTimer === undefined){
@@ -24,7 +26,7 @@ startBtn.addEventListener('click', function(){
     }
 
 
-})
+});
 
 
 
@@ -77,11 +79,9 @@ function timer(){
         document.getElementById('cycles').innerText++;
     }
 }
+
+
 //stop timer
 function stopInterval(){
     clearInterval(startTimer);
-
 }
-
-
-

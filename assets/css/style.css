@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing:border-box;
     font-family: 'lato', 'Montserrat';
+    
 
 }
 
@@ -12,7 +13,6 @@ body{
     display: flex;
     flex-direction: column;
     font-family: 'lato', 'Montserrat';
-    background-color: aquamarine;
     justify-content: center;
     
 }
