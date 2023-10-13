@@ -21,7 +21,7 @@ body{
     border-radius: 15%;
     
 }
-.timer{
+.timer, .break-timer{
     font-size: 3rem;
     text-align: center;
     margin: 1rem 0;
@@ -30,6 +30,15 @@ body{
     gap: 1rem;
 
 }
+.cycles-timer{
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+    border: solid 2px #fff;
+    background-color: rgba(255, 0, 0, 0.5);
+    gap: 1rem;
+}
+
 .controls, .session-length-controls{
     display: flex;
     justify-content: center;
