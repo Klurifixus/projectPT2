@@ -13,6 +13,8 @@ let bseconds = document.getElementById('bseconds');
 
 //timer variable reference
 let startTimer;
+let stopTimer;
+let resetTimer;
 
 startBtn.addEventListener('click', function(){
     if(startTimer === undefined){
@@ -21,6 +23,26 @@ startBtn.addEventListener('click', function(){
       alert("Timer is already running");
     }
 
+
+})
+
+
+
+stopBtn.addEventListener('click', function(){
+    if(stopTimer === undefined){
+        stopInterval() 
+        
+    }
+    startTimer = undefined;
+})
+resetBtn.addEventListener('click', function (){
+    minutes.innerText = 25;
+    seconds.innerText = "00";
+
+    bminutes.innerText = 5;
+    bseconds.innerText = "00";
+    document.getElementById('cycles').innerText =0;{}
+    startTimer = undefined;
 
 })
 
@@ -55,7 +77,11 @@ function timer(){
         document.getElementById('cycles').innerText++;
     }
 }
+//stop timer
+function stopInterval(){
+    clearInterval(startTimer);
 
+}
 
 
 
