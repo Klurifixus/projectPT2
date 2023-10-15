@@ -123,6 +123,14 @@ body{
         font-size: 2rem;
         padding: 4px;
     }
+    .challenge-controls{
+        display:flex;
+        margin: 0 auto;
+        m
+    }
+    #challenge-btn{
+        flex-direction: column;
+    }
 }
 @media (max-width: 1430px){
     
