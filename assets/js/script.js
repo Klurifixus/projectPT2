@@ -15,11 +15,11 @@ let challengeBtn = document.getElementById('challenge-btn');
 let currentCycle = 1;
 let breakSeconds =30;
 let exerciseLabel= document.getElementById('exercise-label');
-let exercises = ['pushups', 'situps', 'squats', 'situps', 'pushups'];
+let exercises = ['PUSH-UPS', 'SIT-UPS', 'SQUATS', 'SIT-UPS', 'PUSH-UPS'];
 function startTrainingChallenge(){
     //label mode
     exerciseLabel.style.display = 'block';
-    exerciseLabel.innerText = `Next: ${exercises[currentCycle - 1]}`;
+    exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
     //sets minutes
     minutes.innerText = 3;
     seconds.innerText = "00";
@@ -96,11 +96,22 @@ function timer() {
     }
 
     // Play alarm sound when work time is over and break starts
-    if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == workMin.value && bseconds.innerText == "00") {
-        alarmSound2.play();
+    //if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == workMin.value && bseconds.innerText == "00") {
+        //alarmSound2.play();
+        if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == "0" && bseconds.innerText == "30") {
+            alarmSound2.play();
+        }
     }
 
     // Break timer
+    //if(minutes.innerText == 0 && seconds.innerText == 0) {
+        //if(bseconds.innerText != 0) {
+            //bseconds.innerText--;
+        //} else if(bminutes.innerText != 0 && bseconds.innerText == 0) {
+            //bseconds.innerText = 59;
+            //bminutes.innerText--;
+        //}
+    //}
     if(minutes.innerText == 0 && seconds.innerText == 0) {
         if(bseconds.innerText != 0) {
             bseconds.innerText--;
@@ -109,6 +120,7 @@ function timer() {
             bminutes.innerText--;
         }
     }
+
 
     // Play alarm sound when break time is over
     if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
@@ -119,7 +131,7 @@ function timer() {
         bseconds.innerText = "00";
         document.getElementById('cycles').innerText++;
     }
-}
+
 
 function stopInterval() {
     clearInterval(startTimer);
