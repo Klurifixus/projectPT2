@@ -12,7 +12,7 @@ let bseconds = document.getElementById('bseconds');
 
 //training challange
 let challengeBtn = document.getElementById('challenge-btn');
-
+let currentCycle = 1;
 function startTrainingChallenge(){
     //sets minutes
     minutes.innerText = 3;
@@ -31,14 +31,14 @@ function startTrainingChallenge(){
         } else{
             stopInterval();
             startTimer = undefined;
-            currentCycle = 0;
+            currentCycle = 1;
             minutes.innerText = workMin.value;
-            bseconds.innertext = 00;
+            bseconds.innertext = "00";
             bminutes.innerText = breakMin.value;
             bseconds.innerText = "00";
 
         }
-    }
+    }, 180000);
 }
 
 challengeBtn.addEventListener('click', function(){

@@ -132,6 +132,9 @@ body{
     #challenge-btn{
         flex-direction: column;
     }
+    #exercise-labe{
+        display: none;
+    }
 }
 @media (max-width: 1430px){
     
