@@ -138,11 +138,32 @@ body{
     #challenge-btn:hover{
         background-color: red;
     }
+   
     #exercise-labe{
         /*none så länge*/
         display: none;
     }
-}
+    #banderoll-container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        background-color: black;
+        text-align: center;
+        padding: 1rem 0;
+        z-index:10;
+        
+    }
+    
+    .banderoll-content {
+        animation: slide 10s linear infinite; 
+        white-space: nowrap;
+        font-size: 24px;
+        color: white;
+        width: 200%;
+    }}
+             
+
+
 @media (max-width: 1430px){
     
 }

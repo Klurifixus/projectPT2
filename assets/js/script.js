@@ -18,7 +18,7 @@ let exerciseLabel= document.getElementById('exercise-label');
 let exercises = ['PUSH-UPS', 'SIT-UPS', 'SQUATS', 'SIT-UPS', 'PUSH-UPS'];
 function startTrainingChallenge(){
     //label mode
-    exerciseLabel.style.display = 'block';
+    document.getElementById('banderoll-container').style.display = 'block';
     exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
     //sets minutes
     minutes.innerText = 3;
@@ -43,6 +43,7 @@ function startTrainingChallenge(){
             bseconds.innertext = "00";
             bminutes.innerText = breakMin.value;
             bseconds.innerText = "00";
+            document.getElementById('banderoll-container').style.display = 'none';
 
         }
     }, 180000);
@@ -92,22 +93,12 @@ function timer() {
     }
 
     // Play alarm sound when work time is over and break starts
-    //if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == workMin.value && bseconds.innerText == "00") {
-        //alarmSound2.play();
         if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == "0" && bseconds.innerText == "30") {
             alarmSound2.play();
         }
     }
 
     // Break timer
-    //if(minutes.innerText == 0 && seconds.innerText == 0) {
-        //if(bseconds.innerText != 0) {
-            //bseconds.innerText--;
-        //} else if(bminutes.innerText != 0 && bseconds.innerText == 0) {
-            //bseconds.innerText = 59;
-            //bminutes.innerText--;
-        //}
-    //}
     if(minutes.innerText == 0 && seconds.innerText == 0) {
         if(bseconds.innerText != 0) {
             bseconds.innerText--;
