@@ -17,6 +17,11 @@ function startTrrainingChallenge(){
     //sets minutes
     minutes.innerText = 3;
     seconds.innerText = "00";
+    if (startTimer === undefined) {
+        startTimer = setInterval(timer, 1000);
+    } else { 
+        alert("Timer is already running!" );
+    }
 }
 
 challengeBtn.addEventListener('click', function(){
