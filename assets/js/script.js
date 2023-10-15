@@ -23,6 +23,9 @@ function startTrainingChallenge(){
     //sets minutes
     minutes.innerText = 3;
     seconds.innerText = "00";
+    //break timer
+    bminutes.innerText = 0;
+    bseconds.innerText = 30;
     if (startTimer === undefined) {
         startTimer = setInterval(timer, 1000);
     } else { 
