@@ -17,6 +17,9 @@ let breakSeconds =30;
 let exerciseLabel= document.getElementById('exercise-label');
 let exercises = ['pushups', 'situps', 'squats', 'situps', 'pushups'];
 function startTrainingChallenge(){
+    //label mode
+    exerciseLabel.style.display = 'block';
+    exerciseLabel.innerText = `Next: ${exercises[currentCycle - 1]}`;
     //sets minutes
     minutes.innerText = 3;
     seconds.innerText = "00";
