@@ -28,9 +28,7 @@ function startTrainingChallenge(){
     bseconds.innerText = 30;
     if (startTimer === undefined) {
         startTimer = setInterval(timer, 1000);
-    } else { 
-        alert("Timer is already running!" );
-    }
+    } 
     //loop sets 5times
     setTimeout(() => {
         document.getElementById('cycles').innerText++;
@@ -65,9 +63,7 @@ let startTimer;
 startBtn.addEventListener('click', function(){
     if(startTimer === undefined){
         startTimer = setInterval(timer, 1000);
-    } else {
-        alert("Timer is already running");
-    }
+    } 
 });
 
 stopBtn.addEventListener('click', function(){
