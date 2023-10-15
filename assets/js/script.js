@@ -10,6 +10,19 @@ let seconds = document.getElementById('seconds');
 let bminutes = document.getElementById('bminutes');
 let bseconds = document.getElementById('bseconds');
 
+//training challange
+let challengeBtn = document.getElementById('challenge-btn');
+
+function startTrrainingChallenge(){
+    //sets minutes
+    minutes.innerText = 3;
+    seconds.innerText = "00";
+}
+
+challengeBtn.addEventListener('click', function(){
+    startTrainingChallenge();
+});
+
 // Create a new Audio object for the alarm sound
 let alarmSound1 = new Audio('assets/sounds/battle_horn_1-6931.mp3');
 alarmSound1.load();

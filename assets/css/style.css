@@ -123,6 +123,7 @@ body{
         font-size: 2rem;
         padding: 4px;
     }
+    /*training challange*/
     .challenge-controls{
         display:flex;
         margin: 0 auto;
