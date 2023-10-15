@@ -131,8 +131,15 @@ body{
     }
     #challenge-btn{
         flex-direction: column;
+        cursor: pointer;
+        background-color: orangered;
+
+    }
+    #challenge-btn:hover{
+        background-color: red;
     }
     #exercise-labe{
+        /*none så länge*/
         display: none;
     }
 }

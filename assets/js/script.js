@@ -13,6 +13,9 @@ let bseconds = document.getElementById('bseconds');
 //training challange
 let challengeBtn = document.getElementById('challenge-btn');
 let currentCycle = 1;
+let breakSeconds =30;
+let exerciseLabel= document.getElementById('exercise-label');
+let exercises = ['pushups', 'situps', 'squats', 'situps', 'pushups'];
 function startTrainingChallenge(){
     //sets minutes
     minutes.innerText = 3;
