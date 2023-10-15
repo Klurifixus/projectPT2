@@ -13,7 +13,7 @@ let bseconds = document.getElementById('bseconds');
 //training challange
 let challengeBtn = document.getElementById('challenge-btn');
 
-function startTrrainingChallenge(){
+function startTrainingChallenge(){
     //sets minutes
     minutes.innerText = 3;
     seconds.innerText = "00";
@@ -21,6 +21,23 @@ function startTrrainingChallenge(){
         startTimer = setInterval(timer, 1000);
     } else { 
         alert("Timer is already running!" );
+    }
+    //loop sets 5times
+    setTimeout(() => {
+        document.getElementById('cycles').innerText++;
+        currentCycle++;
+        if (currentCycle <= 5){
+            startTrainingChallenge();
+        } else{
+            stopInterval();
+            startTimer = undefined;
+            currentCycle = 0;
+            minutes.innerText = workMin.value;
+            bseconds.innertext = 00;
+            bminutes.innerText = breakMin.value;
+            bseconds.innerText = "00";
+
+        }
     }
 }
 
