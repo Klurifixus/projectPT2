@@ -1,3 +1,14 @@
+#### WorkSmart: Pomodoro Timer Web App!
+WorkSmart is a modern, intuitive Pomodoro Timer designed to boost productivity. Whether you're working, studying, or training, WorkSmart helps you stay focused and achieve more.
+
+
+
+
+
+
+
+
+
 Steps for doing this pp2!
 1. Balsalmiq make a ground base of how it should look.
 2. Choose Coloring pallet.
