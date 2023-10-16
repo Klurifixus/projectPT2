@@ -17,21 +17,26 @@ document.addEventListener("DOMContentLoaded", function(){
     let breakSeconds = 30;
     let exerciseLabel= document.getElementById('exerciseLabel');
     let exercises = ['PUSH-UPS', 'SIT-UPS', 'SQUATS', 'SIT-UPS', 'PUSH-UPS'];
+    let breakInProgress = false;
 
     function startTrainingChallenge() {
         // Activate red screen and pulsing label
         document.body.classList.add('active-challenge');
-    
+
         exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
-    exerciseLabel.classList.add('active-challenge');
+        exerciseLabel.classList.add('active-challenge');
 
-    minutes.innerText = 3;
-    seconds.innerText = "00";
-    bminutes.innerText = 0;
-    bseconds.innerText = 30;
+        // Start the work timer
+        minutes.innerText = 3;
+        seconds.innerText = "00";
 
-    if (startTimer === undefined) {
-        startTimer = setInterval(timer, 1000);
+        // Reset the break timer
+        bminutes.innerText = 0;
+        bseconds.innerText = "30";
+
+        if (!startTimer) {
+            startTimer = setInterval(timer, 1000);
+        }
     }
 
     setTimeout(() => {
@@ -53,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(){
             document.body.classList.remove('active-challenge');
         }
     }, 180000);
-}
+   
 
 
     challengeBtn.addEventListener('click', function() {
