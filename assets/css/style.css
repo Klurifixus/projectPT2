@@ -85,6 +85,32 @@ body {
     margin-bottom: 2rem;
     background-color: rgba(248, 244, 244, 0.5);
 }
+body.active-challenge {
+    background-color: rgba(255, 0, 0, 0.5); /* 50% transparent red */
+}
+
+#banderoll-container.active-challenge {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 5rem;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
 
 @media (min-width: 768px) {
     .timer, .break-timer {
