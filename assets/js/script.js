@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function(){
         }, 180000);
     }
 
+
+
     function stopTrainingChallenge() {
         clearInterval(startTimer);
         startTimer = undefined;
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(){
         stopTrainingChallenge();
     });
     
-   
+    
 
 
     challengeBtn.addEventListener('click', function() {
@@ -107,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function(){
         bseconds.innerText = "00";
         document.getElementById('cycles').innerText = 0;
         stopInterval();
+        clearInterval(startTimer);
         startTimer = undefined;
     });
 
