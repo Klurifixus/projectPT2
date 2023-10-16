@@ -19,6 +19,7 @@ let exercises = ['PUSH-UPS', 'SIT-UPS', 'SQUATS', 'SIT-UPS', 'PUSH-UPS'];
 function startTrainingChallenge(){
     //label mode
     document.getElementById('banderoll-container').style.display = 'block';
+    exerciseLabel.style.display= 'block';
     exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
     //sets minutes
     minutes.innerText = 3;
