@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function(){
     function startTrainingChallenge() {
         // Activate red screen and pulsing label
         document.body.classList.add('active-challenge');
-
+        document.getElementById('banderoll-container').style.display = 'block';
         exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
         exerciseLabel.classList.add('active-challenge');
-
+        challengeBtn.disabled = true;
         // Start the work timer
         minutes.innerText = 3;
         seconds.innerText = "00";
@@ -63,10 +63,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function stopTrainingChallenge() {
         clearInterval(startTimer);
+        document.getElementById('banderoll-container').style.display = 'none';
         startTimer = undefined;
         document.body.classList.remove('active-challenge');
         exerciseLabel.innerText = ":";
         exerciseLabel.classList.remove('active-challenge');
+        challengeBtn.disabled = false;
     }
     
     //   stop button for training mode
@@ -114,6 +116,13 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     function timer() {
+        if(minutes.innerText != 0 || seconds.innerText != 0) {
+            document.querySelector('.timer').classList.add('active-timer');
+            document.querySelector('.break-timer').classList.remove('active-timer');
+        } else {
+            document.querySelector('.break-timer').classList.add('active-timer');
+            document.querySelector('.timer').classList.remove('active-timer');
+        }
         // Work timer
         if(seconds.innerText != 0) {
             seconds.innerText--;
@@ -135,7 +144,9 @@ document.addEventListener("DOMContentLoaded", function(){
                 bseconds.innerText = 59;
                 bminutes.innerText--;
             }
+
         }
+       
 
         // Play alarm sound when break time is over
         if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {

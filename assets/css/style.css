@@ -104,6 +104,10 @@ body.active-challenge {
     text-align: center;
     line-height: 100vh;
     font-size: 5rem;
+    pointer-events: none;
+}
+.active-timer {
+    background-color: rgba(0, 255, 0, 0.5);
 }
 
 @keyframes pulse {
