@@ -37,27 +37,29 @@ document.addEventListener("DOMContentLoaded", function(){
         if (!startTimer) {
             startTimer = setInterval(timer, 1000);
         }
+
+        setTimeout(() => {
+            document.getElementById('cycles').innerText++;
+            currentCycle++;
+            if (currentCycle <= exercises.length) {
+                startTrainingChallenge();
+            } else {
+                stopInterval();
+                startTimer = undefined;
+                currentCycle = 1;
+                minutes.innerText = workMin.value;
+                bseconds.innerText = "00";
+                bminutes.innerText = breakMin.value;
+                bseconds.innerText = "00";
+                document.getElementById('banderoll-container').style.display = 'none';
+                exerciseLabel.innerText = ":";
+                exerciseLabel.classList.remove('active-challenge');
+                document.body.classList.remove('active-challenge');
+            }
+        }, 180000);
     }
 
-    setTimeout(() => {
-        document.getElementById('cycles').innerText++;
-        currentCycle++;
-        if (currentCycle <= exercises.length) {
-            startTrainingChallenge();
-        } else {
-            stopInterval();
-            startTimer = undefined;
-            currentCycle = 1;
-            minutes.innerText = workMin.value;
-            bseconds.innerText = "00";
-            bminutes.innerText = breakMin.value;
-            bseconds.innerText = "00";
-            document.getElementById('banderoll-container').style.display = 'none';
-            exerciseLabel.innerText = ":";
-            exerciseLabel.classList.remove('active-challenge');
-            document.body.classList.remove('active-challenge');
-        }
-    }, 180000);
+    
    
 
 
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(){
     alarmSound2.load();
 
     // Timer variable reference
-    let startTimer;
+    let startTimer = undefined;
 
     startBtn.addEventListener('click', function(){
         if(startTimer === undefined){
