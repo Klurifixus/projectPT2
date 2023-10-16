@@ -59,6 +59,18 @@ document.addEventListener("DOMContentLoaded", function(){
         }, 180000);
     }
 
+    function stopTrainingChallenge() {
+        clearInterval(startTimer);
+        startTimer = undefined;
+        document.body.classList.remove('active-challenge');
+        exerciseLabel.innerText = ":";
+        exerciseLabel.classList.remove('active-challenge');
+    }
+    
+    //   stop button for training mode
+    stopBtn.addEventListener('click', function(){
+        stopTrainingChallenge();
+    });
     
    
 
