@@ -155,12 +155,24 @@ body{
     }
     
     .banderoll-content {
+        flex: 0 0 100;
         animation: slide 10s linear infinite; 
         white-space: nowrap;
         font-size: 24px;
         color: white;
         width: 200%;
+        text-align: center;
+        white-space: nowrap;
+        transition: opacity 0.6s;
+        opacity: 0;
     }}
+    .banderoll-content .active-slide  {
+        opacity: 1;
+    }
+    banderoll-slides{
+        display: flex;
+        transition: transform 0.5s;
+    }
              
 
 
