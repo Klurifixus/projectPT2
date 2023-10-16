@@ -1,131 +1,158 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // DOM elements
+document.addEventListener("DOMContentLoaded", function(){
     let startBtn = document.getElementById('start-btn');
     let stopBtn = document.getElementById('stop-btn');
     let resetBtn = document.getElementById('reset-btn');
+
     let workMin = document.getElementById('work-length');
     let breakMin = document.getElementById('break-length');
+
     let minutes = document.getElementById('minutes');
     let seconds = document.getElementById('seconds');
     let bminutes = document.getElementById('bminutes');
     let bseconds = document.getElementById('bseconds');
+
+    //training challenge
     let challengeBtn = document.getElementById('challenge-btn');
-    let exerciseLabel = document.getElementById('exercise-label');
-    
-    // Audio elements
-    let alarmSound1 = new Audio('assets/sounds/battle_horn_1-6931.mp3');
-    let alarmSound2 = new Audio('assets/sounds/tadaa-47995.mp3');
-    
-    // Variables
-    let startTimer;
     let currentCycle = 1;
+    let breakSeconds =30;
+    let exerciseLabel= document.getElementById('exerciseLabel');
     let exercises = ['PUSH-UPS', 'SIT-UPS', 'SQUATS', 'SIT-UPS', 'PUSH-UPS'];
-    let isMuted = false;
-
-    // Initialize state
-    exerciseLabel.style.display = 'none';
-    alarmSound1.load();
-    alarmSound2.load();
-
-    // Start training challenge
-    function startTrainingChallenge() {
+    
+    function startTrainingChallenge(){
+        //label mode
         document.getElementById('banderoll-container').style.display = 'block';
-        exerciseLabel.style.display = 'block';
+        exerciseLabel.style.display= 'block';
         exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
+        //sets minutes
         minutes.innerText = 3;
         seconds.innerText = "00";
+        //break timer
         bminutes.innerText = 0;
         bseconds.innerText = 30;
-        
-        if (!startTimer) {
+        if (startTimer === undefined) {
             startTimer = setInterval(timer, 1000);
-        }
-
+        } 
+        //loop sets 5 times
         setTimeout(() => {
             document.getElementById('cycles').innerText++;
             currentCycle++;
-            if (currentCycle <= 5) {
+            if (currentCycle <= 5){
                 startTrainingChallenge();
-            } else {
-                resetTimer();
+            } else{
+                stopInterval();
+                startTimer = undefined;
+                currentCycle = 1;
+                minutes.innerText = workMin.value;
+                bseconds.innerText = "00";
+                bminutes.innerText = breakMin.value;
+                bseconds.innerText = "00";
+                document.getElementById('banderoll-container').style.display = 'none';
             }
         }, 180000);
     }
 
-    // Main timer function
+    challengeBtn.addEventListener('click', function(){
+        startTrainingChallenge();
+    });
+
+    // Create a new Audio object for the alarm sound
+    let alarmSound1 = new Audio('assets/sounds/battle_horn_1-6931.mp3');
+    alarmSound1.load();
+    let alarmSound2 = new Audio('assets/sounds/tadaa-47995.mp3');
+    alarmSound2.load();
+    // Timer variable reference
+    let startTimer;
+
+    startBtn.addEventListener('click', function(){
+        if(startTimer === undefined){
+            startTimer = setInterval(timer, 1000);
+        } 
+    });
+
+    stopBtn.addEventListener('click', function(){
+        stopInterval();
+        startTimer = undefined;
+    });
+
+    resetBtn.addEventListener('click', function() {
+        minutes.innerText = workMin.value;
+        seconds.innerText = "00";
+
+        bminutes.innerText = breakMin.value;
+        bseconds.innerText = "00";
+        document.getElementById('cycles').innerText = 0;
+        stopInterval();
+        startTimer = undefined;
+    });
+
     function timer() {
-        // Handle work timer countdown
-        if (seconds.innerText !== 0) {
+        // Work timer
+        if(seconds.innerText != 0) {
             seconds.innerText--;
-        } else if (minutes.innerText !== 0 && seconds.innerText == 0) {
+        } else if(minutes.innerText != 0 && seconds.innerText == 0) {
             seconds.innerText = 59;
             minutes.innerText--;
         }
 
-        // Play sound at work-end
-        if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == "0" && bseconds.innerText == "30") {
+        // Play alarm sound when work time is over and break starts
+        if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == "0" && bseconds.innerText == "30") {
             alarmSound2.play();
         }
 
-        // Handle break timer countdown
-        if (minutes.innerText == 0 && seconds.innerText == 0) {
-            if (bseconds.innerText !== 0) {
+        // Break timer
+        if(minutes.innerText == 0 && seconds.innerText == 0) {
+            if(bseconds.innerText != 0) {
                 bseconds.innerText--;
-            } else if (bminutes.innerText !== 0 && bseconds.innerText == 0) {
+            } else if(bminutes.innerText != 0 && bseconds.innerText == 0) {
                 bseconds.innerText = 59;
                 bminutes.innerText--;
             }
         }
 
-        // Play sound at break-end and reset timers
-        if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
+        // Play alarm sound when break time is over
+        if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
             alarmSound1.play();
-            resetTimers();
+            minutes.innerText = workMin.value;
+            seconds.innerText = "00";
+            bminutes.innerText = breakMin.value;
+            bseconds.innerText = "00";
+            document.getElementById('cycles').innerText++;
         }
     }
 
-    // Stop and clear timer
     function stopInterval() {
         clearInterval(startTimer);
-        startTimer = undefined;
     }
 
-    // Reset timers and state
-    function resetTimer() {
-        stopInterval();
-        currentCycle = 1;
-        minutes.innerText = workMin.value;
-        seconds.innerText = "00";
-        bminutes.innerText = breakMin.value;
-        bseconds.innerText = "00";
-        document.getElementById('banderoll-container').style.display = 'none';
-        exerciseLabel.style.display = 'none';
-    }
-
-    // Event listeners
-    challengeBtn.addEventListener('click', startTrainingChallenge);
-    startBtn.addEventListener('click', () => { if (!startTimer) startTimer = setInterval(timer, 1000); });
-    stopBtn.addEventListener('click', stopInterval);
-    resetBtn.addEventListener('click', resetTimer);
-
-    workMin.addEventListener('input', () => {
+    // Event listeners for input 
+    workMin.addEventListener('input', function() {
         minutes.innerText = workMin.value;
         seconds.innerText = "00";
     });
 
-    breakMin.addEventListener('input', () => {
+    breakMin.addEventListener('input', function() {
         bminutes.innerText = breakMin.value;
         bseconds.innerText = "00";
     });
 
-    document.getElementById('mute-btn').addEventListener('click', function() {
-        isMuted = !isMuted;
+    let isMuted = false; // 
+
+    let muteBtn = document.getElementById('mute-btn');
+    muteBtn.addEventListener('click', function() {
+        isMuted = !isMuted; // toggle the mute state
+
         if (isMuted) {
-            this.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            // Change the icon to muted
+            muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+
+            // Mute the sounds
             alarmSound1.muted = true;
             alarmSound2.muted = true;
         } else {
-            this.innerHTML = '<i class="fas fa-volume-up"></i>';
+            // Change the icon to sound-on
+            muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+
+            // Unmute the sounds
             alarmSound1.muted = false;
             alarmSound2.muted = false;
         }

@@ -5,17 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="WorkSmart - Boost your productivity with our intuitive Pomodoro timer. Stay focused on tasks, take structured breaks, and achieve more in less time. Perfect for work, study, and training sessions.">
     <meta name="keywords" content="Pomodoro, Timer, Productivity, WorkSmart, Study, Focus">
-    <!--fontawesome-->
     <script src="https://kit.fontawesome.com/d74565a49c.js" crossorigin="anonymous"></script>
-    <!--favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
-<link rel="manifest" href="./assets/favicon/site.webmanifest">
-    <!--stylesheet-->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
     <link rel="stylesheet" href="./assets/css/style.css">
-   
-
     <title>WorkSmart: Your Pomodoro Productivity Booster</title>
 </head>
 <body>
@@ -34,44 +29,38 @@
                     <span id="bseconds">00</span>
                 </div>
                 <div class="cycles-timer">
-                    <p>Cycles:</p><p id="cycles">0</p>
+                    <p>Cycles:</p>
+                    <p id="cycles">0</p>
                 </div>
-
                 <div class="controls">
                     <button id="start-btn" aria-label="start button"><i class="fa-solid fa-circle-play"></i></button>
                     <button id="reset-btn" aria-label="reset button"><i class="fa-solid fa-clock-rotate-left"></i></button>
                     <button id="stop-btn" aria-label="stop button"><i class="fa-solid fa-circle-pause"></i></button>
                     <button id="mute-btn" aria-label="sound on/off button"><i class="fas fa-volume-mute"></i></button>
                 </div>
-             
                 <div class="session-length-controls">
                     <label>
-                        Work: 
+                        Work:
                         <input id="work-length" type="number" min="1" max="99" value="25"> min
                     </label>
                     <label>
-                        Break: 
+                        Break:
                         <input id="break-length" type="number" min="1" max="99" value="5"> min
                     </label>
                 </div>
             </div>
-            <div id="banderoll-container" class="banderoll">
+            <div id="banderoll-container" class="banderoll" style="display: none;">
                 <div class="banderoll-slides">
-                    <div class="banderoll-content active-slide">
-                        <h2 id="exerciseLabel" style="display: none;">:</h2>
+                    <div class="banderoll-content">
+                        <h2 id="exerciseLabel">:</h2>
                     </div>
                 </div>
             </div>
             <div class="challenge-controls">
-                
                 <button id="challenge-btn">Power Training</button>
             </div>
         </section>
-           
- 
     </main>
-
-    <!--javascript-->
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

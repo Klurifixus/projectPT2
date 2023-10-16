@@ -1,181 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
-    font-family: 'lato', 'Montserrat';
-    
-
+    box-sizing: border-box;
+    font-family: 'Lato', 'Montserrat';
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
-    font-family: 'lato', 'Montserrat';
     justify-content: center;
     background-image: url(../images/destination-1285851_1280.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
-    
 }
-.container{
+
+.container {
     padding: 2rem;
     border-radius: 15%;
-    
 }
-.timer, .break-timer{
+
+.timer, .break-timer {
     font-size: 3rem;
     text-align: center;
     margin: 1rem 0;
-    border: solid 2px #fff;
+    border: 2px solid #fff;
     background-color: rgba(248, 244, 244, 0.5);
-    gap: 1rem;
-
 }
-.cycles-timer{
+
+.cycles-timer {
     font-size: 2rem;
     text-align: center;
     margin: 1rem 0;
-    border: solid 2px #fff;
+    border: 2px solid #fff;
     background-color: rgba(248, 244, 244, 0.5);
-    gap: 1rem;
 }
 
-.controls, .session-length-controls{
+.controls, .session-length-controls {
     display: flex;
     justify-content: center;
     gap: 0.7rem;
     margin-top: 0.6rem;
     cursor: pointer;
-    padding: 4px;
-    
-
 }
-.session-length-controls{
+
+.session-length-controls {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    border: solid 2px #fff;
+    border: 2px solid #fff;
     background-color: rgba(248, 244, 244, 0.5);
     letter-spacing: 1.6px;
     font-size: 1.5rem;
 }
-#work-length, #break-length{
+
+#work-length, #break-length {
     margin: 0 auto;
     border-radius: 10%;
     width: 3.5rem;
     height: 2rem;
     font-size: 1rem;
-    padding: 2px;
 }
 
-
-.workout-label{
+.workout-label {
     font-family: 'Black Ops One', 'Montserrat';
     display: flex;
     justify-content: center;
     font-weight: 600;
-    color:orangered;
+    color: orangered;
     font-size: 2.5rem;
     text-shadow: 0.9px 1px 0.9px rgb(241, 238, 246);
-
 }
-.controls{
+
+.controls {
     background-color: transparent;
-    
     padding-top: 2.5rem;
 }
+
 #start-btn, #stop-btn, #reset-btn, #mute-btn {
     font-size: 3.1rem;
     border-radius: 30%;
     margin-bottom: 2rem;
-    gap: 1.5rem;
     background-color: rgba(248, 244, 244, 0.5);
-    padding-left: 4px;
-}
-.session-length-controls{
-    font-size: 1.2rem;
-    font-weight: 600;
 }
 
-@media (min-width: 768px){
-    .timer, .break-timer{
+@media (min-width: 768px) {
+    .timer, .break-timer {
         font-size: 3.5rem;
         margin: 2rem 0;
     }
+
     .workout-label {
         font-size: 5.5rem;
     }
+
     .controls, #start-btn, #stop-btn, #reset-btn, #mute-btn {
-        font-size: 4.5rem;
-        padding: 1rem;
+        font-size: 4;
     }
-    .session-length-controls{
-        font-size: 2rem;
-        padding: 4px;
-
-    }
-    #work-length, #break-length{
-        width: 5.5rem;
-        font-size: 2rem;
-        padding: 4px;
-    }
-    /*training challange*/
-    .challenge-controls{
-        display:flex;
-        margin: 0 auto;
-        
-    }
-    #challenge-btn{
-        flex-direction: column;
-        cursor: pointer;
-        background-color: orangered;
-
-    }
-    #challenge-btn:hover{
-        background-color: red;
-    }
-   
-    #exercise-labe{
-        /*none så länge*/
-        display: none;
-    }
-    #banderoll-container {
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        background-color: black;
-        text-align: center;
-        padding: 1rem 0;
-        z-index:10;
-        
-    }
-    
-    .banderoll-content {
-        flex: 0 0 100;
-        animation: slide 10s linear infinite; 
-        white-space: nowrap;
-        font-size: 24px;
-        color: white;
-        width: 200%;
-        text-align: center;
-        white-space: nowrap;
-        transition: opacity 0.6s;
-        opacity: 0;
-    }}
-    .banderoll-content .active-slide  {
-        opacity: 1;
-    }
-    banderoll-slides{
-        display: flex;
-        transition: transform 0.5s;
-    }
-             
-
-
-@media (max-width: 1430px){
-    
 }
