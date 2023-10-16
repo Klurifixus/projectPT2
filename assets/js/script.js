@@ -14,31 +14,31 @@ document.addEventListener("DOMContentLoaded", function(){
     //training challenge
     let challengeBtn = document.getElementById('challenge-btn');
     let currentCycle = 1;
-    let breakSeconds =30;
+    let breakSeconds = 30;
     let exerciseLabel= document.getElementById('exerciseLabel');
     let exercises = ['PUSH-UPS', 'SIT-UPS', 'SQUATS', 'SIT-UPS', 'PUSH-UPS'];
-    
-    function startTrainingChallenge(){
-        //label mode
-        document.getElementById('banderoll-container').style.display = 'block';
-        exerciseLabel.style.display= 'block';
+
+    function startTrainingChallenge() {
+        // Activate red screen and pulsing label
+        document.body.classList.add('active-challenge');
+        document.querySelector('.workout-label').textContent = "EXERCISE"; // change label to EXERCISE
+        document.getElementById('banderoll-container').classList.add('active-challenge');
         exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
-        //sets minutes
         minutes.innerText = 3;
         seconds.innerText = "00";
-        //break timer
         bminutes.innerText = 0;
         bseconds.innerText = 30;
+
         if (startTimer === undefined) {
             startTimer = setInterval(timer, 1000);
-        } 
-        //loop sets 5 times
+        }
+
         setTimeout(() => {
             document.getElementById('cycles').innerText++;
             currentCycle++;
-            if (currentCycle <= 5){
+            if (currentCycle <= 5) {
                 startTrainingChallenge();
-            } else{
+            } else {
                 stopInterval();
                 startTimer = undefined;
                 currentCycle = 1;
@@ -46,12 +46,15 @@ document.addEventListener("DOMContentLoaded", function(){
                 bseconds.innerText = "00";
                 bminutes.innerText = breakMin.value;
                 bseconds.innerText = "00";
+                document.querySelector('.workout-label').textContent = "WORK SMART"; // reset label back to WORK SMART
                 document.getElementById('banderoll-container').style.display = 'none';
+                document.body.classList.remove('active-challenge');
             }
         }, 180000);
     }
 
-    challengeBtn.addEventListener('click', function(){
+
+    challengeBtn.addEventListener('click', function() {
         startTrainingChallenge();
     });
 
@@ -60,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function(){
     alarmSound1.load();
     let alarmSound2 = new Audio('assets/sounds/tadaa-47995.mp3');
     alarmSound2.load();
+
     // Timer variable reference
     let startTimer;
 
@@ -135,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function(){
         bseconds.innerText = "00";
     });
 
-    let isMuted = false; // 
+    let isMuted = false;
 
     let muteBtn = document.getElementById('mute-btn');
     muteBtn.addEventListener('click', function() {

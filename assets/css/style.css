@@ -86,7 +86,7 @@ body {
     background-color: rgba(248, 244, 244, 0.5);
 }
 body.active-challenge {
-    background-color: rgba(255, 0, 0, 0.5); /* 50% transparent red */
+    background-color: rgba(255, 0, 0, 0.5);
 }
 
 #banderoll-container.active-challenge {
