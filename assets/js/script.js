@@ -21,37 +21,39 @@ document.addEventListener("DOMContentLoaded", function(){
     function startTrainingChallenge() {
         // Activate red screen and pulsing label
         document.body.classList.add('active-challenge');
-        document.querySelector('.workout-label').textContent = "EXERCISE"; // change label to EXERCISE
-        document.getElementById('banderoll-container').classList.add('active-challenge');
+    
         exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
-        minutes.innerText = 3;
-        seconds.innerText = "00";
-        bminutes.innerText = 0;
-        bseconds.innerText = 30;
+    exerciseLabel.classList.add('active-challenge');
 
-        if (startTimer === undefined) {
-            startTimer = setInterval(timer, 1000);
-        }
+    minutes.innerText = 3;
+    seconds.innerText = "00";
+    bminutes.innerText = 0;
+    bseconds.innerText = 30;
 
-        setTimeout(() => {
-            document.getElementById('cycles').innerText++;
-            currentCycle++;
-            if (currentCycle <= 5) {
-                startTrainingChallenge();
-            } else {
-                stopInterval();
-                startTimer = undefined;
-                currentCycle = 1;
-                minutes.innerText = workMin.value;
-                bseconds.innerText = "00";
-                bminutes.innerText = breakMin.value;
-                bseconds.innerText = "00";
-                document.querySelector('.workout-label').textContent = "WORK SMART"; // reset label back to WORK SMART
-                document.getElementById('banderoll-container').style.display = 'none';
-                document.body.classList.remove('active-challenge');
-            }
-        }, 180000);
+    if (startTimer === undefined) {
+        startTimer = setInterval(timer, 1000);
     }
+
+    setTimeout(() => {
+        document.getElementById('cycles').innerText++;
+        currentCycle++;
+        if (currentCycle <= exercises.length) {
+            startTrainingChallenge();
+        } else {
+            stopInterval();
+            startTimer = undefined;
+            currentCycle = 1;
+            minutes.innerText = workMin.value;
+            bseconds.innerText = "00";
+            bminutes.innerText = breakMin.value;
+            bseconds.innerText = "00";
+            document.getElementById('banderoll-container').style.display = 'none';
+            exerciseLabel.innerText = ":";
+            exerciseLabel.classList.remove('active-challenge');
+            document.body.classList.remove('active-challenge');
+        }
+    }, 180000);
+}
 
 
     challengeBtn.addEventListener('click', function() {
@@ -119,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(){
             minutes.innerText = workMin.value;
             seconds.innerText = "00";
             bminutes.innerText = breakMin.value;
-            bseconds.innerText = "00";
+            bseconds.innerText = "02";
             document.getElementById('cycles').innerText++;
         }
     }
@@ -136,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     breakMin.addEventListener('input', function() {
         bminutes.innerText = breakMin.value;
-        bseconds.innerText = "00";
+        bseconds.innerText = "02";
     });
 
     let isMuted = false;
