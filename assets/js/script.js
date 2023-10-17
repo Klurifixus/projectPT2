@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const exercises = ["Push-ups", "Squats", "Lunges", "Planks", "Jumping Jacks"];
     let startTimer = undefined;
     let currentCycle = 1;
+    let breakSeconds =30;
     let challengeTimeout;
 
     // Create a new Audio object for the alarm sound
@@ -25,22 +26,31 @@ document.addEventListener("DOMContentLoaded", function() {
     // SET TIMEOUT LOGIC
     function setTimeoutLogic() {
         document.getElementById('cycles').innerText++;
+        stopTrainingChallenge();
         currentCycle++;
         if (currentCycle <= exercises.length) {
             startTrainingChallenge();
         } else {
-            stopInterval();
-            startTimer = undefined;
-            currentCycle = 1;
-            minutes.innerText = workMin.value;
-            bminutes.innerText = breakMin.value;
-            bseconds.innerText = "00";
-            document.getElementById('banderoll-container').style.display = 'none';
-            exerciseLabel.innerText = ":";
-            exerciseLabel.classList.remove('active-challenge');
-            document.body.classList.remove('active-challenge');
+            endTraining();
         }
+    } 
+
+    function endTraining() {
+        stopInterval();
+        startTimer = undefined;
+        currentCycle = 1;
+        minutes.innerText = workMin.value;
+        bseconds.innerText = "00";
+        bminutes.innerText = breakMin.value;
+        bseconds.innerText = "00";
+        document.getElementById('banderoll-container').style.display = 'none';
+        exerciseLabel.innerText = ":";
+        exerciseLabel.classList.remove('active-challenge');
+        document.body.classList.remove('active-challenge');
+        challengeBtn.disabled = false;
     }
+            
+    
 
     // FUNCTION TIMER
     function timer() {
@@ -79,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 minutes.innerText = workMin.value;
                 seconds.innerText = "00";
                 bminutes.innerText = breakMin.value;
-                bseconds.innerText = "02";
+                bseconds.innerText = "00";
                 document.getElementById('cycles').innerText++;
             }
         }
@@ -107,42 +117,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (!startTimer) {
             startTimer = setInterval(timer, 1000);
-        
-            if (!challengeTimeout){
-                challengeTimeout = (setTimeoutLogic, 180000);
-            }
         }
         
     }
 
     // STOP TRAINING
+    function stopInterval() {
+        clearInterval(startTimer);
+        startTimer = undefined;
+    }
+
     function stopTrainingChallenge() {
         clearInterval(startTimer);
         clearTimeout(challengeTimeout);
         document.getElementById('exerciseLabel').style.display = 'block';
         startTimer = undefined;
-        document.body.classList.remove('active-challenge');
-        exerciseLabel.innerText = ":";
-        exerciseLabel.classList.remove('active-challenge');
-        challengeBtn.disabled = false;
     }
 
-    // EVENTLISTENERS
-
-    // CHALLENGE-BUTTON FOR PLAY
+    // EVENTLISTNERS
     challengeBtn.addEventListener('click', function() {
+        challengeBtn.disabled = true; // Disable the challenge button when clicked
         startTrainingChallenge();
     });
 
-    // START-BUTTON FOR PLAY
-    startBtn.addEventListener('click', function() {
-        if (startTimer === undefined) {
+    startBtn.addEventListener('click', function(){
+        if(startTimer === undefined){
             startTimer = setInterval(timer, 1000);
-        }
+        } 
     });
 
-    // STOP-BUTTON FOR STOP 
-    stopBtn.addEventListener('click', function() {
+    stopBtn.addEventListener('click', function(){
         stopTrainingChallenge();
         stopInterval();
         startTimer = undefined;
@@ -151,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function() {
     resetBtn.addEventListener('click', function() {
         minutes.innerText = workMin.value;
         seconds.innerText = "00";
-
         bminutes.innerText = breakMin.value;
         bseconds.innerText = "00";
         document.getElementById('cycles').innerText = 0;
@@ -160,7 +163,6 @@ document.addEventListener("DOMContentLoaded", function() {
         startTimer = undefined;
     });
 
-    // Event listeners for input 
     workMin.addEventListener('input', function() {
         minutes.innerText = workMin.value;
         seconds.innerText = "00";
@@ -168,26 +170,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     breakMin.addEventListener('input', function() {
         bminutes.innerText = breakMin.value;
-        bseconds.innerText = "02";
+        bseconds.innerText = "00";
     });
 
+    //Mute options
     let isMuted = false;
     let muteBtn = document.getElementById('mute-btn');
     muteBtn.addEventListener('click', function() {
-        isMuted = !isMuted; // toggle the mute state
-
+        isMuted = !isMuted; 
         if (isMuted) {
-            // Change the icon to muted
             muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            // Mute the sounds
             alarmSound1.muted = true;
             alarmSound2.muted = true;
         } else {
-            // Change the icon to sound-on
             muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-            // Unmute the sounds
             alarmSound1.muted = false;
             alarmSound2.muted = false;
+        }
+        if (document.body.classList.contains('active-challenge')) {
+            muteBtn.disabled = true;
         }
     });
 
