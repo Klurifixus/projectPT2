@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(){
-    
+document.addEventListener("DOMContentLoaded", function() {
+
     const startBtn = document.getElementById('start-btn');
     const stopBtn = document.getElementById('stop-btn');
     const resetBtn = document.getElementById('reset-btn');
@@ -10,20 +10,19 @@ document.addEventListener("DOMContentLoaded", function(){
     const bminutes = document.getElementById('bminutes');
     const bseconds = document.getElementById('bseconds');
     const challengeBtn = document.getElementById('challenge-btn');
-    const exerciseLabel= document.getElementById('exerciseLabel');
+    const exerciseLabel = document.getElementById('exerciseLabel');
     const exercises = ["Push-ups", "Squats", "Lunges", "Planks", "Jumping Jacks"];
     let startTimer = undefined;
     let currentCycle = 1;
-    let breakSeconds = 30;
     let challengeTimeout;
-    
+
     // Create a new Audio object for the alarm sound
     let alarmSound1 = new Audio('assets/sounds/battle_horn_1-6931.mp3');
     let alarmSound2 = new Audio('assets/sounds/tadaa-47995.mp3');
-    
+
     // -------FUNCTIONS---------
-    
-    // SET TIMEOUT
+
+    // SET TIMEOUT LOGIC
     function setTimeoutLogic() {
         document.getElementById('cycles').innerText++;
         currentCycle++;
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function(){
             startTimer = undefined;
             currentCycle = 1;
             minutes.innerText = workMin.value;
-            bseconds.innerText = "00";
             bminutes.innerText = breakMin.value;
             bseconds.innerText = "00";
             document.getElementById('banderoll-container').style.display = 'none';
@@ -43,41 +41,40 @@ document.addEventListener("DOMContentLoaded", function(){
             document.body.classList.remove('active-challenge');
         }
     }
-    setTimeout(setTimeoutLogic, 180000);
-    
+
     // FUNCTION TIMER
     function timer() {
-        if(minutes.innerText != 0 || seconds.innerText != 0) {
+        if (minutes.innerText != 0 || seconds.innerText != 0) {
             document.querySelector('.timer').classList.add('active-timer');
             document.querySelector('.break-timer').classList.remove('active-timer');
-            
+
             // Work timer
-            if(seconds.innerText != 0) {
+            if (seconds.innerText != 0) {
                 seconds.innerText--;
-            } else if(minutes.innerText != 0 && seconds.innerText == 0) {
+            } else if (minutes.innerText != 0 && seconds.innerText == 0) {
                 seconds.innerText = 59;
                 minutes.innerText--;
             }
-    
+
             // Play alarm sound when work time is over and break starts
-            if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == "0" && bseconds.innerText == "30") {
+            if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == "0" && bseconds.innerText == "30") {
                 alarmSound2.play();
             }
-    
+
         } else {
             document.querySelector('.break-timer').classList.add('active-timer');
             document.querySelector('.timer').classList.remove('active-timer');
-    
+
             // Break timer
-            if(bseconds.innerText != 0) {
+            if (bseconds.innerText != 0) {
                 bseconds.innerText--;
-            } else if(bminutes.innerText != 0 && bseconds.innerText == 0) {
+            } else if (bminutes.innerText != 0 && bseconds.innerText == 0) {
                 bseconds.innerText = 59;
                 bminutes.innerText--;
             }
-    
+
             // Play alarm sound when break time is over
-            if(bminutes.innerText == 0 && bseconds.innerText == 0) {
+            if (bminutes.innerText == 0 && bseconds.innerText == 0) {
                 alarmSound1.play();
                 minutes.innerText = workMin.value;
                 seconds.innerText = "00";
@@ -85,26 +82,14 @@ document.addEventListener("DOMContentLoaded", function(){
                 bseconds.innerText = "02";
                 document.getElementById('cycles').innerText++;
             }
-            }
-    }
-    
-        
-        // Play alarm sound when break time is over
-        if(minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
-            alarmSound1.play();
-            minutes.innerText = workMin.value;
-            seconds.innerText = "00";
-            bminutes.innerText = breakMin.value;
-            bseconds.innerText = "02";
-            document.getElementById('cycles').innerText++;
         }
     }
 
-    // FUNTION STOP INTERVAL        
+    // FUNCTION STOP INTERVAL        
     function stopInterval() {
         clearInterval(startTimer);
         startTimer = undefined;
-    }    
+    }
 
     // START TRAINING
     function startTrainingChallenge() {
@@ -122,8 +107,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if (!startTimer) {
             startTimer = setInterval(timer, 1000);
+            challengeTimeout = setTimeout(setTimeoutLogic, 180000); // Moved this here from the top level
         }
-    }        
+    }
 
     // STOP TRAINING
     function stopTrainingChallenge() {
@@ -135,24 +121,24 @@ document.addEventListener("DOMContentLoaded", function(){
         exerciseLabel.innerText = ":";
         exerciseLabel.classList.remove('active-challenge');
         challengeBtn.disabled = false;
-    }        
-    
-    // EVENTLISTNERS
-      
+    }
+
+    // EVENTLISTENERS
+
     // CHALLENGE-BUTTON FOR PLAY
     challengeBtn.addEventListener('click', function() {
         startTrainingChallenge();
     });
 
     // START-BUTTON FOR PLAY
-    startBtn.addEventListener('click', function(){
-        if(startTimer === undefined){
+    startBtn.addEventListener('click', function() {
+        if (startTimer === undefined) {
             startTimer = setInterval(timer, 1000);
-        } 
+        }
     });
 
     // STOP-BUTTON FOR STOP 
-    stopBtn.addEventListener('click', function(){
+    stopBtn.addEventListener('click', function() {
         stopTrainingChallenge();
         stopInterval();
         startTimer = undefined;
@@ -169,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function(){
         clearInterval(startTimer);
         startTimer = undefined;
     });
-    
+
     // Event listeners for input 
     workMin.addEventListener('input', function() {
         minutes.innerText = workMin.value;
@@ -180,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function(){
         bminutes.innerText = breakMin.value;
         bseconds.innerText = "02";
     });
-        
+
     let isMuted = false;
     let muteBtn = document.getElementById('mute-btn');
     muteBtn.addEventListener('click', function() {
@@ -200,7 +186,9 @@ document.addEventListener("DOMContentLoaded", function(){
             alarmSound2.muted = false;
         }
     });
+
     // LOAD SOUND
     alarmSound1.load();
     alarmSound2.load();
 
+});
