@@ -111,7 +111,7 @@ body.active-challenge {
 }
 
 #exerciseLabel {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: orangered;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -145,6 +145,7 @@ body.active-challenge {
     justify-content: center;
     
 }
+
 
 @media (min-width: 768px) {
     .timer, .break-timer {
