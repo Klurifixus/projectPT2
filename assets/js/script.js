@@ -82,7 +82,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 bseconds.innerText = 59;
                 bminutes.innerText--;
             }
-
+            
+            
             // Play alarm sound when break time is over
             if (bminutes.innerText == 0 && bseconds.innerText == 0) {
                 alarmSound1.play();
@@ -114,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         bminutes.innerText = 0;
         bseconds.innerText = "30";
-
+        muteBtn.disabel = true;
         if (!startTimer) {
             startTimer = setInterval(timer, 1000);
         }
@@ -132,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
         clearTimeout(challengeTimeout);
         document.getElementById('exerciseLabel').style.display = 'block';
         startTimer = undefined;
+        muteBtn.disabel = false;
     }
 
     // EVENTLISTNERS
