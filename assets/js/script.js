@@ -57,7 +57,10 @@ document.addEventListener("DOMContentLoaded", function() {
         if (minutes.innerText != 0 || seconds.innerText != 0) {
             document.querySelector('.timer').classList.add('active-timer');
             document.querySelector('.break-timer').classList.remove('active-timer');
-
+        if (bminutes.innerText == 0 && bseconds.innerText == 0) {
+            alarmSound1.play();
+            setTimeout(setTimeoutLogic, 1000);
+        }    
             // Work timer
             if (seconds.innerText != 0) {
                 seconds.innerText--;
@@ -109,13 +112,14 @@ document.addEventListener("DOMContentLoaded", function() {
         exerciseLabel.innerText = `${exercises[currentCycle - 1]}`;
         exerciseLabel.classList.add('active-challenge');
         challengeBtn.disabled = true;
+        muteBtn.disabel = false;
 
         minutes.innerText = 3;
         seconds.innerText = "00";
 
         bminutes.innerText = 0;
         bseconds.innerText = "30";
-        muteBtn.disabel = true;
+        
         if (!startTimer) {
             startTimer = setInterval(timer, 1000);
         }
