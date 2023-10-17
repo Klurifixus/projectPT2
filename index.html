@@ -51,6 +51,18 @@
                         <input id="break-length" type="number" min="1" max="99" value="5"> min
                     </label>
                 </div>
+                <div class="exercise-selection">
+                    <select id="exercise-dropdown">
+                        <option value="Push-ups">Push-ups</option>
+                        <option value="Squats">Squats</option>
+                        <option value="Lunges">Lunges</option>
+                        <option value="Planks">Planks</option>
+                        <option value="Jumping Jacks">Jumping Jacks</option>
+                    </select>
+                    <input type="number" id="exercise-reps" placeholder="Reps" min="1" max="99">
+                    <button id="add-exercise-btn">Add Exercise</button>
+                </div>
+                <div id="exercise-list"></div>
             </div>
             <div class="center-div" id="baderoll-container">
                     <h2 class="banderoll" id="exerciseLabel" style="display: none;">:</h2>
