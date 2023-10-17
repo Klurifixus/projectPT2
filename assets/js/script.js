@@ -13,17 +13,19 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //training challenge
     let challengeBtn = document.getElementById('challenge-btn');
+    let exerciseLabel= document.getElementById('exerciseLabel');
+    let exercises = ["Push-ups", "Squats", "Lunges", "Planks", "Jumping Jacks"];
     let currentCycle = 1;
     let breakSeconds = 30;
-    let exerciseLabel= document.getElementById('exerciseLabel');
-    let exercises = ['PUSH-UPS', 'SIT-UPS', 'SQUATS', 'SIT-UPS', 'PUSH-UPS'];
-    let breakInProgress = false;
+    let challengeTimeout;
+    
+    
 
     function startTrainingChallenge() {
         // Activate red screen and pulsing label
         document.body.classList.add('active-challenge');
-        document.getElementById('banderoll-container').style.display = 'block';
-        exerciseLabel.innerText = `DO: ${exercises[currentCycle - 1]}`;
+        
+        exerciseLabel.innerText = `${exercises[currentCycle - 1]}`;
         exerciseLabel.classList.add('active-challenge');
         challengeBtn.disabled = true;
         // Start the work timer
@@ -63,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function stopTrainingChallenge() {
         clearInterval(startTimer);
+        clearTimeout(challengeTimeout);
         document.getElementById('banderoll-container').style.display = 'none';
         startTimer = undefined;
         document.body.classList.remove('active-challenge');
