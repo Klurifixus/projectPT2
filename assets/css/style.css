@@ -81,14 +81,14 @@ body {
 
 .controls {
     background-color: transparent;
-    padding-top: 2.5rem;
+    padding-top: 0.5rem;
     border-radius: 10px;
 }
 
 #start-btn, #stop-btn, #reset-btn, #mute-btn {
     font-size: 3.1rem;
     border-radius: 30%;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     background-color: rgba(248, 244, 244, 0.5);
 }
 body.active-challenge {
