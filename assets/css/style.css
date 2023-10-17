@@ -20,6 +20,7 @@ body {
 .container {
     padding: 2rem;
     border-radius: 15%;
+    border-radius: 10px;
 }
 
 .timer, .break-timer {
@@ -28,6 +29,7 @@ body {
     margin: 1rem 0;
     border: 2px solid #fff;
     background-color: rgba(248, 244, 244, 0.5);
+    border-radius: 10px;
 }
 
 .cycles-timer {
@@ -36,6 +38,7 @@ body {
     margin: 1rem 0;
     border: 2px solid #fff;
     background-color: rgba(248, 244, 244, 0.5);
+    border-radius: 10px;
 }
 
 .controls, .session-length-controls {
@@ -44,6 +47,7 @@ body {
     gap: 0.7rem;
     margin-top: 0.6rem;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .session-length-controls {
@@ -53,14 +57,16 @@ body {
     background-color: rgba(248, 244, 244, 0.5);
     letter-spacing: 1.6px;
     font-size: 1.5rem;
+    border-radius: 10px;
 }
 
 #work-length, #break-length {
     margin: 0 auto;
     border-radius: 10%;
-    width: 3.5rem;
+    width: 3.1rem;
     height: 2rem;
     font-size: 1rem;
+    
 }
 
 .workout-label {
@@ -76,6 +82,7 @@ body {
 .controls {
     background-color: transparent;
     padding-top: 2.5rem;
+    border-radius: 10px;
 }
 
 #start-btn, #stop-btn, #reset-btn, #mute-btn {
@@ -105,6 +112,7 @@ body.active-challenge {
     line-height: 100vh;
     font-size: 5rem;
     pointer-events: none;
+    border-radius: 10px;
 }
 .active-timer {
     background-color: rgba(0, 255, 0, 0.5);
@@ -138,6 +146,7 @@ body.active-challenge {
 
 }
 
+
 .center-div{
     display: flex;
     flex-direction: column;
@@ -151,6 +160,8 @@ body.active-challenge {
     align-items: center;
     background-color: rgba(248, 244, 244, 0.7);
     padding: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 #exercise-list{
@@ -160,7 +171,24 @@ body.active-challenge {
     gap: 0.5rem;
     background-color: rgba(248, 244, 244, 0.7);
     padding: 1rem;
+    border-radius: 10px;
 }
+.intro {
+    text-align: center;
+    background-color: rgba(248, 244, 244, 0.7);
+    font-size: 1rem;
+    border-radius: 10px;
+
+}
+.timer-sections, .controls-sections, .training-sections{
+    background-color: rgba(248, 244, 244, 0.7);
+    border-radius: 10px;
+    margin: 10px;
+}
+button:hover, input[type="number"]:hover{
+    background-color: rgba(100, 100, 100, 0.1);
+}
+
 
 @media (min-width: 768px) {
     .timer, .break-timer {
