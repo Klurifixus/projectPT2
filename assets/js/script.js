@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function startTrainingChallenge() {
         // Activate red screen and pulsing label
         document.body.classList.add('active-challenge');
-        
+        document.getElementById('exerciseLabel').style.display = 'block';
         exerciseLabel.innerText = `${exercises[currentCycle - 1]}`;
         exerciseLabel.classList.add('active-challenge');
         challengeBtn.disabled = true;
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function stopTrainingChallenge() {
         clearInterval(startTimer);
         clearTimeout(challengeTimeout);
-        document.getElementById('banderoll-container').style.display = 'none';
+        document.getElementById('exerciseLabel').style.display = 'block';
         startTimer = undefined;
         document.body.classList.remove('active-challenge');
         exerciseLabel.innerText = ":";
