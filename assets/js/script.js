@@ -161,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function stopInterval() {
         clearInterval(startTimer);
+        startTimer = undefined;
     }
 
     // Event listeners for input 
