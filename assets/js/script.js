@@ -107,8 +107,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (!startTimer) {
             startTimer = setInterval(timer, 1000);
-            challengeTimeout = setTimeout(setTimeoutLogic, 180000); // Moved this here from the top level
+        
+            if (!challengeTimeout){
+                challengeTimeout = (setTimeoutLogic, 180000);
+            }
         }
+        
     }
 
     // STOP TRAINING
