@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const exerciseReps = document.getElementById('exercise-reps');
     const addExerciseBtn = document.getElementById('add-exercise-btn');
     const exerciseList = document.getElementById('exercise-list');
+    let exercises = [];
     let startTimer;
     let workTimeOver = false;
     //let currentCycle = 1;
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const reps = exerciseReps.value;
 
         if (reps && exercise){
-            exercise.push('${exercise} - ${reps} reps');
+            exercises.push('${exercise} - ${reps} reps');
             displayExercise();
             exerciseReps.value = '';
         }
@@ -120,6 +121,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 bseconds.innerText = "00";
                 document.getElementById('cycles').innerText++;
             }
+        }
+        currentExerciseIndex++;
+        if (currentExerciseIndex < exercises.length) {
+            const nextExercise = exercises[currentExerciseIndex];
+            console.log('Next Exercise: ${nextExercise}');
+            
+        } else {
+            console.log('All Exercises Completed.');
         }
     }
 
