@@ -19,9 +19,33 @@ document.addEventListener("DOMContentLoaded", function() {
     //let breakSeconds =30;
     //let challengeTimeout;
 
-    // Create a new Audio object for the alarm sound
+    //Audio for the alarm sound
     let alarmSound1 = new Audio('assets/sounds/battle_horn_1-6931.mp3');
     let alarmSound2 = new Audio('assets/sounds/tadaa-47995.mp3');
+
+    //added excersise to list
+    addExerciseBtn.addEventListener('click', function() {
+        const exercise = exerciseDropdown.value;
+        const reps = exerciseReps.value;
+
+        if (reps && exercise){
+            exercise.push('${exercise} - ${reps} reps');
+            displayExercise();
+            exerciseReps.value = '';
+        }
+    })
+
+    function displayExercise(){
+        exerciseList.innerHTML = '';
+        exercises.forEach((exercise, index) => {
+            const exerciseItem = document.createElement('div');
+            exerciseItem.textContent = exercise;
+            exerciseList.appendChild(exerciseItem);
+        });
+    }
+
+
+
 
     // -------FUNCTIONS---------
 
