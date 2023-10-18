@@ -45,7 +45,10 @@ document.addEventListener("DOMContentLoaded", function() {
             exerciseList.appendChild(exerciseItem);
         });
     }
-
+    function highlightActiveExercise() {
+        const allExerciseItems = document.querySelectorAll('#exercise-list > div');
+        allExerciseItems[currentExerciseIndex].classList.add('active-exercise');
+    }
     // -------FUNCTIONS---------
 
     // SET TIMEOUT LOGIC
