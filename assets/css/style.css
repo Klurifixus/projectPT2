@@ -44,8 +44,8 @@ body {
 .controls, .session-length-controls {
     display: flex;
     justify-content: center;
-    gap: 0.7rem;
-    margin-top: 0.6rem;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
     cursor: pointer;
     border-radius: 10px;
 }
@@ -90,6 +90,8 @@ body {
     border-radius: 30%;
     margin-bottom: 0.5rem;
     background-color: rgba(248, 244, 244, 0.5);
+    
+    
 }
 body.active-challenge {
     background-color: rgba(255, 0, 0, 0.5);
@@ -160,6 +162,10 @@ body.active-challenge {
 }
 button:hover, input[type="number"]:hover{
     background-color: rgba(100, 100, 100, 0.1);
+}
+.controls-sections{
+    justify-content: space-between;
+    margin: 0;
 }
 
 
