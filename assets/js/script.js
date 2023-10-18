@@ -27,6 +27,10 @@ const sound = new Audio('assets/sounds/battle_horn_1-6931.mp3');
 
 function toggleTrainingMode() {
     isTraningmode = !isTrainingmode;
+    trainingSection.style.display = isTrainingMode ? "block" : "none";
+    if (!isTrainingmode) exercise = [];
+    
+
 
 }
 function addExercise(exercise, reps) {
