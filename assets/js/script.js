@@ -16,21 +16,16 @@ const timerSection = document.getElementById('timer-section');
 //states
 let workTimer = 25 * 60;
 let breakTimer = 5 * 60;
-let isTrainingmode = false;
+let isTrainingMode = false;
 let currentExerciseIndex = 0;
 let remainingExerciseTime = 0;
 let exercises = [];
 let isSoundMuted = true;
+let interval;
 
 //Audio
 const sound = new Audio('assets/sounds/battle_horn_1-6931.mp3');
 
-function toggleTrainingMode() {
-    isTrainingmode = !isTrainingmode;
-    trainingSection.style.display = isTrainingMode ? "block" : "none";
-    if (!isTrainingmode) exercise = [];
-
-}
 function updateDOM() {
     //display current time
     const minutes = Math.floor(remainingExerciseTime / 60);
@@ -94,9 +89,9 @@ function startTimer(){
 
 }
 function toggleTrainingMode(){
-    isTrainingmode = !isTrainingmode;
-    trainingSection.style.display = isTrainingmode ? "block" : "none";
-    if (!isTrainingmode) exercises = [];
+    isTrainingmode = !isTrainingMode;
+    trainingSection.style.display = isTrainingMode ? "block" : "none";
+    if (!isTrainingMode) exercises = [];
     updateDOM();
 }
 
@@ -116,9 +111,8 @@ function resetTimer(){
     workTimer = 25 * 60;
     breakTimer = 5 * 60;
     currentExerciseIndex = 0;
-    isTrainingmode = false;
-    // todo reset the display on page
-
+    isTrainingMode = false;
+    updateDOM()
 }
 function toggleSound(){
     isSoundMuted = !isSoundMuted;
