@@ -1,7 +1,7 @@
 //Elements
 const trainingToggle = document.getElementById('training-toggle');
-const exerciseInput = document.getElementById('exercise-input');
-const repsInput = document.getElementById('reps-input');
+const exerciseInput = document.getElementById('exercise-dropdown');
+const repsInput = document.getElementById('exercise-reps');
 const addExerciseBtn = document.getElementById('add-exercise-btn');
 const startBtn = document.getElementById('start-btn');
 const stopBtn = document.getElementById('stop-btn');
@@ -101,6 +101,7 @@ function toggleTrainingMode(){
 }
 
 function addExercise(exercise, reps) {
+    console.log("Function is being called");
     exercises.push({exercise, reps});
     updateDOM();
 }
@@ -127,6 +128,7 @@ function toggleSound(){
 //Eventlistners
 trainingToggle.addEventListener('click', toggleTrainingMode);
 addExerciseBtn.addEventListener('click', function() {
+    console.log("Button clicked");
     const exerciseName = exerciseInput.value;
     const reps = repsInput.value;
     if(exerciseName && reps){

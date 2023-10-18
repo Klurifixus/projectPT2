@@ -85,7 +85,7 @@ body {
     border-radius: 10px;
 }
 
-#start-btn, #stop-btn, #reset-btn, #mute-btn #challengeBtn{
+#start-btn, #stop-btn, #reset-btn, #mute-btn #training-toggle{
     font-size: 3.1rem;
     border-radius: 30%;
     margin-bottom: 0.5rem;
@@ -193,7 +193,7 @@ button:hover, input[type="number"]:hover{
         font-size: 5.5rem;
     }
 
-    .controls, #start-btn, #stop-btn, #reset-btn, #mute-btn {
+    .controls, #start-btn, #stop-btn, #reset-btn, #mute-btn, #training-toggle {
         font-size: 4;
     }
     .session-length-controls {
