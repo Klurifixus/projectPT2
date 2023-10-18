@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const reps = exerciseReps.value;
 
         if (reps && exercise){
-            exercises.push('${exercise} - ${reps} reps');
+            exercises.push(`${exercise} - ${reps} reps`);
             displayExercise();
             exerciseReps.value = '';
         }
