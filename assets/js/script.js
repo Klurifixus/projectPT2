@@ -1,4 +1,6 @@
-//Elements
+// Elements
+const workLengthInput = document.getElementById('work-length');
+const breakLengthInput = document.getElementById('break-length');
 const trainingToggle = document.getElementById('training-toggle');
 const exerciseInput = document.getElementById('exercise-dropdown');
 const repsInput = document.getElementById('exercise-reps');
@@ -7,13 +9,15 @@ const startBtn = document.getElementById('start-btn');
 const stopBtn = document.getElementById('stop-btn');
 const resetBtn = document.getElementById('reset-btn');
 const muteBtn = document.getElementById('mute-btn');
-const timer = document.querySelector('.timer');
-const breakTimerElement = document.querySelector('.break-timer');
+const minutesDisplay = document.getElementById('minutes');
+const secondsDisplay = document.getElementById('seconds');
+const bminutesDisplay = document.getElementById('bminutes');
+const bsecondsDisplay = document.getElementById('bseconds');
 const exerciseList = document.getElementById('exercise-list');
+const cyclesDisplay = document.getElementById('cycles');
 const trainingSection = document.getElementById('training-section');
-const timerSection = document.getElementById('timer-section');
 
-//states
+// States
 let workTimer = 25 * 60;
 let breakTimer = 5 * 60;
 let isTrainingMode = false;
@@ -23,113 +27,123 @@ let exercises = [];
 let isSoundMuted = true;
 let interval;
 
-//Audio
+// Audio
 const sound = new Audio('assets/sounds/battle_horn_1-6931.mp3');
 
 function updateDOM() {
-    //display current time
     const minutes = Math.floor(remainingExerciseTime / 60);
     const seconds = remainingExerciseTime % 60;
-    timer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    //clear previous exercise list 
+    minutesDisplay.textContent = minutes.toString().padStart(2, '0');
+    secondsDisplay.textContent = seconds.toString().padStart(2, '0');
+
     exerciseList.innerHTML = '';
 
-    //display exercises
     exercises.forEach((exercise, index) => {
         const li = document.createElement('li');
         if (index === currentExerciseIndex) {
             li.classList.add('active');
         }
-        li.textContent = `${exercise.exercise} - ${exercise.reps} min`;
+        li.textContent = `${exercise.exercise} - ${exercise.duration / 60} min`;
         exerciseList.appendChild(li);
     });
-     const breakMinutes = Math.floor(breakTimer / 60);
-     const breakSeconds = breakTimer % 60;
-     breakTimerElement.textContent = `${breakMinutes.toString().padStart(2, '0')}:${breakSeconds.toString().padStart(2, '0')}`;
 
+    const breakMinutes = Math.floor(breakTimer / 60);
+    const breakSeconds = breakTimer % 60;
+    bminutesDisplay.textContent = breakMinutes.toString().padStart(2, '0');
+    bsecondsDisplay.textContent = breakSeconds.toString().padStart(2, '0');
 
+    cyclesDisplay.textContent = exercises.length;
 }
 
-function startTimer(){
+function startTimer() {
     stopTimer();
 
-    if (isTrainingmode && currentExerciseIndex < exercises.length) {
-        remainingExerciseTime = exercises[currentExerciseIndex].reps * 60;
-        // start timer for exercise
-
-    } else{
+    if (isTrainingMode && currentExerciseIndex < exercises.length) {
+        remainingExerciseTime = exercises[currentExerciseIndex].duration;
+    } else {
         remainingExerciseTime = workTimer;
-        //start work timer
     }
+
     updateDOM();
 
-    interval = setInterval(function() {
+    interval = setInterval(function () {
         if (remainingExerciseTime <= 0) {
-            sound.play();
-            if (isTrainingMode){
-                //transit next exercise or break
+            if (!isSoundMuted) sound.play();
+            if (isTrainingMode) {
                 currentExerciseIndex++;
-                if (currentExerciseIndex < exercises.length){
+                if (currentExerciseIndex < exercises.length) {
                     startTimer();
-
                 } else {
                     remainingExerciseTime = breakTimer;
                     isTrainingMode = false;
+                    updateDOM();
                 }
-            } else{
-                //switch work or break
+            } else {
                 isTrainingMode = !isTrainingMode;
                 startTimer();
-
             }
         } else {
             remainingExerciseTime--;
+            updateDOM();
         }
-    }, 1000);   
-
+    }, 1000);
 }
-function toggleTrainingMode(){
-    isTrainingmode = !isTrainingMode;
+
+function toggleTrainingMode() {
+    isTrainingMode = !isTrainingMode;
     trainingSection.style.display = isTrainingMode ? "block" : "none";
     if (!isTrainingMode) exercises = [];
     updateDOM();
 }
 
 function addExercise(exercise, reps) {
-    console.log("Function is being called");
-    exercises.push({exercise, reps});
+    for (let i = 0; i < reps; i++) {
+        exercises.push({ exercise, duration: workTimer });
+    }
     updateDOM();
 }
 
-
-function stopTimer(){
+function stopTimer() {
     clearInterval(interval);
-
 }
-function resetTimer(){
+
+function resetTimer() {
     stopTimer();
     workTimer = 25 * 60;
     breakTimer = 5 * 60;
     currentExerciseIndex = 0;
     isTrainingMode = false;
-    updateDOM()
+    updateDOM();
 }
-function toggleSound(){
-    isSoundMuted = !isSoundMuted;
-    sound.muted = isSoundMuted;
 
+function toggleSound() {
+    isSoundMuted = !isSoundMuted;
+    muteBtn.querySelector('i').classList.toggle('fas', isSoundMuted);
+    muteBtn.querySelector('i').classList.toggle('fa-volume-mute', isSoundMuted);
+    muteBtn.querySelector('i').classList.toggle('fa-volume-up', !isSoundMuted);
 }
-//Eventlistners
+
+// Event Listeners
 trainingToggle.addEventListener('click', toggleTrainingMode);
-addExerciseBtn.addEventListener('click', function() {
-    console.log("Button clicked");
+
+addExerciseBtn.addEventListener('click', function () {
     const exerciseName = exerciseInput.value;
     const reps = repsInput.value;
-    if(exerciseName && reps){
+    if (exerciseName && reps) {
         addExercise(exerciseName, parseInt(reps));
     }
-
 });
+
+workLengthInput.addEventListener('input', function () {
+    workTimer = parseInt(workLengthInput.value) * 60;
+    updateDOM();
+});
+
+breakLengthInput.addEventListener('input', function () {
+    breakTimer = parseInt(breakLengthInput.value) * 60;
+    updateDOM();
+});
+
 startBtn.addEventListener('click', startTimer);
 stopBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
