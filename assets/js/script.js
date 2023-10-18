@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const addExerciseBtn = document.getElementById('add-exercise-btn');
     const exerciseList = document.getElementById('exercise-list');
     let startTimer;
+    let workTimeOver = false;
     //let currentCycle = 1;
     //let breakSeconds =30;
     //let challengeTimeout;
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // FUNCTION TIMER
     function timer() {
+        
         if (minutes.innerText != 0 || seconds.innerText != 0) {
             document.querySelector('.timer').classList.add('active-timer');
             document.querySelector('.break-timer').classList.remove('active-timer');
