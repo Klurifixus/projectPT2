@@ -182,4 +182,8 @@ button:hover, input[type="number"]:hover{
     .controls, #start-btn, #stop-btn, #reset-btn, #mute-btn {
         font-size: 4;
     }
+    .session-length-controls {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }
