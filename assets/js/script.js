@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let exercises = [];
     let startTimer;
     let workTimeOver = false;
+    let currentExerciseIndex = 0;
     //let currentCycle = 1;
     //let breakSeconds =30;
     //let challengeTimeout;
