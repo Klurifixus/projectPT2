@@ -9,13 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const seconds = document.getElementById('seconds');
     const bminutes = document.getElementById('bminutes');
     const bseconds = document.getElementById('bseconds');
-    const challengeBtn = document.getElementById('challenge-btn');
-    const exerciseLabel = document.getElementById('exerciseLabel');
-    const exercises = ["Push-ups", "Squats", "Lunges", "Planks", "Jumping Jacks"];
-    let startTimer = undefined;
-    let currentCycle = 1;
-    let breakSeconds =30;
-    let challengeTimeout;
+    const exerciseDropdown = document.getElementById('exercise-dropdown');
+    const exerciseReps = document.getElementById('exercise-reps');
+    const addExerciseBtn = document.getElementById('add-exercise-btn');
+    const exerciseList = document.getElementById('exercise-list');
+    let startTimer;
+    //let currentCycle = 1;
+    //let breakSeconds =30;
+    //let challengeTimeout;
 
     // Create a new Audio object for the alarm sound
     let alarmSound1 = new Audio('assets/sounds/battle_horn_1-6931.mp3');
