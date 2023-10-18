@@ -44,9 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-
-
-
     // -------FUNCTIONS---------
 
     // SET TIMEOUT LOGIC
