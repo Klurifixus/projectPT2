@@ -144,7 +144,9 @@ body.active-challenge {
     color: orangered;
 
 }
-
+li.active{
+    animation: pulsate 1s infinite;
+}
 @keyframes pulse{
     0% {transform: scale(1); }
     50% {transform: scale(1.1); }

@@ -29,7 +29,7 @@ function toggleTrainingMode() {
     isTrainingmode = !isTrainingmode;
     trainingSection.style.display = isTrainingMode ? "block" : "none";
     if (!isTrainingmode) exercise = [];
-// update dOM
+
 }
 function updateDOM() {
     //display current time
@@ -48,20 +48,11 @@ function updateDOM() {
         li.textContent = `${exercise.exercise} - ${exercise.reps} min`;
         exerciseList.appendChild(li);
     });
+     const breakMinutes = Math.floor(breakTimer / 60);
+     const breakSeconds = breakTimer % 60;
+     breakTimerElement.textContent = `${breakMinutes.toString().padStart(2, '0')}:${breakSeconds.toString().padStart(2, '0')}`;
 
 
-}
-
-function toggleTrainingMode(){
-    isTrainingmode = !isTrainingmode;
-    trainingSection.style.display = isTrainingmode ? "block" : "none";
-    if (!isTrainingmode) exercises = [];
-    updateDOM();
-}
-
-function addExercise(exercise, reps) {
-    exercises.push({exercise, reps});
-    updateDOM();
 }
 
 function startTimer(){
@@ -74,7 +65,7 @@ function startTimer(){
     } else{
         remainingExerciseTime = workTimer;
         //start work timer
-    } 
+    }
     updateDOM();
 
     interval = setInterval(function() {
@@ -102,6 +93,19 @@ function startTimer(){
     }, 1000);   
 
 }
+function toggleTrainingMode(){
+    isTrainingmode = !isTrainingmode;
+    trainingSection.style.display = isTrainingmode ? "block" : "none";
+    if (!isTrainingmode) exercises = [];
+    updateDOM();
+}
+
+function addExercise(exercise, reps) {
+    exercises.push({exercise, reps});
+    updateDOM();
+}
+
+
 function stopTimer(){
     clearInterval(interval);
 
@@ -120,4 +124,17 @@ function toggleSound(){
     sound.muted = isSoundMuted;
 
 }
+//Eventlistners
+trainingToggle.addEventListener('click', toggleTrainingMode);
+addExerciseBtn.addEventListener('click', function() {
+    const exerciseName = exerciseInput.value;
+    const reps = repsInput.value;
+    if(exerciseName && reps){
+        addExercise(exerciseName, parseInt(reps));
+    }
 
+});
+startBtn.addEventListener('click', startTimer);
+stopBtn.addEventListener('click', stopTimer);
+resetBtn.addEventListener('click', resetTimer);
+muteBtn.addEventListener('click', toggleSound);
