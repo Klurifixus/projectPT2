@@ -180,18 +180,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     startBtn.addEventListener('click', function(){
+        console.log("Start button clicked");
         if(startTimer === undefined){
             startTimer = setInterval(timer, 1000);
         } 
     });
 
     stopBtn.addEventListener('click', function(){
+        console.log("Stop button clicked");
         stopTrainingChallenge();
         stopInterval();
         startTimer = undefined;
     });
 
     resetBtn.addEventListener('click', function() {
+        console.log("Reset button clicked");
         minutes.innerText = workMin.value;
         seconds.innerText = "00";
         bminutes.innerText = breakMin.value;
