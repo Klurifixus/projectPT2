@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
         exerciseLabel.classList.add('active-challenge');
         challengeBtn.disabled = true;
         muteBtn.disabel = false;
-
+        
         minutes.innerText = 3;
         seconds.innerText = "00";
 
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!startTimer) {
             startTimer = setInterval(timer, 1000);
         }
-        
+        highlightActiveExercise();
     }
 
     // STOP TRAINING
