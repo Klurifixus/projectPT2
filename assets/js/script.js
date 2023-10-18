@@ -61,7 +61,7 @@ function toggleTrainingMode(){
 
 function addExercise(exercise, reps) {
     exercises.push({exercise, reps});
-    // add to the DOM of exercise
+    updateDOM();
 }
 
 function startTimer(){
@@ -75,6 +75,8 @@ function startTimer(){
         remainingExerciseTime = workTimer;
         //start work timer
     } 
+    updateDOM();
+    
     interval = setInterval(function() {
         if (remainingExerciseTime <= 0) {
             sound.play();
