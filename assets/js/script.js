@@ -29,15 +29,47 @@ function toggleTrainingMode() {
     isTraningmode = !isTrainingmode;
     trainingSection.style.display = isTrainingMode ? "block" : "none";
     if (!isTrainingmode) exercise = [];
-    
-
-
+// update dOM
 }
 function addExercise(exercise, reps) {
     exercices.push({exercise, reps});
+    // add to the DOM of exercise
 }
 
 function startTimer(){
+    stopTimer();
+
+    if (isTrainingmode && currentExerciseIndex < exercise.lenght) {
+        remainingExerciseTime = exercises[currentExerciseIndex].reps * 60;
+        // start timer for exercise
+
+    } else{
+        remainingExerciseTime = workTimer;
+        //start work timer
+    } 
+    interval = setInterval(function() {
+        if (remainingExerciseTime <= 0) {
+            sound.play();
+            if (isTrainingMode){
+                //transit next exercise or break
+                currentExerciseIndex++;
+                if (currentExerciseIndex < exercise.length){
+                    startTimer();
+
+                } else {
+                    remainingExerciseTime = breakTimer;
+                    isTrainingMode = false;
+                }
+            } else{
+                //switch work or break
+                isTrainingMode = !isTrainingMode;
+                startTimer();
+
+            }
+        } else {
+            remainingExerciseTime--;
+        }
+    }, 1000);   
 
 }
 function stopTimer(){
