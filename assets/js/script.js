@@ -82,41 +82,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // FUNCTION TIMER
     function timer() {
-        
         if (minutes.innerText != 0 || seconds.innerText != 0) {
             document.querySelector('.timer').classList.add('active-timer');
             document.querySelector('.break-timer').classList.remove('active-timer');
-        if (bminutes.innerText == 0 && bseconds.innerText == 0) {
-            alarmSound1.play();
-            setTimeout(setTimeoutLogic, 1000);
-        }    
-            // Work timer
             if (seconds.innerText != 0) {
                 seconds.innerText--;
             } else if (minutes.innerText != 0 && seconds.innerText == 0) {
                 seconds.innerText = 59;
                 minutes.innerText--;
             }
-
-            // Play alarm sound when work time is over and break starts
             if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == "0" && bseconds.innerText == "30") {
                 alarmSound2.play();
             }
-
         } else {
             document.querySelector('.break-timer').classList.add('active-timer');
             document.querySelector('.timer').classList.remove('active-timer');
-
-            // Break timer
             if (bseconds.innerText != 0) {
                 bseconds.innerText--;
             } else if (bminutes.innerText != 0 && bseconds.innerText == 0) {
                 bseconds.innerText = 59;
                 bminutes.innerText--;
             }
-            
-            
-            // Play alarm sound when break time is over
             if (bminutes.innerText == 0 && bseconds.innerText == 0) {
                 alarmSound1.play();
                 minutes.innerText = workMin.value;
@@ -124,15 +110,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 bminutes.innerText = breakMin.value;
                 bseconds.innerText = "00";
                 document.getElementById('cycles').innerText++;
+                exercises.splice(currentExerciseIndex, 1);
+                displayExercise();
+                if (currentExerciseIndex < exercises.length) {
+                    const nextExercise = exercises[currentExerciseIndex];
+                    console.log(`Next Exercise: ${nextExercise}`);
+                    currentExerciseIndex++;
+                } else {
+                    console.log('All Exercises Completed.');
+                }
             }
-        }
-        currentExerciseIndex++;
-        if (currentExerciseIndex < exercises.length) {
-            const nextExercise = exercises[currentExerciseIndex];
-            console.log('Next Exercise: ${nextExercise}');
-            
-        } else {
-            console.log('All Exercises Completed.');
         }
     }
 
