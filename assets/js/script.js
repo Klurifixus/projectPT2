@@ -8,7 +8,7 @@ const stopBtn = document.getElementById('stop-btn');
 const resetBtn = document.getElementById('reset-btn');
 const muteBtn = document.getElementById('mute-btn');
 const timer = document.querySelector('.timer');
-const breakTimer = document.querySelector('.break-timer');
+const breakTimerElement = document.querySelector('.break-timer');
 const exerciseList = document.getElementById('exercise-list');
 const trainingSection = document.getElementById('training-section');
 const timerSection = document.getElementById('timer-section');
@@ -76,7 +76,7 @@ function startTimer(){
         //start work timer
     } 
     updateDOM();
-    
+
     interval = setInterval(function() {
         if (remainingExerciseTime <= 0) {
             sound.play();
