@@ -114,6 +114,12 @@ function resetTimer() {
     currentExerciseIndex = 0;
     isTrainingMode = false;
     exercises = [];
+
+    //Update worktime
+    const minutes = Math.floor(workTime / 60);
+    const seconds = workTimer % 60;
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
     
 }
 
