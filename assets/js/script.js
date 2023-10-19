@@ -75,32 +75,41 @@ function startTimer() {
 
     updateDOM();
 
+    updateDOM();
+
     interval = setInterval(function () {
         if (remainingExerciseTime <= 0) {
             if (!isSoundMuted) sound.play();
+
             if (isTrainingMode) {
                 currentExerciseIndex++;
+
                 if (currentExerciseIndex < exercises.length) {
-                    startTimer();
+                    remainingExerciseTime = exercises[currentExerciseIndex].duration;
                 } else {
                     isTrainingMode = false;
+                    currentExerciseIndex = 0;
+                    exercises = [];
                     remainingExerciseTime = breakTimer;
-                    startTimer();
-                    
-                    
                 }
+
             } else {
                 isTrainingMode = true;
-                breakTimer = parseInt(breakLengthInput.value) * 60;
                 currentExerciseIndex = 0;
-                startTimer();
+                breakTimer = parseInt(breakLengthInput.value) * 60;
+                if (exercises.length > 0) {
+                    remainingExerciseTime = exercises[currentExerciseIndex].duration;
+                } else {
+                    remainingExerciseTime = workTimer;
+                }
             }
+            
+            updateDOM();
+
         } else {
             remainingExerciseTime--;
             updateDOM();
-        } 
-        
-
+        }
     }, 1000);
 }
 
