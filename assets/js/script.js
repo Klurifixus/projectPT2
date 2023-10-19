@@ -53,6 +53,9 @@ function updateDOM() {
     bsecondsDisplay.textContent = breakSeconds.toString().padStart(2, '0');
 
     cyclesDisplay.textContent = exercises.length;
+    if (index === currentExerciseIndex){
+        li.classList.add('active', 'active-exercise');
+    }
 }
 
 function startTimer() {
