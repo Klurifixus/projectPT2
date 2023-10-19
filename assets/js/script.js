@@ -36,3 +36,19 @@ let currentTimeLeftInSession = 1500;
 /*In seconds = 5 min*/
 let breakSessionDuration = 300;
 
+/*Toggle clock function*/
+const toggleClock = (reset) => {
+    if (reset) {
+        /*Stop timer*/
+    } else {
+        if (isClockRunning === true) {
+            /*Pause timer */
+            isClockRunning = false
+        } else {
+            /*Start timer */
+            isClockRunning = true
+        }
+    }
+};
+
+
