@@ -116,11 +116,16 @@ function resetTimer() {
     exercises = [];
 
     //Update worktime
-    const minutes = Math.floor(workTime / 60);
+    const minutes = Math.floor(workTimer / 60);
     const seconds = workTimer % 60;
     document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
     document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
     
+    const breakMinutes = Math.floor(breakTimer / 60);
+    const breakSeconds = breakTimer % 60;
+    document.getElementById("bminutes").textContent = breakMinutes.toString().padStart(2, '0');
+    document.getElementById("bseconds").textContent = breakSeconds.toString().padStart(2, '0');
+    updateDOM();
 }
 
 function toggleSound() {
