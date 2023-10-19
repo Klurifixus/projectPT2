@@ -31,6 +31,8 @@ let breakDurationInput = document.querySelector('#break-time-input');
 workDurationInput.value = '25';
 breakDurationInput.value = '5';
 
+let isClockStopped = true;
+
 
 /*Start btn */
 startBtn.addEventListener('click', () => {
@@ -72,20 +74,20 @@ const minuteToSeconds = (mins) => {
 /*Toggle clock function*/
 const toggleClock = (reset) => {
     if (reset) {
-        /*Stop timer*/
         stopClock();
     } else {
+        if (isClockStopped){
+            setUpdateTimers();
+            isClockStopped = false;
+        }
         if (isClockRunning === true) {
-            clockTimer = setInterval(() => {
-                /*Change time left / change time spent */
-                stepDown();
-                displayCurrentTimeLeftInSession();
-            }, 1000);
-            /*Pause timer */
             clearInterval(clockTimer);
             isClockRunning = false;
         } else {
-            /*Start timer */
+           clockTimer = setInterval(() => {
+                stepDown();
+                displayCurrentTimeLeftInSession();
+            }, 1000);
             isClockRunning = true;
         }
     }
@@ -130,12 +132,15 @@ const stepDown = () => {
     } else if (currentTimeLeftInSession === 0) {
         timeSpentInCurrentSession =0;
         if ( type === 'Work') {
+
             currentTimeLeftInSession = breakSessionDuration;
             displaySessionLog('Work');
             type = 'Break';
+            setUpdateTimers();
         } else {
             currentTimeLeftInSession = workSessionDuration
             type = ' Work';
+            setUpdateTimers();
             if (currentTaskLabel.value = 'Break') {
                 currentTaskLabel.value = workSessionLabel;
             }
@@ -177,6 +182,8 @@ const setUpdateTimers = () => {
         breakSessionDuration = currentTimeLeftInSession;
     }
 };
+
+
 
 
 
