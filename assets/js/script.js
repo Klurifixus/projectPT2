@@ -31,12 +31,14 @@ let interval;
 const sound = new Audio('assets/sounds/battle_horn_1-6931.mp3');
 
 function updateDOM() {
+    if (!isTrainingMode){ 
+    
     const minutes = Math.floor(remainingExerciseTime / 60);
     const seconds = remainingExerciseTime % 60;
     minutesDisplay.textContent = minutes.toString().padStart(2, '0');
     secondsDisplay.textContent = seconds.toString().padStart(2, '0');
-
     exerciseList.innerHTML = '';
+}
 
     exercises.forEach((exercise, index) => {
         const li = document.createElement('li');
@@ -49,6 +51,8 @@ function updateDOM() {
     if (index === currentExerciseIndex){
         li.classList.add('active', 'active-exercise');
     }
+    
+    
     });
 
     const breakMinutes = Math.floor(breakTimer / 60);
