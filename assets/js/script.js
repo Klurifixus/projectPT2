@@ -42,6 +42,10 @@ const toggleClock = (reset) => {
         /*Stop timer*/
     } else {
         if (isClockRunning === true) {
+            clockTimer = setInterval(() => {
+                /*Change time left / change time spent */
+                currentTimeLeftInSession --;
+            }, 1000)
             /*Pause timer */
             isClockRunning = false
         } else {
