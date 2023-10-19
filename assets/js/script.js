@@ -26,6 +26,8 @@ let remainingExerciseTime = 0;
 let exercises = [];
 let isSoundMuted = true;
 let interval;
+let isBreakTime = false;
+
 
 // Audio
 const sound = new Audio('assets/sounds/battle_horn_1-6931.mp3');
@@ -66,21 +68,53 @@ function startTimer() {
     minutesDisplay.parentElement.classList.add('active-timer');
 
     if (isTrainingMode && currentExerciseIndex < exercises.length) {
-        remainingExerciseTime = exercises[currentExerciseIndex].duration;
+        if (!isBreakTime) {
+            remainingExerciseTime = exercises[currentExerciseIndex].duration;
+            updateDOM();
+        } else {
+            remainingExerciseTime = breakTimer;
+        }
     } else {
         if (isTrainingMode) {
-            currentExerciseIndex = 0;
-            remainingExerciseTime = breakTimer;
-            // Ta bort genomförda övningar från början av arrayen
-            exercises.splice(0, currentExerciseIndex);
+            if (!isBreakTime) {
+                currentExerciseIndex = 0;
+                // Ta bort genomförda övningar från början av arrayen
+                exercises.splice(0, currentExerciseIndex);
+                remainingExerciseTime = breakTimer;
+                isBreakTime = true;
+            } else {
+                currentExerciseIndex = 0;
+                remainingExerciseTime = exercises[currentExerciseIndex].duration;
+                isBreakTime = false;
+            }
         } else {
-            remainingExerciseTime = workTimer;
+            if (!isBreakTime) {
+                remainingExerciseTime = workTimer;
+                isBreakTime = true;
+            } else {
+                remainingExerciseTime = breakTimer;
+                isBreakTime = false;
+            }
         }
     }
 
     if (isTrainingMode) {
-        bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
-        bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
+        if (!isBreakTime) {
+            bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
+            bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
+        } else {
+            bminutesDisplay.textContent = Math.floor(breakTimer / 60).toString().padStart(2, '0');
+            bsecondsDisplay.textContent = (breakTimer % 60).toString().padStart(2, '0');
+        }
+    } else {
+        // Uppdatera bminutesDisplay och bsecondsDisplay när breaktimern startar
+        if (!isBreakTime) {
+            bminutesDisplay.textContent = Math.floor(breakTimer / 60).toString().padStart(2, '0');
+            bsecondsDisplay.textContent = (breakTimer % 60).toString().padStart(2, '0');
+        } else {
+            bminutesDisplay.textContent = Math.floor(workTimer / 60).toString().padStart(2, '0');
+            bsecondsDisplay.textContent = (workTimer % 60).toString().padStart(2, '0');
+        }
     }
 
     updateDOM();
@@ -99,23 +133,45 @@ function startTimer() {
                     currentExerciseIndex = 0;
                     // Återställ exercises-arrayen eftersom alla övningar är klara
                     exercises = [];
-                    remainingExerciseTime = breakTimer;
+                    if (!isBreakTime) {
+                        remainingExerciseTime = breakTimer;
+                        isBreakTime = true;
+                    } else {
+                        remainingExerciseTime = workTimer;
+                        isBreakTime = false;
+                    }
                 }
 
             } else {
                 isTrainingMode = true;
                 currentExerciseIndex = 0;
-                breakTimer = parseInt(breakLengthInput.value) * 60;
-                if (exercises.length > 0) {
+                if (!isBreakTime) {
+                    breakTimer = parseInt(breakLengthInput.value) * 60;
                     remainingExerciseTime = exercises[currentExerciseIndex].duration;
                 } else {
+                    workTimer = parseInt(workLengthInput.value) * 60;
                     remainingExerciseTime = workTimer;
                 }
+                isBreakTime = !isBreakTime;
             }
 
             if (isTrainingMode) {
-                bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
-                bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
+                if (!isBreakTime) {
+                    bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
+                    bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
+                } else {
+                    bminutesDisplay.textContent = Math.floor(breakTimer / 60).toString().padStart(2, '0');
+                    bsecondsDisplay.textContent = (breakTimer % 60).toString().padStart(2, '0');
+                }
+            } else {
+                // Uppdatera bminutesDisplay och bsecondsDisplay när breaktimern startar
+                if (!isBreakTime) {
+                    bminutesDisplay.textContent = Math.floor(breakTimer / 60).toString().padStart(2, '0');
+                    bsecondsDisplay.textContent = (breakTimer % 60).toString().padStart(2, '0');
+                } else {
+                    bminutesDisplay.textContent = Math.floor(workTimer / 60).toString().padStart(2, '0');
+                    bsecondsDisplay.textContent = (workTimer % 60).toString().padStart(2, '0');
+                }
             }
 
             updateDOM();
@@ -123,8 +179,10 @@ function startTimer() {
         } else {
             remainingExerciseTime--;
             if (isTrainingMode) {
-                bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
-                bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
+                if (!isBreakTime) {
+                    bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
+                    bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
+                }
             }
             updateDOM();
         }
