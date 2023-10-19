@@ -52,6 +52,23 @@ stopBtn.addEventListener('click', () => {
     toggleClock(true);
 });
 
+/* Work Time Update */
+workDurationInput.addEventListener('input', () => {
+    updateWorkSessionDuration = minuteToSeconds(workDurationInput.value);
+});
+
+/* Break Time Update */
+breakDurationInput.addEventListener('input', () => {
+    updateWorkSessionDuration = minuteToSeconds(breakDurationInput.value);
+});
+
+const minuteToSeconds = (mins) => {
+    return mins * 60;
+};
+
+
+
+
 /*Toggle clock function*/
 const toggleClock = (reset) => {
     if (reset) {
