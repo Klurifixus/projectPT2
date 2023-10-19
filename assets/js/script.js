@@ -10,7 +10,9 @@ let bseconds = document.getElementById('bseconds');
 
 // Reference to timer variable
 let startTimer;
+let isMuted = false;
 
+//start button
 start.addEventListener('click', function () {
     if (startTimer === undefined) {
         startTimer = setInterval(timer, 1000);
@@ -18,6 +20,32 @@ start.addEventListener('click', function () {
         alert("Timer is already running.");
     }
 });
+
+//stop (pause)button
+pause.addEventListener('click', function (){
+    clearInterval(startTimer);
+    startTimer = undefined;
+})
+
+//reset button
+reset.addEventListener('click', function () {
+    clearInterval(startTimer);
+    startTimer = undefined;
+    minutes.innerText = "25";
+    seconds.innerText = "00";
+    bminutes.innerText = "5";
+    bseconds.innerText = "00";
+    isMuted = false;
+});
+
+// mute button
+mute.addEventListener('click', function (){
+    if (ismuted) {
+        isMuted = false;
+    } else {
+        isMuted = true;
+    }
+})
 
 function timer() {
     // Work timer
