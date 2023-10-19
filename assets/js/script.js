@@ -87,9 +87,13 @@ function startTimer() {
                 startTimer();
             }
         } else {
+            isTrainingMode = false;
+            remainingExerciseTime = breakTimer;
             remainingExerciseTime--;
             updateDOM();
-        }
+        } 
+        
+
     }, 1000);
 }
 
