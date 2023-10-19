@@ -25,3 +25,14 @@ resetBtn.addEventListener('click', () => {
 stopBtn.addEventListener('click', () => {
     toggleClock(true);
 });
+
+/*To know if need to play or pause timer additional variable */
+let isClockRunning = false;
+
+/*In seconds = 25min */
+let workSessionDuration = 1500;
+let currentTimeLeftInSession = 1500;
+
+/*In seconds = 5 min*/
+let breakSessionDuration = 300;
+
