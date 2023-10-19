@@ -74,11 +74,12 @@ function timer() {
 
     // When both timers reach 0
     if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
-        minutes.innerText = "25";
-        seconds.innerText = "00";
-        bminutes.innerText = "5";
-        bseconds.innerText = "00";
-
+        updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
+        updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
         document.getElementById('counter').innerText++;
     }
+}
+function updateDisplayedTime(minutesDisplay, secondsDisplay, newMinutes, newSeconds) {
+    minutesDisplay.innerText = newMinutes;
+    secondsDisplay.innerText = newSeconds;
 }
