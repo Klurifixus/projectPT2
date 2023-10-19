@@ -66,7 +66,7 @@ function startTimer() {
     if (isTrainingMode && currentExerciseIndex < exercises.length) {
         remainingExerciseTime = exercises[currentExerciseIndex].duration;
     } else {
-        remainingExerciseTime = isTrainingMode ? workTimer : breakTimer;
+        remainingExerciseTime = isTrainingMode ? breakTimer : workTimer;
     }
 
     updateDOM();
@@ -116,7 +116,7 @@ function addExercise(exercise, reps) {
 
 function stopTimer() {
     clearInterval(interval);
-    minutesDisplay.parentElement.classList.add('active-timer');
+    minutesDisplay.parentElement.classList.remove('active-timer');
 }
 
 function resetTimer() {
@@ -130,6 +130,7 @@ function resetTimer() {
     exercises = [];
     remainingExerciseTime = workTimer;
     trainingSection.style.display = "none";
+    cyclesDisplay.textContent = "0";
 
     //Update worktime
     const minutes = Math.floor(workTimer / 60);
@@ -164,11 +165,25 @@ addExerciseBtn.addEventListener('click', function () {
 
 workLengthInput.addEventListener('input', function () {
     workTimer = parseInt(workLengthInput.value) * 60;
+    
+    if (!isTrainingMode) {
+        const minutes = Math.floor(workTimer / 60);
+        const seconds = workTimer % 60;
+        minutesDisplay.textContent = minutes.toString().padStart(2, '0');
+        secondsDisplay.textContent = seconds.toString().padStart(2, '0');
+    }
+
     updateDOM();
 });
 
 breakLengthInput.addEventListener('input', function () {
     breakTimer = parseInt(breakLengthInput.value) * 60;
+    if (isTrainingMode && remainingExerciseTime === breakTimer) {
+        const breakMinutes = Math.floor(breakTimer / 60);
+        const breakSeconds = breakTimer % 60;
+        bminutesDisplay.textContent = breakMinutes.toString().padStart(2, '0');
+        bsecondsDisplay.textContent = breakSeconds.toString().padStart(2, '0');
+    }
     updateDOM();
 });
 
