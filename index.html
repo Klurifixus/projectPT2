@@ -1,92 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="WorkSmart - Boost your productivity with our intuitive Pomodoro timer. Stay focused on tasks, take structured breaks, and achieve more in less time. Perfect for work, study, and training sessions.">
-    <meta name="keywords" content="Pomodoro, Timer, Productivity, WorkSmart, Study, Focus">
-    <script src="https://kit.fontawesome.com/d74565a49c.js" crossorigin="anonymous"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./assets/favicon/site.webmanifest">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>WorkSmart: Your Pomodoro Productivity Booster</title>
-</head>
-
-<body>
-    <main>
-        <section>
-            <div class="container">
-                <h1 class="workout-label">WORK SMART</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Meta tags for search enginges -->
+        <meta name="description"
+            content="WorkSmart - Boost your productivity with our intuitive Pomodoro timer. Stay focused on tasks, take structured breaks, and achieve more in less time. Perfect for work, study, and training sessions.">
+        <meta name="keywords" content="Pomodoro, Timer, Productivity, WorkSmart, Study, Focus">
+        <!-- Fontawsome -->
+        <script src="https://kit.fontawesome.com/d74565a49c.js" crossorigin="anonymous"></script>
+        
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./assets/favicon/site.webmanifest">
+        <!-- Stylesheet CSS-->
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- Title -->
+        <title>WorkSmart: Your Pomodoro Productivity Booster</title>
+    </head>
+    
+    <body>
+        <!-- Main -->
+        <main>
+            <!-- Pomodoro clock section -->
+            <section>
+                <div class="container">
+                    <h1 class="workout-label">WORK SMART</h1>
+                    <div class="intro">
+                        <p>Welcome to WorkSmart! Here will be explanations of how to use this app</p>
+                    </div>
+                    <div class="timer-section">
+                        <div class="timer">
+                            <span id="minutes">25</span>
+                            <span>:</span>
+                            <span id="seconds">00</span>
+                        </div>
+                        <div class="break-timer">
+                            <span id="bminutes">5</span>
+                            <span>:</span>
+                            <span id="bseconds">00</span>
+                        </div>
+                        <div class="cycles-timer">
+                            <p>Cycles:</p>
+                            <p id="cycles">0</p>
+                        </div>
+                    </div>
+                    <div id="training-section" style="display: none;">
+                        <p>Choose exercises for your break times!</p>
+                    </div>    
+                    <!-- Btn section with controls -->
+                    <div class="controls-section">
+                        <div class="controls">
+                            
+                            <button id="start-btn" aria-label="start button"><i class="fa-solid fa-circle-play"></i></button>
+                            <button id="reset-btn" aria-label="reset button"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                            <button id="stop-btn" aria-label="stop button"><i class="fa-solid fa-circle-pause"></i></button>
+                            <button id="mute-btn" aria-label="sound on/off button"><i class="fas fa-volume-mute"></i></button>
+                            <button id="training-toggle" aria-label="challenge button"><i class="fa-solid fa-dumbbell"></i></button>
+                        </div>
+                    </div>
+                    <div class="session-length-controls">
+                        <label>
+                            Work:
+                            <input id="work-length" type="number" min="1" max="99" value="25"> min
+                        </label>
+                        <label>
+                            Break:
+                            <input id="break-length" type="number" min="1" max="99" value="5"> min
+                        </label>
+                    </div>
+                    <div class="exercise-selection">
+                        <select id="exercise-dropdown">
+                            <option value="Push-ups">Push-ups</option>
+                            <option value="Squats">Squats</option>
+                            <option value="Lunges">Lunges</option>
+                            <option value="Planks">Planks</option>
+                            <option value="Jumping Jacks">Jumping Jacks</option>
+                        </select>
+                        <input type="number" id="exercise-reps" placeholder="Reps" min="1" max="99">
+                        <button id="add-exercise-btn">Add Exercise</button>
+                    </div>
+                    <div id="exercise-list"></div>
+                </div>
                 <div class="intro">
-                    <p>Welcome to WorkSmart! Here will be explanations of how to use this app</p>
+                    <p>Here will be explanations of how to use this app</p>
                 </div>
-            <div class="timer-section">
-                <div class="timer">
-                    <span id="minutes">25</span>
-                    <span>:</span>
-                    <span id="seconds">00</span>
-                </div>
-                <div class="break-timer">
-                    <span id="bminutes">5</span>
-                    <span>:</span>
-                    <span id="bseconds">00</span>
-                </div>
-                <div class="cycles-timer">
-                    <p>Cycles:</p>
-                    <p id="cycles">0</p>
-                </div>
-            </div>
-            <div id="training-section" style="display: none;">
-                <p>Choose exercises for your break times!</p>
-            </div>    
-            
-            <div class="controls-section">
-                <div class="controls">
-                    
-                    <button id="start-btn" aria-label="start button"><i class="fa-solid fa-circle-play"></i></button>
-                    <button id="reset-btn" aria-label="reset button"><i class="fa-solid fa-clock-rotate-left"></i></button>
-                    <button id="stop-btn" aria-label="stop button"><i class="fa-solid fa-circle-pause"></i></button>
-                    <button id="mute-btn" aria-label="sound on/off button"><i class="fas fa-volume-mute"></i></button>
-                    <button id="training-toggle" aria-label="challenge button"><i class="fa-solid fa-dumbbell"></i></button>
-                </div>
-            </div>
-                <div class="session-length-controls">
-                    <label>
-                        Work:
-                        <input id="work-length" type="number" min="1" max="99" value="25"> min
-                    </label>
-                    <label>
-                        Break:
-                        <input id="break-length" type="number" min="1" max="99" value="5"> min
-                    </label>
-                </div>
-                <div class="exercise-selection">
-                    <select id="exercise-dropdown">
-                        <option value="Push-ups">Push-ups</option>
-                        <option value="Squats">Squats</option>
-                        <option value="Lunges">Lunges</option>
-                        <option value="Planks">Planks</option>
-                        <option value="Jumping Jacks">Jumping Jacks</option>
-                    </select>
-                    <input type="number" id="exercise-reps" placeholder="Reps" min="1" max="99">
-                    <button id="add-exercise-btn">Add Exercise</button>
-                </div>
-                <div id="exercise-list"></div>
-            </div>
-            <div class="intro">
-                <p>Here will be explanations of how to use this app</p>
-            </div>
-                        
-                
-            
-            
-        </section>
-    </main>
-    <script src="./assets/js/script.js"></script>
-</body>
+            </section>
+        </main>
+        <script src="./assets/js/script.js"></script>
+    </body>
 
 </html>
