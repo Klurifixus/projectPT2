@@ -22,6 +22,15 @@ let timeSpentInCurrentSession = 0;
 
 let currentTaskLabel = document.querySelector('.pomodoro-task');
 
+let updateWorkSessionDuration;
+let updateBreakSessionDuration;
+
+let workDurationInput = document.querySelector('#work-time-input');
+let breakDurationInput = document.querySelector('#break-time-input');
+
+workDurationInput.value = '25';
+breakDurationInput.value = '5';
+
 
 /*Start btn */
 startBtn.addEventListener('click', () => {
@@ -109,7 +118,11 @@ const stepDown = () => {
             type = 'Break';
         } else {
             currentTimeLeftInSession = workSessionDuration
-            type = ' Work'
+            type = ' Work';
+            if (currentTaskLabel.value = 'Break') {
+                currentTaskLabel.value = workSessionLabel;
+            }
+            currentTaskLabel.disabled = false;
             displaySessionLog('Break');
         }
     }
