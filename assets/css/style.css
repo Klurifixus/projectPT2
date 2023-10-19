@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -10,20 +12,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(../images/destination-1285851_1280.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url(../images/destination-1285851_1280.png) center/cover no-repeat;
     height: 100vh;
 }
 
 .container {
     padding: 2rem;
-    border-radius: 15%;
     border-radius: 10px;
 }
 
-.timer, .break-timer {
+.timer, .break-timer, .cycles-timer {
     font-size: 3rem;
     text-align: center;
     margin: 1rem 0;
@@ -34,11 +32,6 @@ body {
 
 .cycles-timer {
     font-size: 2rem;
-    text-align: center;
-    margin: 1rem 0;
-    border: 2px solid #fff;
-    background-color: rgba(248, 244, 244, 0.5);
-    border-radius: 10px;
 }
 
 .controls, .session-length-controls {
@@ -57,7 +50,6 @@ body {
     background-color: rgba(248, 244, 244, 0.5);
     letter-spacing: 1.6px;
     font-size: 1.5rem;
-    border-radius: 10px;
 }
 
 #work-length, #break-length {
@@ -66,7 +58,6 @@ body {
     width: 3.1rem;
     height: 2rem;
     font-size: 1rem;
-    
 }
 
 .workout-label {
@@ -82,23 +73,28 @@ body {
 .controls {
     background-color: transparent;
     padding-top: 0.5rem;
-    border-radius: 10px;
 }
 
-#start-btn, #stop-btn, #reset-btn, #mute-btn #training-toggle{
+#start-btn, #stop-btn, #reset-btn, #mute-btn, #training-toggle {
     font-size: 3.1rem;
     border-radius: 30%;
     margin-bottom: 0.5rem;
     background-color: rgba(248, 244, 244, 0.5);
-    
-    
 }
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Additional Styles and Interactions */
 body.active-challenge {
     background-color: rgba(255, 0, 0, 0.5);
 }
 
-#exerciseLabel.active-challenge,
-#banderoll-container.active-challenge {
+#exerciseLabel.active-challenge, #banderoll-container.active-challenge, .active-timer, .active-exercise {
     animation: pulse 1s infinite alternate;
 }
 
@@ -116,24 +112,16 @@ body.active-challenge {
     pointer-events: none;
     border-radius: 10px;
 }
-.active-timer {
-    background-color: rgba(0, 255, 0, 0.5);
-    animation: pulse 1s infinite;
-}
 
-.fa-solid {
-    font-size: 1.5rem;
-}
-
-.center-div{
+.center-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
 }
-.exercise-selection{
-    display:none;
+
+.exercise-selection {
+    display: none;
     justify-content: space-around;
     align-items: center;
     background-color: rgba(248, 244, 244, 0.7);
@@ -141,24 +129,13 @@ body.active-challenge {
     cursor: pointer;
     border-radius: 10px;
 }
-.active-exercise{
-    font-size: larger;
+
+li.active {
     animation: pulse 1s infinite;
-    color: orangered;
-
-}
-li.active{
-    animation: pulsate 1s infinite;
     background-color: rgba(0, 255, 0, 0.5);
-
-}
-@keyframes pulse{
-    0% {transform: scale(1); }
-    50% {transform: scale(1.1); }
-    100% {transform: scale(1); }
 }
 
-#exercise-list{
+#exercise-list {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -167,42 +144,21 @@ li.active{
     padding: 1rem;
     border-radius: 10px;
 }
-.intro {
-    text-align: center;
-    background-color: rgba(248, 244, 244, 0.7);
-    font-size: 1rem;
-    border-radius: 10px;
 
-}
-.timer-sections, .controls-sections, .training-sections{
+.intro, .timer-sections, .controls-sections, .training-sections {
     background-color: rgba(248, 244, 244, 0.7);
     border-radius: 10px;
     margin: 10px;
 }
-button:hover, input[type="number"]:hover{
+
+button:hover, input[type="number"]:hover {
     background-color: rgba(100, 100, 100, 0.1);
 }
-.controls-sections{
+
+.controls-sections {
     justify-content: space-between;
     margin: 0;
 }
 
+/* Responsive Styles */
 
-@media (min-width: 768px) {
-    .timer, .break-timer {
-        font-size: 3.5rem;
-        margin: 2rem 0;
-    }
-
-    .workout-label {
-        font-size: 5.5rem;
-    }
-
-    .controls, #start-btn, #stop-btn, #reset-btn, #mute-btn, #training-toggle {
-        font-size: 4;
-    }
-    .session-length-controls {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-}
