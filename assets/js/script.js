@@ -164,6 +164,20 @@ const displaySessionLog = (type) => {
     sessionList.appendChild(li);
 };
 
+/*Function for when a session is finished or stoped */
+
+const setUpdateTimers = () => {
+    if (type === 'Work') {
+        currentTimeLeftInSession = updateWorkSessionDuration
+        ? updateWorkSessionDuration : workSessionDuration
+        workSessionDuration = currentTimeLeftInSession;
+    } else {
+        currentTimeLeftInSession = updateBreakSessionDuration 
+        ? updateBreakSessionDuration : breakSessionDuration
+        breakSessionDuration = currentTimeLeftInSession;
+    }
+};
+
 
 
 
