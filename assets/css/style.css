@@ -21,6 +21,7 @@ body {
     border-radius: 10px;
 }
 
+
 .timer, .break-timer, .cycles-timer {
     font-size: 3rem;
     text-align: center;
@@ -28,7 +29,10 @@ body {
     border: 2px solid #fff;
     background-color: rgba(248, 244, 244, 0.5);
     border-radius: 10px;
-}
+} 
+
+
+
 
 .cycles-timer {
     font-size: 2rem;

@@ -61,7 +61,7 @@ workDurationInput.addEventListener('input', () => {
 
 /* Break Time Update */
 breakDurationInput.addEventListener('input', () => {
-    updateWorkSessionDuration = minuteToSeconds(breakDurationInput.value);
+    updateBreakSessionDuration = minuteToSeconds(breakDurationInput.value);
 });
 
 const minuteToSeconds = (mins) => {
@@ -112,14 +112,14 @@ const displayCurrentTimeLeftInSession = () => {
 
 /*Function for when timer stop */
 const stopClock = () => {
+    setUpdateTimers();
     displaySessionLog(type);
     clearInterval(clockTimer);
+    isClockStopped = true;
     isClockRunning = false;
     currentTimeLeftInSession = workSessionDuration;
     displayCurrentTimeLeftInSession();
-    currentTimeLeftInSession--;
     timeSpentInCurrentSession =0;
-
     type = 'Work';
 };
 
@@ -138,10 +138,10 @@ const stepDown = () => {
             type = 'Break';
             setUpdateTimers();
         } else {
-            currentTimeLeftInSession = workSessionDuration
+            currentTimeLeftInSession = workSessionDuration;
             type = ' Work';
             setUpdateTimers();
-            if (currentTaskLabel.value = 'Break') {
+            if (currentTaskLabel.value === 'Break') {
                 currentTaskLabel.value = workSessionLabel;
             }
             currentTaskLabel.disabled = false;
@@ -155,6 +155,7 @@ const stepDown = () => {
 const displaySessionLog = (type) => {
     const sessionList = document.querySelector('.pomodoro-sessions');
     const li = document.createElement('li');
+    let sessionLabel;
     if (type === 'Work') {
         sessionLabel = currentTaskLabel.value ? currentTaskLabel.value : 'Work';
         workSessionLabel = sessionLabel;
@@ -173,12 +174,12 @@ const displaySessionLog = (type) => {
 
 const setUpdateTimers = () => {
     if (type === 'Work') {
-        currentTimeLeftInSession = updateWorkSessionDuration
-        ? updateWorkSessionDuration : workSessionDuration
+        currentTimeLeftInSession = updateWorkSessionDuration ? updateWorkSessionDuration 
+        : workSessionDuration;
         workSessionDuration = currentTimeLeftInSession;
     } else {
-        currentTimeLeftInSession = updateBreakSessionDuration 
-        ? updateBreakSessionDuration : breakSessionDuration
+        currentTimeLeftInSession = updateBreakSessionDuration ? updateBreakSessionDuration 
+        : breakSessionDuration;
         breakSessionDuration = currentTimeLeftInSession;
     }
 };
