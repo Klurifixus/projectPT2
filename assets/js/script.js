@@ -57,6 +57,7 @@ function updateDOM() {
 
 function startTimer() {
     stopTimer();
+    minutesDisplay.parentElement.classList.add('active-timer');
 
     if (isTrainingMode && currentExerciseIndex < exercises.length) {
         remainingExerciseTime = exercises[currentExerciseIndex].duration;
@@ -113,6 +114,7 @@ function addExercise(exercise, reps) {
 
 function stopTimer() {
     clearInterval(interval);
+    minutesDisplay.parentElement.classList.add('active-timer');
 }
 
 function resetTimer() {
