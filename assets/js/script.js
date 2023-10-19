@@ -121,11 +121,15 @@ function stopTimer() {
 
 function resetTimer() {
     stopTimer();
+
+    
     workTimer = 25 * 60;
     breakTimer = 5 * 60;
     currentExerciseIndex = 0;
     isTrainingMode = false;
     exercises = [];
+    remainingExerciseTime = workTimer;
+    trainingSection.style.display = "none";
 
     //Update worktime
     const minutes = Math.floor(workTimer / 60);
