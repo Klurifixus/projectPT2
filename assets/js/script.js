@@ -66,7 +66,7 @@ function startTimer() {
     if (isTrainingMode && currentExerciseIndex < exercises.length) {
         remainingExerciseTime = exercises[currentExerciseIndex].duration;
     } else {
-        remainingExerciseTime = workTimer;
+        remainingExerciseTime = isTrainingMode ? workTimer : breakTimer;
     }
 
     updateDOM();
@@ -79,12 +79,16 @@ function startTimer() {
                 if (currentExerciseIndex < exercises.length) {
                     startTimer();
                 } else {
-                    remainingExerciseTime = breakTimer;
                     isTrainingMode = false;
+                    remainingExerciseTime = breakTimer;
+                    startTimer();
+                    
                     
                 }
             } else {
                 isTrainingMode = true;
+                breakTimer = parseInt(breakLengthInput.value) * 60;
+                currentExerciseIndex = 0;
                 startTimer();
             }
         } else {
