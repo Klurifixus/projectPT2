@@ -45,6 +45,10 @@ function updateDOM() {
         }
         li.textContent = `${exercise.exercise} - ${exercise.duration / 60} min`;
         exerciseList.appendChild(li);
+        cyclesDisplay.textContent = exercises.length;
+    if (index === currentExerciseIndex){
+        li.classList.add('active', 'active-exercise');
+    }
     });
 
     const breakMinutes = Math.floor(breakTimer / 60);
@@ -52,10 +56,7 @@ function updateDOM() {
     bminutesDisplay.textContent = breakMinutes.toString().padStart(2, '0');
     bsecondsDisplay.textContent = breakSeconds.toString().padStart(2, '0');
 
-    cyclesDisplay.textContent = exercises.length;
-    if (index === currentExerciseIndex){
-        li.classList.add('active', 'active-exercise');
-    }
+    
 }
 
 function startTimer() {
@@ -73,10 +74,6 @@ function startTimer() {
     interval = setInterval(function () {
         if (remainingExerciseTime <= 0) {
             if (!isSoundMuted) sound.play();
-            if (currentExerciseIndex >= exercises.length){
-                exercises = [];
-                currentExerciseIndex = 0;
-            }
             if (isTrainingMode) {
                 currentExerciseIndex++;
                 if (currentExerciseIndex < exercises.length) {
@@ -84,15 +81,13 @@ function startTimer() {
                 } else {
                     remainingExerciseTime = breakTimer;
                     isTrainingMode = false;
-                    updateDOM();
+                    
                 }
             } else {
-                isTrainingMode = !isTrainingMode;
+                isTrainingMode = true;
                 startTimer();
             }
         } else {
-            isTrainingMode = false;
-            remainingExerciseTime = breakTimer;
             remainingExerciseTime--;
             updateDOM();
         } 
