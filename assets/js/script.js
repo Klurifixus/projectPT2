@@ -45,9 +45,9 @@ pauseBtn.addEventListener('click', () => {
 });
 
 /*Reset Btn */
-resetBtn.addEventListener('click', () => {
-    toggleClock();
-});
+//resetBtn.addEventListener('click', () => {
+//    toggleClock();
+//});
 
 /*Stop btn */
 stopBtn.addEventListener('click', () => {
