@@ -20,6 +20,8 @@ let breakSessionDuration = 300;
 let type = 'Work';
 let timeSpentInCurrentSession = 0;
 
+let currentTaskLabel = document.querySelector('.pomodoro-task');
+
 
 /*Start btn */
 startBtn.addEventListener('click', () => {
@@ -82,12 +84,15 @@ const displayCurrentTimeLeftInSession = () => {
 
 /*Function for when timer stop */
 const stopClock = () => {
+    displaySessionLog(type);
     clearInterval(clockTimer);
-    isClockRunning = flase;
+    isClockRunning = false;
     currentTimeLeftInSession = workSessionDuration;
     displayCurrentTimeLeftInSession();
     currentTimeLeftInSession--;
     timeSpentInCurrentSession =0;
+
+    type = 'Work';
 };
 
 
@@ -115,7 +120,12 @@ const stepDown = () => {
 const displaySessionLog = (type) => {
     const sessionList = document.querySelector('.pomodoro-sessions');
     const li = document.createElement('li');
-    let sessionLabel = type;
+    if (type === 'Work') {
+        sessionLabel = currentTaskLabel.value ? currentTaskLabel.value : 'Work';
+        workSessionLabel = sessionLabel;
+    } else {
+        sessionLabel = 'Break';
+    }
     let elapsedTime = parseInt(timeSpentInCurrentSession / 60);
     elapsedTime = elapsedTime > 0 ? elapsedTime : '< 1';
 
@@ -123,5 +133,7 @@ const displaySessionLog = (type) => {
     li.appendChild(text);
     sessionList.appendChild(li);
 };
+
+
 
 
