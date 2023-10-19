@@ -45,14 +45,31 @@ const toggleClock = (reset) => {
             clockTimer = setInterval(() => {
                 /*Change time left / change time spent */
                 currentTimeLeftInSession --;
-            }, 1000)
+                displayCurrentTimeLeftInSession();
+            }, 1000);
             /*Pause timer */
-            isClockRunning = false
+            clearInterval(clockTimer);
+            isClockRunning = false;
         } else {
             /*Start timer */
-            isClockRunning = true
+            isClockRunning = true;
         }
     }
 };
 
+/* Display Timer on page */
+const displayCurrentTimeLeftInSession = () => {
+    const secondsLeft = currentTimeLeftInSession;
+    let result = '';
+    const seconds = secondsLeft % 60;
+    const minutes = parseInt(secondsLeft/60) % 60;
+    let hours = parseInt(secondsLeft/ 3600);
+    /*Fix so 0 vible infront of number if under 10 */
+    function addLeadingZeroes(time) {
+        return time < 10 ? `0 ${time}` : time;
+    }
+    if (hours > 0) result += `${hours}:`;
+    result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`;
+    pomodoroTimer.innerText = result.toString();
+};
 
