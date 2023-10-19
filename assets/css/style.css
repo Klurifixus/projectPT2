@@ -131,7 +131,7 @@ body.active-challenge {
     
 }
 .exercise-selection{
-    display:flex;
+    display:none;
     justify-content: space-around;
     align-items: center;
     background-color: rgba(248, 244, 244, 0.7);

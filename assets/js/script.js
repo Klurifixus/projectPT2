@@ -136,6 +136,9 @@ function resetTimer() {
     trainingSection.style.display = "none";
     cyclesDisplay.textContent = "0";
 
+    const exerciseSection = document.querySelector('.exercise-selection');
+    exerciseSection.style.display = 'none';
+
     //Update worktime
     const minutes = Math.floor(workTimer / 60);
     const seconds = workTimer % 60;
@@ -147,6 +150,7 @@ function resetTimer() {
     document.getElementById("bminutes").textContent = breakMinutes.toString().padStart(2, '0');
     document.getElementById("bseconds").textContent = breakSeconds.toString().padStart(2, '0');
     updateDOM();
+    
 }
 
 function toggleSound() {
@@ -157,7 +161,15 @@ function toggleSound() {
 }
 
 // Event Listeners
-trainingToggle.addEventListener('click', toggleTrainingMode);
+
+document.getElementById('training-toggle').addEventListener('click', function() {
+    const exerciseSection = document.querySelector('.exercise-selection');
+    if (exerciseSection.style.display === 'none' || exerciseSection.style.display === '') {
+        exerciseSection.style.display = 'flex';
+    } else {
+        exerciseSection.style.display = 'none';
+    }
+});
 
 addExerciseBtn.addEventListener('click', function () {
     const exerciseName = exerciseInput.value;
@@ -190,6 +202,7 @@ breakLengthInput.addEventListener('input', function () {
     }
     updateDOM();
 });
+
 
 startBtn.addEventListener('click', startTimer);
 stopBtn.addEventListener('click', stopTimer);
