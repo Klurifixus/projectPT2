@@ -1,10 +1,10 @@
 /*--Event listeners--*/
 const pomodoroTimer = document.querySelector('.timer');
 
-const startBtn = document.querySelector('start-btn');
-const pauseBtn = document.querySelector('pause-btn');
-const resetBtn = document.querySelector('reset-btn');
-const stopBtn = document.querySelector('stop-btn');
+const startBtn = document.querySelector('#start-btn');
+const pauseBtn = document.querySelector('#pause-btn');
+const resetBtn = document.querySelector('#reset-btn');
+const stopBtn = document.querySelector('#stop-btn');
 
 let type = 'Work';
 
