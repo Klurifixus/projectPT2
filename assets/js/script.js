@@ -6,7 +6,20 @@ const pauseBtn = document.querySelector('#pause-btn');
 const resetBtn = document.querySelector('#reset-btn');
 const stopBtn = document.querySelector('#stop-btn');
 
+
+/*To know if need to play or pause timer additional variable */
+let isClockRunning = false;
+
+/*In seconds = 25min */
+let workSessionDuration = 1500;
+let currentTimeLeftInSession = 1500;
+
+/*In seconds = 5 min*/
+let breakSessionDuration = 300;
+
 let type = 'Work';
+let timeSpentInCurrentSession = 0;
+
 
 /*Start btn */
 startBtn.addEventListener('click', () => {
@@ -27,42 +40,6 @@ resetBtn.addEventListener('click', () => {
 stopBtn.addEventListener('click', () => {
     toggleClock(true);
 });
-
-/*To know if need to play or pause timer additional variable */
-let isClockRunning = false;
-
-/*In seconds = 25min */
-let workSessionDuration = 1500;
-let currentTimeLeftInSession = 1500;
-
-/*In seconds = 5 min*/
-let breakSessionDuration = 300;
-
-/*Function for when timer stop */
-const stopClock = () => {
-    clearInterval(clockTimer);
-    isClockRunning = flase;
-    currentTimeLeftInSession = workSessionDuration;
-    displayCurrentTimeLeftInSession();
-};
-
-/*Step down function for toggling between work and break when time run out */
-const stepDown = () => {
-    if (currentTimeLeftInSession > 0) {
-        currentTimeLeftInSession--;
-    } else if (currentTimeLeftInSession === 0) {
-        if ( type === 'Work') {
-            currentTimeLeftInSession = breakSessionDuration;
-            displaySessionLog('Work');
-            type = 'Break';
-        } else {
-            currentTimeLeftInSession = workSessionDuration
-            type = ' Work'
-            displaySessionLog('Break');
-        }
-    }
-    displayCurrentTimeLeftInSession();
-};
 
 /*Toggle clock function*/
 const toggleClock = (reset) => {
@@ -101,4 +78,39 @@ const displayCurrentTimeLeftInSession = () => {
     result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`;
     pomodoroTimer.innerText = result.toString();
 };
+
+
+/*Function for when timer stop */
+const stopClock = () => {
+    clearInterval(clockTimer);
+    isClockRunning = flase;
+    currentTimeLeftInSession = workSessionDuration;
+    displayCurrentTimeLeftInSession();
+    currentTimeLeftInSession--;
+    timeSpentInCurrentSession =0;
+};
+
+
+/*Step down function for toggling between work and break when time run out */
+const stepDown = () => {
+    if (currentTimeLeftInSession > 0) {
+        currentTimeLeftInSession--;
+        currentTimeLeftInSession++;
+    } else if (currentTimeLeftInSession === 0) {
+        timeSpentInCurrentSession =0;
+        if ( type === 'Work') {
+            currentTimeLeftInSession = breakSessionDuration;
+            displaySessionLog('Work');
+            type = 'Break';
+        } else {
+            currentTimeLeftInSession = workSessionDuration
+            type = ' Work'
+            displaySessionLog('Break');
+        }
+    }
+    displayCurrentTimeLeftInSession();
+};
+
+
+
 
