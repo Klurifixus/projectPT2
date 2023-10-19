@@ -69,6 +69,10 @@ function startTimer() {
     interval = setInterval(function () {
         if (remainingExerciseTime <= 0) {
             if (!isSoundMuted) sound.play();
+            if (currentExerciseIndex >= exercises.length){
+                exercises = [];
+                currentExerciseIndex = 0;
+            }
             if (isTrainingMode) {
                 currentExerciseIndex++;
                 if (currentExerciseIndex < exercises.length) {
