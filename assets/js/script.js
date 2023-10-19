@@ -8,6 +8,12 @@ let seconds = document.getElementById('seconds');
 let bminutes = document.getElementById('bminutes');
 let bseconds = document.getElementById('bseconds');
 
+let workMinutesInput = document.getElementById('work-minutes');
+let workSecondsInput = document.getElementById('work-seconds');
+let breakMinutesInput = document.getElementById('break-minutes');
+let breakSecondsInput = document.getElementById('break-seconds');
+
+
 // Reference to timer variable
 let startTimer;
 let isMuted = false;
