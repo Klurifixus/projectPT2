@@ -121,7 +121,9 @@ body.active-challenge {
     animation: pulse 1s infinite;
 }
 
-
+.fa-solid {
+    font-size: 1.5rem;
+}
 
 .center-div{
     display: flex;
