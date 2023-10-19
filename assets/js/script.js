@@ -113,7 +113,8 @@ function resetTimer() {
     breakTimer = 5 * 60;
     currentExerciseIndex = 0;
     isTrainingMode = false;
-    updateDOM();
+    exercises = [];
+    
 }
 
 function toggleSound() {
