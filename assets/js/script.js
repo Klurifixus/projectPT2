@@ -68,11 +68,22 @@ function startTimer() {
     if (isTrainingMode && currentExerciseIndex < exercises.length) {
         remainingExerciseTime = exercises[currentExerciseIndex].duration;
     } else {
-        remainingExerciseTime = isTrainingMode ? breakTimer : workTimer;
+        if (isTrainingMode) {
+            currentExerciseIndex = 0;
+            remainingExerciseTime = breakTimer;
+            // Ta bort genomförda övningar från början av arrayen
+            exercises.splice(0, currentExerciseIndex);
+        } else {
+            remainingExerciseTime = workTimer;
+        }
+    }
+
+    if (isTrainingMode) {
+        bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
+        bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
     }
 
     updateDOM();
-    
 
     interval = setInterval(function () {
         if (remainingExerciseTime <= 0) {
@@ -86,6 +97,7 @@ function startTimer() {
                 } else {
                     isTrainingMode = false;
                     currentExerciseIndex = 0;
+                    // Återställ exercises-arrayen eftersom alla övningar är klara
                     exercises = [];
                     remainingExerciseTime = breakTimer;
                 }
@@ -100,15 +112,28 @@ function startTimer() {
                     remainingExerciseTime = workTimer;
                 }
             }
-            
+
+            if (isTrainingMode) {
+                bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
+                bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
+            }
+
             updateDOM();
 
         } else {
             remainingExerciseTime--;
+            if (isTrainingMode) {
+                bminutesDisplay.textContent = Math.floor(remainingExerciseTime / 60).toString().padStart(2, '0');
+                bsecondsDisplay.textContent = (remainingExerciseTime % 60).toString().padStart(2, '0');
+            }
             updateDOM();
         }
     }, 1000);
 }
+
+
+
+
 
 function toggleTrainingMode() {
     isTrainingMode = !isTrainingMode;
