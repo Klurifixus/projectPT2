@@ -6,6 +6,8 @@ const pauseBtn = document.querySelector('pause-btn');
 const resetBtn = document.querySelector('reset-btn');
 const stopBtn = document.querySelector('stop-btn');
 
+let type = 'Work';
+
 /*Start btn */
 startBtn.addEventListener('click', () => {
     toggleClock();
@@ -44,6 +46,24 @@ const stopClock = () => {
     displayCurrentTimeLeftInSession();
 };
 
+/*Step down function for toggling between work and break when time run out */
+const stepDown = () => {
+    if (currentTimeLeftInSession > 0) {
+        currentTimeLeftInSession--;
+    } else if (currentTimeLeftInSession === 0) {
+        if ( type === 'Work') {
+            currentTimeLeftInSession = breakSessionDuration;
+            displaySessionLog('Work');
+            type = 'Break';
+        } else {
+            currentTimeLeftInSession = workSessionDuration
+            type = ' Work'
+            displaySessionLog('Break');
+        }
+    }
+    displayCurrentTimeLeftInSession();
+};
+
 /*Toggle clock function*/
 const toggleClock = (reset) => {
     if (reset) {
@@ -53,7 +73,7 @@ const toggleClock = (reset) => {
         if (isClockRunning === true) {
             clockTimer = setInterval(() => {
                 /*Change time left / change time spent */
-                currentTimeLeftInSession --;
+                stepDown();
                 displayCurrentTimeLeftInSession();
             }, 1000);
             /*Pause timer */
