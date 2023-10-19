@@ -36,10 +36,19 @@ let currentTimeLeftInSession = 1500;
 /*In seconds = 5 min*/
 let breakSessionDuration = 300;
 
+/*Function for when timer stop */
+const stopClock = () => {
+    clearInterval(clockTimer);
+    isClockRunning = flase;
+    currentTimeLeftInSession = workSessionDuration;
+    displayCurrentTimeLeftInSession();
+};
+
 /*Toggle clock function*/
 const toggleClock = (reset) => {
     if (reset) {
         /*Stop timer*/
+        stopClock();
     } else {
         if (isClockRunning === true) {
             clockTimer = setInterval(() => {
