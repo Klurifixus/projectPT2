@@ -42,6 +42,8 @@ reset.addEventListener('click', function () {
     bminutes.innerText = "5";
     bseconds.innerText = "00";
     isMuted = false;
+    cycleCount = parseInt(document.getElementById('cycles').value); // Reset cycle count
+    document.getElementById('counter').innerText = "0"; // Reset completed cycles
 });
 
 // mute button
@@ -83,3 +85,20 @@ function updateDisplayedTime(minutesDisplay, secondsDisplay, newMinutes, newSeco
     minutesDisplay.innerText = newMinutes;
     secondsDisplay.innerText = newSeconds;
 }
+workMinutesInput.addEventListener('input', function () {
+    updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
+});
+
+workSecondsInput.addEventListener('input', function () {
+    updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
+});
+
+breakMinutesInput.addEventListener('input', function () {
+    updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
+});
+
+breakSecondsInput.addEventListener('input', function () {
+    updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
+});
+
+
