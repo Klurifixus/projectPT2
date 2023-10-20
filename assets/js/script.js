@@ -101,6 +101,7 @@ btnTimerSetting.onclick = function () {
 
 function timer() {
     activeTimerPulse();
+
     if (parseInt(minutes.innerText) !== 0 || parseInt(seconds.innerText) !== 0) {
         // Work timer
         if (parseInt(seconds.innerText) === 0) {
@@ -117,54 +118,36 @@ function timer() {
         } else {
             bseconds.innerText = (parseInt(bseconds.innerText) - 1).toString();
         }
-    }
-    
-
-    
-
-
-    // When both timers reach 0 (timer-section)
-    if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
-        if (cyclesCount > 0){
+    } else {
+        if (cyclesCount > 0) {
             cyclesCount--;
             cyclesDisplay.innerText = cyclesCount;
+
             if (cyclesCount <= 0) {
                 clearInterval(startTimer);
                 startTimer = undefined;
-                alert("All cycles complete!"); 
+                alert("All cycles complete!");
             } else {
                 updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
                 updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
             }
         }
-        if (minutes.innerText == "00" && seconds.innerText == "00" && bminutes.innerText == "00" && bseconds.innerText == "00") {
-            cyclesDisplay.classList.add("pulse-green");
-            setTimeout(() => {
-                cyclesDisplay.classList.remove("pulse-green");
-            }, 1000);
-
-        }
     }
 }
 
-    // active timer pulse
-    function activeTimerPulse() {
-        if (parseInt(minutes.innerText) !== 0 || parseInt(seconds.innerText) !== 0) {
-            if (!minutes.classList.contains("pulse-green")) {
-                minutes.classList.add("pulse-green");
-                seconds.classList.add("pulse-green");
-            }
-            bminutes.classList.remove("pulse-green");
-            bseconds.classList.remove("pulse-green");
-        } else {
-            if (!bminutes.classList.contains("pulse-green")) {
-                bminutes.classList.add("pulse-green");
-                bseconds.classList.add("pulse-green");
-            }
-            minutes.classList.remove("pulse-green");
-            seconds.classList.remove("pulse-green");
-        }
+function activeTimerPulse() {
+    if (parseInt(minutes.innerText) !== 0 || parseInt(seconds.innerText) !== 0) {
+        minutes.classList.add("pulse-green");
+        seconds.classList.add("pulse-green");
+        bminutes.classList.remove("pulse-green");
+        bseconds.classList.remove("pulse-green");
+    } else {
+        bminutes.classList.add("pulse-green");
+        bseconds.classList.add("pulse-green");
+        minutes.classList.remove("pulse-green");
+        seconds.classList.remove("pulse-green");
     }
+}
 function updateDisplayedTime(minutesDisplay, secondsDisplay, newMinutes, newSeconds) {
     minutesDisplay.innerText = newMinutes;
     secondsDisplay.innerText = newSeconds;
