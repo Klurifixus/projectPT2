@@ -103,50 +103,74 @@ btnTimerSetting.onclick = function () {
     }
 };
 
+let isBreak = false;
 
 function timer() {
     activeTimerPulse();
+    
+    if (!isBreak && parseInt(minutes.innerText) === 0 && parseInt(seconds.innerText) === 0) {
+        transitionToBreak();
+        return;
+    }
 
-    if (parseInt(minutes.innerText) !== 0 || parseInt(seconds.innerText) !== 0) {
-        // Work timer
+    if (isBreak && parseInt(bminutes.innerText) === 0 && parseInt(bseconds.innerText) === 0) {
+        transitionFromBreak();
+        return;
+    }
+
+    decreaseTime();
+}
+
+function transitionToBreak() {
+    if (!isMuted) {
+        soundEffect.currentTime = 0;
+        soundEffect.play();
+    }
+    isBreak = true;
+}
+
+function transitionFromBreak() {
+    if (!isMuted) {
+        soundEffect.currentTime = 0;
+        soundEffect.play();
+    }
+    isBreak = false;
+
+    if (cyclesCount > 0) {
+        cyclesCount--;
+        cyclesDisplay.innerText = cyclesCount;
+        
+        if (cyclesCount <= 0) {
+            clearInterval(startTimer);
+            startTimer = undefined;
+            alert("All cycles complete!");
+        } else {
+            updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
+            updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
+        }
+    }
+}
+
+function decreaseTime() {
+    if (!isBreak) {
         if (parseInt(seconds.innerText) === 0) {
             seconds.innerText = "59";
             minutes.innerText = (parseInt(minutes.innerText) - 1).toString();
         } else {
             seconds.innerText = (parseInt(seconds.innerText) - 1).toString();
         }
-    } else if (parseInt(bminutes.innerText) !== 0 || parseInt(bseconds.innerText) !== 0) {
-        // Break timer
+    } else {
         if (parseInt(bseconds.innerText) === 0) {
             bseconds.innerText = "59";
             bminutes.innerText = (parseInt(bminutes.innerText) - 1).toString();
         } else {
             bseconds.innerText = (parseInt(bseconds.innerText) - 1).toString();
         }
-    } else {
-        if (cyclesCount > 0) {
-            cyclesCount--;
-            cyclesDisplay.innerText = cyclesCount;
-
-            // Play sound at the end of each cycle
-            if (!isMuted) {
-                soundEffect.play();
-            }
-
-            if (cyclesCount <= 0) {
-                clearInterval(startTimer);
-                startTimer = undefined;
-                alert("All cycles complete!");
-            } else {
-                updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
-                updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
-            }
-        }
     }
 }
 
 function activeTimerPulse() {
-    if (parseInt(minutes.innerText) !== 0 || parseInt(seconds.innerText) !== 0) {
+    if (!isBreak) {
         minutes.classList.add("pulse-green");
         seconds.classList.add("pulse-green");
         bminutes.classList.remove("pulse-green");
@@ -158,6 +182,7 @@ function activeTimerPulse() {
         seconds.classList.remove("pulse-green");
     }
 }
+
 function updateDisplayedTime(minutesDisplay, secondsDisplay, newMinutes, newSeconds) {
     minutesDisplay.innerText = newMinutes;
     secondsDisplay.innerText = newSeconds;
