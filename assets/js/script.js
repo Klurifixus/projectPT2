@@ -148,18 +148,22 @@ function timer() {
 
     // active timer pulse
     function activeTimerPulse() {
-    if (minutes.innerText != "00" || seconds.innerText != "00") {
-        minutes.classList.add("pulse-green");
-        seconds.classList.add("pulse-green");
-        bminutes.classList.remove("pulse-green");
-        bseconds.classList.remove("pulse-green");
-    } else {
-        bminutes.classList.add("pulse-green");
-        bseconds.classList.add("pulse-green");
-        minutes.classList.remove("pulse-green");
-        seconds.classList.remove("pulse-green");
+        if (parseInt(minutes.innerText) !== 0 || parseInt(seconds.innerText) !== 0) {
+            if (!minutes.classList.contains("pulse-green")) {
+                minutes.classList.add("pulse-green");
+                seconds.classList.add("pulse-green");
+            }
+            bminutes.classList.remove("pulse-green");
+            bseconds.classList.remove("pulse-green");
+        } else {
+            if (!bminutes.classList.contains("pulse-green")) {
+                bminutes.classList.add("pulse-green");
+                bseconds.classList.add("pulse-green");
+            }
+            minutes.classList.remove("pulse-green");
+            seconds.classList.remove("pulse-green");
+        }
     }
-}
 function updateDisplayedTime(minutesDisplay, secondsDisplay, newMinutes, newSeconds) {
     minutesDisplay.innerText = newMinutes;
     secondsDisplay.innerText = newSeconds;
