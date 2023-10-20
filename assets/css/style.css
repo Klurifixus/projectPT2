@@ -118,3 +118,25 @@ body {
 .hidden{
     display: none;
 }
+.tooltip{
+    position: relative;
+    cursor: pointer;
+}
+.tooltip .tooltip-text{
+    visibility: hidden;
+    position: absolute;
+    width: 150px;
+    background-color: rgba(0,0,0,0.8);
+    color:#fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 0.9rem;
+    z-index: 1;
+}
+.tooltip:hover .tooltip-text{
+    visibility: visible;
+}
