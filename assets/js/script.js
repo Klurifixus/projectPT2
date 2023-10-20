@@ -12,7 +12,8 @@ let workMinutesInput = document.getElementById('work-minutes');
 let workSecondsInput = document.getElementById('work-seconds');
 let breakMinutesInput = document.getElementById('break-minutes');
 let breakSecondsInput = document.getElementById('break-seconds');
-let cyclesInput = document.getElementById('cycles');
+let cyclesInput = document.getElementById('input-cycles');
+let cyclesDisplay = document.getElementById('cycles')
 
 // Reference to timer variable
 let startTimer;
@@ -41,8 +42,8 @@ reset.addEventListener('click', function () {
     bminutes.innerText = "5";
     bseconds.innerText = "00";
     isMuted = false;
-    cycleCount = parseInt(document.getElementById('cycles').value); 
-    document.getElementById('counter').innerText = "0"; 
+    cyclesCount = parseInt(cyclesInput.value); 
+    cyclesDisplay.innerText = cyclesCount;
 });
 
 // mute button
