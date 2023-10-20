@@ -65,11 +65,11 @@ reset.addEventListener('click', function () {
     
     
     cyclesDisplay.innerText = "0";
-    cyclesInput.innerText = "0";
-    workMinutesInput.innerText = "0";
-    workSecondsInput.innerText = "0";
-    breakMinutesInput.innerText = "0";
-    breakSecondsInput.innerText = "0";
+    cyclesInput.value = "0";
+    workMinutesInput.value = "25";
+    workSecondsInput.value = "00";
+    breakMinutesInput.value = "5";
+    breakSecondsInput.value = "00";
     cyclesDisplay.classList.add("pulse-green");
     setTimeout(() => {
         cyclesDisplay.classList.remove("pulse-green");
@@ -109,12 +109,12 @@ function timer() {
             seconds.innerText--;
         }
         
-        } else if (bminutes.innerText != 0 || bseconds.innerText != 0) {
+        } else if (bminutes.innerText !== "00" || bseconds.innerText !== "00") {
         // Break timer
-        if (bseconds.innerText == 0) {
-            bseconds.innerText = 59;
+        if (bseconds.innerText === "00") {
+            bseconds.innerText = "59";
             bminutes.innerText--;
-            } else {
+        } else {
             bseconds.innerText--;
         }
     }
