@@ -82,6 +82,15 @@ reset.addEventListener('click', function () {
     }, 1000);   
 });
 
+//bugfix non value
+function validateInput(inputValue, defaultValue) {
+    if (isNaN(parseInt(inputValue)) || inputValue.trim() === "") {
+        return defaultValue;
+    } else {
+        return inputValue;
+    }
+}
+
 // mute button
 mute.addEventListener('click', function (){
     if (isMuted) {
@@ -188,19 +197,37 @@ function updateDisplayedTime(minutesDisplay, secondsDisplay, newMinutes, newSeco
     secondsDisplay.innerText = newSeconds;
 }
 workMinutesInput.addEventListener('input', function () {
-    updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
+    let validatedMinutes = validateInput(workMinutesInput.value, "25");
+    let validatedSeconds = validateInput(workSecondsInput.value, "00");
+    updateDisplayedTime(minutes, seconds, validatedMinutes, validatedSeconds);
 });
 
 workSecondsInput.addEventListener('input', function () {
-    updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
+    let validatedMinutes = validateInput(workMinutesInput.value, "25");
+    let validatedSeconds = validateInput(workSecondsInput.value, "00");
+    updateDisplayedTime(minutes, seconds, validatedMinutes, validatedSeconds);
 });
 
 breakMinutesInput.addEventListener('input', function () {
-    updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
+    let validatedMinutes = validateInput(breakMinutesInput.value, "5");
+    let validatedSeconds = validateInput(breakSecondsInput.value, "00");
+    updateDisplayedTime(bminutes, bseconds, validatedMinutes, validatedSeconds);
 });
 
 breakSecondsInput.addEventListener('input', function () {
-    updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
+    let validatedMinutes = validateInput(breakMinutesInput.value, "5");
+    let validatedSeconds = validateInput(breakSecondsInput.value, "00");
+    updateDisplayedTime(bminutes, bseconds, validatedMinutes, validatedSeconds);
+});
+
+cyclesInput.addEventListener('input', function () {
+    let validatedCycles = validateInput(cyclesInput.value, "0");
+    cyclesCount = parseInt(validatedCycles); 
+    cyclesDisplay.innerText = validatedCycles;
+    cyclesDisplay.classList.add("pulse-green");
+    setTimeout(() => {
+        cyclesDisplay.classList.remove("pulse-green");
+    }, 1000);
 });
 
 
