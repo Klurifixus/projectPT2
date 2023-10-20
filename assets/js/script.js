@@ -12,19 +12,18 @@ let workMinutesInput = document.getElementById('work-minutes');
 let workSecondsInput = document.getElementById('work-seconds');
 let breakMinutesInput = document.getElementById('break-minutes');
 let breakSecondsInput = document.getElementById('break-seconds');
-
+let cyclesInput = document.getElementById('cycles');
 
 // Reference to timer variable
 let startTimer;
 let isMuted = false;
+let cyclesCount = 1;
 
 //start button
 start.addEventListener('click', function () {
     if (startTimer === undefined) {
         startTimer = setInterval(timer, 1000);
-    } else {
-        alert("Timer is already running.");
-    }
+    } 
 });
 
 //stop (pause)button
@@ -42,8 +41,8 @@ reset.addEventListener('click', function () {
     bminutes.innerText = "5";
     bseconds.innerText = "00";
     isMuted = false;
-    cycleCount = parseInt(document.getElementById('cycles').value); // Reset cycle count
-    document.getElementById('counter').innerText = "0"; // Reset completed cycles
+    cycleCount = parseInt(document.getElementById('cycles').value); 
+    document.getElementById('counter').innerText = "0"; 
 });
 
 // mute button
@@ -55,7 +54,7 @@ mute.addEventListener('click', function (){
     }
 })
 
-let cyclesCount =1;
+
 
 function timer() {
     // Work timer
