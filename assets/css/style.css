@@ -21,7 +21,7 @@ body {
     padding: 2rem;
     border-radius: 10px;
     width: 100%;
-    max-width: 800px;
+    max-width: 80rem;
 }
 
 .timer, .break-timer, .cycles-timer {
@@ -104,11 +104,12 @@ body {
     color: orangered;
     font-size: 2.5rem;
     text-shadow: 0.9px 1px 0.9px rgb(241, 238, 246);
+    padding: 1rem;
 }
 
-.controls {
-    background-color: transparent;
+.controls  {
     padding-top: 0.5rem;
+    gap: 1rem;
 }
 
 #start-btn, #stop-btn, #reset-btn, #mute-btn {
@@ -226,16 +227,14 @@ body {
 #timer-set * {
     pointer-events: none;
 }
-#training-section{
+#training-section, .intro{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.6rem;
+    padding: 1rem;
 }
-.intro{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 /* Responsive Styles */
 @media screen and (max-width: 1024px) {
     .session-length-controls {
@@ -252,17 +251,14 @@ body {
     }
 
     .workout-label {
-        font-size: 2rem;
-    }
-
-    #start-btn, #stop-btn, #reset-btn, #mute-btn {
         font-size: 2.5rem;
     }
+ 
 }
 
 @media screen and (max-width: 768px) {
     .container {
-        padding: 1rem;
+        padding: 1.6rem;
     }
 
     .session-length-controls {
@@ -290,42 +286,18 @@ body {
         font-size: 1.5rem;
     }
 
-    .workout-label {
-        font-size: 1.8rem;
-    }
+   .controls-section{
+    display: flex;
+    gap: 2rem;
+   }
 
     #start-btn, #stop-btn, #reset-btn, #mute-btn {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .container {
-        width: 90%;
-    }
-
-    .session-length-controls {
-        padding: 0.5rem;
-    }
+  
     
-    .session-length-controls input[type="number"] {
-        width: 50px;
-        margin: 0.3rem 0;
-    }
-    
-    .timer, .break-timer, .cycles-timer {
-        font-size: 1.5rem;
-    }
 
-    .cycles-timer {
-        font-size: 1.2rem;
-    }
-
-    .workout-label {
-        font-size: 1.5rem;
-    }
-
-    #start-btn, #stop-btn, #reset-btn, #mute-btn {
-        font-size: 1.5rem;
-    }
 }
