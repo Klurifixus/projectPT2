@@ -14,7 +14,7 @@ let workSecondsInput = document.getElementById('work-seconds');
 let breakMinutesInput = document.getElementById('break-minutes');
 let breakSecondsInput = document.getElementById('break-seconds');
 let cyclesInput = document.getElementById('input-cycles');
-let cyclesDisplay = document.getElementById('cycles')
+let cyclesDisplay = document.getElementById('cycles');
 
 // Reference to timer variable
 let startTimer;
@@ -51,7 +51,7 @@ start.addEventListener('click', function () {
 pause.addEventListener('click', function (){
     clearInterval(startTimer);
     startTimer = undefined;
-})
+});
 
 //reset button
 reset.addEventListener('click', function () {
