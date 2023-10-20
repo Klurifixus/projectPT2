@@ -226,3 +226,97 @@ body {
 #timer-set * {
     pointer-events: none;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .session-length-controls {
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .timer, .break-timer, .cycles-timer {
+        font-size: 2.5rem;
+    }
+
+    .cycles-timer {
+        font-size: 1.8rem;
+    }
+
+    .workout-label {
+        font-size: 2rem;
+    }
+
+    #start-btn, #stop-btn, #reset-btn, #mute-btn {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .session-length-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .session-length-controls label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .session-length-controls input[type="number"] {
+        width: 60px;
+        margin: 0.5rem 0;
+    }
+    
+    .timer, .break-timer, .cycles-timer {
+        font-size: 2rem;
+    }
+
+    .cycles-timer {
+        font-size: 1.5rem;
+    }
+
+    .workout-label {
+        font-size: 1.8rem;
+    }
+
+    #start-btn, #stop-btn, #reset-btn, #mute-btn {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+
+    .session-length-controls {
+        padding: 0.5rem;
+    }
+    
+    .session-length-controls input[type="number"] {
+        width: 50px;
+        margin: 0.3rem 0;
+    }
+    
+    .timer, .break-timer, .cycles-timer {
+        font-size: 1.5rem;
+    }
+
+    .cycles-timer {
+        font-size: 1.2rem;
+    }
+
+    .workout-label {
+        font-size: 1.5rem;
+    }
+
+    #start-btn, #stop-btn, #reset-btn, #mute-btn {
+        font-size: 1.5rem;
+    }
+}
