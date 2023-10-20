@@ -70,6 +70,11 @@ reset.addEventListener('click', function () {
     breakMinutesInput.value = "5";
     breakSecondsInput.value = "00";
     isMuted = false;
+
+    minutes.classList.remove("pulse-green");
+    seconds.classList.remove("pulse-green");
+    bminutes.classList.remove("pulse-green");
+    bseconds.classList.remove("pulse-green");
     
     cyclesDisplay.classList.add("pulse-green");
     setTimeout(() => {
