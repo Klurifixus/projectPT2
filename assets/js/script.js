@@ -20,6 +20,11 @@ let startTimer;
 let isMuted = false;
 let cyclesCount = 1;
 
+//cycles 
+cyclesInput.addEventListener('input', function (){
+    cyclesCount = parseInt(cyclesInput.value); 
+    cyclesDisplay.innerText = cyclesCount;
+});
 //start button
 start.addEventListener('click', function () {
     if (startTimer === undefined) {
@@ -42,13 +47,19 @@ reset.addEventListener('click', function () {
     bminutes.innerText = "5";
     bseconds.innerText = "00";
     isMuted = false;
-    cyclesCount = parseInt(cyclesInput.value); 
+    cyclesCount = parseInt(cyclesInput.value);
     cyclesDisplay.innerText = cyclesCount;
+    cyclesDisplay.innerText = "0";
+    cyclesInput.innerText = "0";
+    workMinutesInput.innerText = "0";
+    workSecondsInput.innerText = "0";
+    breakMinutesInput.innerText = "0";
+    breakSecondsInput.innerText = "0";   
 });
 
 // mute button
 mute.addEventListener('click', function (){
-    if (ismuted) {
+    if (isMuted) {
         isMuted = false;
     } else {
         isMuted = true;
@@ -80,16 +91,18 @@ function timer() {
 
     // When both timers reach 0 (timer-section)
     if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
+        if (cyclesCount > 0){
         cyclesCount--;
         cyclesDisplay.innerText = cyclesCount;
         if (cyclesCount <= 0) {
             clearInterval(startTimer);
             startTimer = undefined;
-            alert("All cycles complete!");
+            alert("All cycles complete!"); 
         } else {
             updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
             updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
         }
+    }
     }
 }
 function updateDisplayedTime(minutesDisplay, secondsDisplay, newMinutes, newSeconds) {
