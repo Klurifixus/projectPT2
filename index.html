@@ -54,32 +54,48 @@
                     <!-- Btn section with controls -->
                     <div class="controls-section">
                         <div class="controls">
-                            
-                            <button id="start-btn" aria-label="start button"><i class="fa-solid fa-circle-play"></i></button>
-                            <button id="reset-btn" aria-label="reset button"><i class="fa-solid fa-clock-rotate-left"></i></button>
-                            <button id="stop-btn" aria-label="stop button"><i class="fa-solid fa-circle-pause"></i></button>
-                            <button id="mute-btn" aria-label="sound on/off button"><i class="fas fa-volume-mute"></i></button>
-                            
+                            <div class="tooltip">
+                                <button id="start-btn" aria-label="start button"><i class="fa-solid fa-circle-play"></i></button>
+                                <span class="tooltiptext">Start the timer</span>
+                            </div>
+                            <div class="tooltip">
+                                <button id="reset-btn" aria-label="reset button"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                                <span class="tooltiptext">Reset the timer and settings</span>
+                            </div>
+                            <div class="tooltip">
+                                <button id="stop-btn" aria-label="stop button"><i class="fa-solid fa-circle-pause"></i></button>
+                                <span class="tooltiptext">Pause the timer</span>
+                            </div>
+                            <div class="tooltip">
+                                <button id="mute-btn" aria-label="sound on/off button"><i class="fas fa-volume-mute"></i></button>
+                                <span class="tooltiptext">Click and when it turns pulsning red "mute" is activated</span>
+                            </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="tooltip">
                         <button id="timer-set">Set timer</button>
+                        <span class="tooltiptext">Here you can set your own settings!</span>
                     </div>
                     <div class="session-length-controls hidden">
-                        <label>
+                        <label class="tooltip">
                             Work:
                             <input id="work-minutes" type="number" min="0" max="99" value="25"> min
                             <input id="work-seconds" type="number" min="0" max="59" value="0"> sec
+                            <span class="tooltiptext">Set the work duration</span>
                         </label>
-                        <label>
+                        <label class="tooltip">
                             Break:
                             <input id="break-minutes" type="number" min="0" max="99" value="5"> min
                             <input id="break-seconds" type="number" min="0" max="59" value="0"> sec
+                            <span class="tooltiptext">Set the break duration</span>
                         </label>
-                        <label for="input-cycles">Cycles:</label>
+                        <label class="tooltip" for="input-cycles">
+                            Cycles:
                             <input id="input-cycles" type="number" min="1" value="1">
+                            <span class="tooltiptext">Set the number of work-break cycles</span>
+                        </label>
                     </div>
-                    
+                </div>    
                     
             </section>
         </main>
