@@ -57,19 +57,20 @@ pause.addEventListener('click', function (){
 reset.addEventListener('click', function () {
     clearInterval(startTimer);
     startTimer = undefined;
-    minutes.innerText = "25";
-    seconds.innerText = "00";
-    bminutes.innerText = "5";
-    bseconds.innerText = "00";
-    isMuted = false;
-    
-    
+
+    //reset timer display
+    updateDisplayedTime(minutes, seconds, "25", "00");
+    updateDisplayedTime(bminutes, bseconds, "5", "00");
+
+    //reset controls
     cyclesDisplay.innerText = "0";
     cyclesInput.value = "0";
     workMinutesInput.value = "25";
     workSecondsInput.value = "00";
     breakMinutesInput.value = "5";
     breakSecondsInput.value = "00";
+    isMuted = false;
+    
     cyclesDisplay.classList.add("pulse-green");
     setTimeout(() => {
         cyclesDisplay.classList.remove("pulse-green");
@@ -83,9 +84,9 @@ mute.addEventListener('click', function (){
         mute.classList.remove("pulse-red");
     } else {
         isMuted = true;
-        mute.classList.add("pulse-red")
+        mute.classList.add("pulse-red");
     }
-})
+});
 
 
 //Hide/show timer settings
