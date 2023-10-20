@@ -78,13 +78,14 @@ function timer() {
     
 
 
-    // When both timers reach 0
+    // When both timers reach 0 (timer-section)
     if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
-        document.getElementById('cycles').innerText++;
-        if (document.getElementById('cycles').innerText >= cycleCount) {
-            // Stop the timer when the  cycles is ending in number
+        cyclesCount--;
+        cyclesDisplay.innerText = cyclesCount;
+        if (cyclesCount <= 0) {
             clearInterval(startTimer);
             startTimer = undefined;
+            alert("All cycles complete!");
         } else {
             updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
             updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
