@@ -128,6 +128,11 @@ function timer() {
             cyclesCount--;
             cyclesDisplay.innerText = cyclesCount;
 
+            // Play sound at the end of each cycle
+            if (!isMuted) {
+                soundEffect.play();
+            }
+
             if (cyclesCount <= 0) {
                 clearInterval(startTimer);
                 startTimer = undefined;
