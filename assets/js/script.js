@@ -47,8 +47,8 @@ reset.addEventListener('click', function () {
     bminutes.innerText = "5";
     bseconds.innerText = "00";
     isMuted = false;
-    cyclesCount = parseInt(cyclesInput.value);
-    cyclesDisplay.innerText = cyclesCount;
+    
+    
     cyclesDisplay.innerText = "0";
     cyclesInput.innerText = "0";
     workMinutesInput.innerText = "0";
