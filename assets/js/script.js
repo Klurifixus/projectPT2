@@ -55,6 +55,8 @@ mute.addEventListener('click', function (){
     }
 })
 
+let cyclesCount =1;
+
 function timer() {
     // Work timer
     if (minutes.innerText != 0 || seconds.innerText != 0) {
@@ -73,12 +75,20 @@ function timer() {
             bseconds.innerText--;
         }
     }
+    
+
 
     // When both timers reach 0
     if (minutes.innerText == 0 && seconds.innerText == 0 && bminutes.innerText == 0 && bseconds.innerText == 0) {
-        updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
-        updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
-        document.getElementById('counter').innerText++;
+        document.getElementById('cycles').innerText++;
+        if (document.getElementById('cycles').innerText >= cycleCount) {
+            // Stop the timer when the  cycles is ending in number
+            clearInterval(startTimer);
+            startTimer = undefined;
+        } else {
+            updateDisplayedTime(minutes, seconds, workMinutesInput.value, workSecondsInput.value);
+            updateDisplayedTime(bminutes, bseconds, breakMinutesInput.value, breakSecondsInput.value);
+        }
     }
 }
 function updateDisplayedTime(minutesDisplay, secondsDisplay, newMinutes, newSeconds) {
