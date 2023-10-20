@@ -14,13 +14,15 @@ body {
     justify-content: center;
     background: url(../images/destination-1285851_1280.png) center/cover no-repeat;
     height: 100vh;
+    align-items: center;
 }
 
 .container {
     padding: 2rem;
     border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
 }
-
 
 .timer, .break-timer, .cycles-timer {
     font-size: 3rem;
@@ -29,10 +31,7 @@ body {
     border: 2px solid #fff;
     background-color: rgba(248, 244, 244, 0.5);
     border-radius: 10px;
-} 
-
-
-
+}
 
 .cycles-timer {
     font-size: 2rem;
@@ -56,14 +55,6 @@ body {
     font-size: 1.5rem;
 }
 
-#work-length, #break-length {
-    margin: 0 auto;
-    border-radius: 10%;
-    width: 3.1rem;
-    height: 2rem;
-    font-size: 1rem;
-}
-
 .workout-label {
     font-family: 'Black Ops One', 'Montserrat';
     display: flex;
@@ -79,90 +70,13 @@ body {
     padding-top: 0.5rem;
 }
 
-#start-btn, #stop-btn, #reset-btn, #mute-btn, #training-toggle {
+#start-btn, #stop-btn, #reset-btn, #mute-btn {
     font-size: 3.1rem;
     border-radius: 30%;
     margin-bottom: 0.5rem;
     background-color: rgba(248, 244, 244, 0.5);
 }
 
-/* Animations */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-/* Additional Styles and Interactions */
-body.active-challenge {
-    background-color: rgba(255, 0, 0, 0.5);
-}
-
-#exerciseLabel.active-challenge, #banderoll-container.active-challenge, .active-timer, .active-exercise {
-    animation: pulse 1s infinite alternate;
-}
-
-#banderoll-container.active-challenge {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    text-align: center;
-    line-height: 100vh;
-    font-size: 5rem;
-    pointer-events: none;
-    border-radius: 10px;
-}
-
-.center-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.exercise-selection {
-    display: none;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgba(248, 244, 244, 0.7);
-    padding: 1rem;
-    cursor: pointer;
-    border-radius: 10px;
-}
-
-li.active {
-    animation: pulse 1s infinite;
-    background-color: rgba(0, 255, 0, 0.5);
-}
-
-#exercise-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: rgba(248, 244, 244, 0.7);
-    padding: 1rem;
-    border-radius: 10px;
-}
-
-.intro, .timer-sections, .controls-sections, .training-sections {
-    background-color: rgba(248, 244, 244, 0.7);
-    border-radius: 10px;
-    margin: 10px;
-}
-
-button:hover, input[type="number"]:hover {
+.button:hover, input[type="number"]:hover {
     background-color: rgba(100, 100, 100, 0.1);
 }
-
-.controls-sections {
-    justify-content: space-between;
-    margin: 0;
-}
-
-/* Responsive Styles */
-

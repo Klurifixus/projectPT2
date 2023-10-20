@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 let start = document.getElementById('start-btn');
 let pause = document.getElementById('stop-btn');
 let reset = document.getElementById('reset-btn');
@@ -20,6 +21,9 @@ let startTimer;
 let isMuted = false;
 let cyclesCount = 1;
 
+//audio
+let soundEffect = new Audio('assets/sounds/battle_horn_1-6931.mp3');
+
 //cycles 
 cyclesInput.addEventListener('input', function (){
     cyclesCount = parseInt(cyclesInput.value); 
@@ -27,6 +31,9 @@ cyclesInput.addEventListener('input', function (){
 });
 //start button
 start.addEventListener('click', function () {
+    if (!isMuted){
+        soundEffect.play();
+    }
     if (startTimer === undefined) {
         startTimer = setInterval(timer, 1000);
     } 
