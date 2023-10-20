@@ -100,22 +100,21 @@ btnTimerSetting.onclick = function () {
 
 function timer() {
     activeTimerPulse();
-    // Work timer
-    if (minutes.innerText != 0 || seconds.innerText != 0) {
-        if (seconds.innerText == 0) {
-            seconds.innerText = 59;
-            minutes.innerText--;
+    if (parseInt(minutes.innerText) !== 0 || parseInt(seconds.innerText) !== 0) {
+        // Work timer
+        if (parseInt(seconds.innerText) === 0) {
+            seconds.innerText = "59";
+            minutes.innerText = (parseInt(minutes.innerText) - 1).toString();
         } else {
-            seconds.innerText--;
+            seconds.innerText = (parseInt(seconds.innerText) - 1).toString();
         }
-        
-        } else if (bminutes.innerText !== "00" || bseconds.innerText !== "00") {
+    } else if (parseInt(bminutes.innerText) !== 0 || parseInt(bseconds.innerText) !== 0) {
         // Break timer
-        if (bseconds.innerText === "00") {
+        if (parseInt(bseconds.innerText) === 0) {
             bseconds.innerText = "59";
-            bminutes.innerText--;
+            bminutes.innerText = (parseInt(bminutes.innerText) - 1).toString();
         } else {
-            bseconds.innerText--;
+            bseconds.innerText = (parseInt(bseconds.innerText) - 1).toString();
         }
     }
     
