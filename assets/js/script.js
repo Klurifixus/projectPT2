@@ -1,4 +1,5 @@
 /*jshint esversion: 6*/
+//Project based on Youtube video (link in readme)
 let start = document.getElementById('start-btn');
 let pause = document.getElementById('stop-btn');
 let reset = document.getElementById('reset-btn');

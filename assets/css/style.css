@@ -297,7 +297,73 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  
-    
+    /* Decreasing the overall padding for the container */
+    .container {
+        padding: 1rem;
+    }
 
+    /* Adjusting the font sizes */
+    .timer, .break-timer, .cycles-timer {
+        font-size: 1.6rem;
+    }
+
+    .cycles-timer {
+        font-size: 1.3rem;
+    }
+
+    .workout-label {
+        font-size: 1.8rem;
+    }
+
+    /* Adjusting controls size */
+    #start-btn, #stop-btn, #reset-btn, #mute-btn {
+        font-size: 2rem;
+    }
+
+    /* Adjusting session-length-controls styling */
+    .session-length-controls {
+        gap: 0.3rem;
+        padding: 0.8rem;
+    }
+    
+    .session-length-controls label {
+        gap: 0.2rem;
+    }
+
+    .session-length-controls input[type="number"] {
+        width: 50px;
+        margin: 0.3rem 0;
+        font-size: 1.1rem;
+    }
+
+    /* Tooltips adjustments */
+    .tooltip .tooltiptext {
+        font-size: 0.8rem;
+        width: 120px;
+    }
+
+    #timer-set {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    /* Adjusting other elements */
+    .session-length-controls button, .session-length-controls input {
+        padding: 0.1rem 0.3rem;
+        margin: 4px;
+        font-size: 1rem;
+    }
+
+    .session-length-controls, .controls-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .controls {
+        gap: 0.5rem;
+    }
+
+    .intro, #training-section {
+        font-size: 1.2rem;
+    }
 }
