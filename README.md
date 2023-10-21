@@ -89,6 +89,11 @@ Special thanks to all the digital tools and resources that proved indispensable,
 
 These tools and resources collectively played a crucial role in the successful completion of the project, each offering unique capabilities and insights.
 
+16. **FontAwesome**: A comprehensive library of vector icons that can be customized and embedded in projects. I used FontAwesome to enhance the user interface of the project, providing visually appealing and recognizable icons.
+
+17. **Favicon**: Favicons are the small icons that appear in browser tabs, bookmark bars, and other user interface components. For this project, I designed a unique favicon to represent the application and make it easily identifiable among other browser tabs.
+
+
 ## Contributions
 
 If you'd like to contribute to this project, please create a fork and submit a pull request. Any contributions, whether it's fixing bugs, improving documentation, or suggesting new features, are welcome!
