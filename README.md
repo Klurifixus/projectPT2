@@ -36,31 +36,6 @@ Follow these steps to install and run the project:
 6. Use the "Pause" and "Reset" buttons as needed.
 7. The mute button can be toggled to silence notifications.
 
-## Contributions
-
-If you'd like to contribute to this project, please create a fork and submit a pull request. Any contributions, whether it's fixing bugs, improving documentation, or suggesting new features, are welcome!
-
-## WorkSmart License Agreement
-
-### Preamble
-This License applies to the WorkSmart project (the "Software"), a Pomodoro Timer application created as a school project. This license allows you to use, modify, and distribute the Software in its original or modified form. Please read the following terms and conditions before using, modifying, or distributing this Software.
-
-### Terms and Conditions
-1. Definition. "Software" refers to the WorkSmart project, including its code, assets, documentation, and all associated files.
-
-2. Grant of License. Subject to the terms and conditions of this License, the author hereby grants you a free, perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license to use, modify, and distribute the Software.
-
-3. Acknowledgement. While not required, you are encouraged to give credit to the original author when using or redistributing the Software.
-
-4. Attribution of Assets. The background images and sound effects used in the Software are sourced from Pixabay and are free for commercial and non-commercial use. If you use these assets separately from the Software, you must adhere to Pixabay's terms of service and give appropriate credit.
-
-5. Limitation of Liability. The Software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the author or copyright holder be liable for any claim, damages, or other liability, whether in an action of contract, tort or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
-
-6. Termination. This License will continue in full force and effect unless terminated earlier pursuant to this clause. If you breach this License and fail to cure such breach within 30 days from the date of written notice of such breach, this License will terminate automatically.
-
-7. Governing Law. This License is governed by the laws of the jurisdiction in which the original author resides.
-
-8. Entire Agreement. This License constitutes the entire agreement between you and the author relating to the Software and supersedes all prior understandings, communications, or agreements, written or oral, relating to its subject matter.
 
 ## Conclusion and Acknowledgments
 
@@ -114,6 +89,31 @@ Special thanks to all the digital tools and resources that proved indispensable,
 
 These tools and resources collectively played a crucial role in the successful completion of the project, each offering unique capabilities and insights.
 
+## Contributions
+
+If you'd like to contribute to this project, please create a fork and submit a pull request. Any contributions, whether it's fixing bugs, improving documentation, or suggesting new features, are welcome!
+
+## WorkSmart License Agreement
+
+### Preamble
+This License applies to the WorkSmart project (the "Software"), a Pomodoro Timer application created as a school project. This license allows you to use, modify, and distribute the Software in its original or modified form. Please read the following terms and conditions before using, modifying, or distributing this Software.
+
+### Terms and Conditions
+1. Definition. "Software" refers to the WorkSmart project, including its code, assets, documentation, and all associated files.
+
+2. Grant of License. Subject to the terms and conditions of this License, the author hereby grants you a free, perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license to use, modify, and distribute the Software.
+
+3. Acknowledgement. While not required, you are encouraged to give credit to the original author when using or redistributing the Software.
+
+4. Attribution of Assets. The background images and sound effects used in the Software are sourced from Pixabay and are free for commercial and non-commercial use. If you use these assets separately from the Software, you must adhere to Pixabay's terms of service and give appropriate credit.
+
+5. Limitation of Liability. The Software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the author or copyright holder be liable for any claim, damages, or other liability, whether in an action of contract, tort or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
+
+6. Termination. This License will continue in full force and effect unless terminated earlier pursuant to this clause. If you breach this License and fail to cure such breach within 30 days from the date of written notice of such breach, this License will terminate automatically.
+
+7. Governing Law. This License is governed by the laws of the jurisdiction in which the original author resides.
+
+8. Entire Agreement. This License constitutes the entire agreement between you and the author relating to the Software and supersedes all prior understandings, communications, or agreements, written or oral, relating to its subject matter.
 
 ## Contact
 
