@@ -1,6 +1,7 @@
 # [WorkSmart: Your Pomodoro Productivity Booster]
 
-![amiresponsive](/docs/amiresponsive/Skärmbild%202023-10-2020231938.png)
+![Skärmbild 2023-10-20231938](docs/amiresponsive/Skärmbild%202023-10-20231938.png)
+
 
 
 ## [Features]
