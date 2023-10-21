@@ -3,6 +3,32 @@
 
 ![Skärmbild 2023-10-20231938](docs/amiresponsive/Skärmbild%202023-10-20231938.png)
 
+## WireFrames
+![Desktop Wireframe](./docs/wireframes/startpage-desktop-wireframe.png)
+![Tablet Wireframe](./docs/wireframes/startpage-tablet-wireframe.png)
+![Mobile Wireframe](./docs/wireframes/startpage-mobile-wireframe.png)
+
+- Hover over buttons
+![startButton](./docs/wireframes/popup-hover-start.png)
+![resetButton](./docs/wireframes/popup-hover-reset.png)
+![pauseButton](./docs/wireframes/popup-hover-pause.png)
+![muteButton](./docs/wireframes/popup-hover-mute.png)
+
+- Set timer when clicked
+![before clicked](./docs/wireframes/before-click-settimer.png)
+![during clicked](./docs/wireframes/during-click-settimer.png)
+![after clicked](./docs/wireframes/after-click-settimer.png)
+
+- Hover over Timer settings
+![Hover timer settings](./docs/wireframes/popup-hover-set-timer.png)
+
+- Hover over input number
+![Hover over settings](./docs/wireframes/hover-input-numbers.png)
+
+- Pulse fuctions
+![Pulse while Work](./docs/wireframes/pulse-green-while-work.png)
+![Pulse while Break](./docs/wireframes/pulse-green-while-break.png)
+
 
 
 ## Features
@@ -14,10 +40,9 @@
 * Input Validation: Ensures users only enter valid time values.
 
 
-
 ## Description
 
-WorkSmart is an intuitive Pomodoro timer designed to enhance your productivity. With our clean and stylish design, you can focus on your tasks, take structured breaks, and boost your efficiency, whether it's for work, studies, or workout sessions.
+WorkSmart is an intuitive Pomodoro timer designed to enhance your productivity. With this clean and stylish design, you can focus on your tasks, take structured breaks, and boost your efficiency, whether it's for work, studies, or workout sessions.
 
 ## HTML Overview
 The `WorkSmart` webpage is a responsive and intuitive Pomodoro timer tool designed to boost productivity. It's perfect for work, study, and training sessions.
@@ -74,16 +99,11 @@ The `WorkSmart` webpage is a responsive and intuitive Pomodoro timer tool design
 
 ### Responsive Styles
 - Media queries ensure the design is responsive across devices. 
-  - Adjustments made for screens less than 1024px, 768px, and 480px in width.
+  - Adjustments are made for screens less than 1024px, 768px, and 480px in width.
   - Includes reordering and resizing elements for smaller screens.
 
 ### Tooltips
 - Positioning and hover effects to display helpful tooltips.
-
-### Miscellaneous
-- Additional styles for specific buttons and hidden elements.
-
-
 
 
 ## JavaScript Functionality Overview
@@ -112,14 +132,26 @@ The `WorkSmart` webpage is a responsive and intuitive Pomodoro timer tool design
 - Provides a toggle feature for timer settings visibility.
 - Visual feedback is given during various setting changes.
 
-## Installation
+## Deployment Guide 
 
-Follow these steps to install and run the project:
+Want to see the live version of our project? We've made it super easy for you to access and test the website even during its development phase. Follow this step-by-step guide to understand how the webpage was deployed on GitHub:
 
-1. Clone the repository: git clone `https://github.com/Klurifixus/projectPT2.git`
-2. Navigate to the directory: `cd [projectPT2]`
-3. Install the necessary packages/libraries: `command-here`
-4. Run the program: `command-to-run`
+1. **Access the Repository**:  
+   Simply click on this [link](https://github.com/Klurifixus/projectPT2) to open our project's GitHub repository.
+
+2. **Go to Settings**:  
+   Once you're inside the repository, navigate to the top of the page. You'll see a tab labeled "Settings". Click on it.
+
+3. **Find the 'Pages' Tab**:  
+   On the left sidebar inside Settings, there's a tab called "Pages". Click on it.
+
+4. **Deployment Settings**:  
+   Here, you can choose to deploy from a specific branch. In our case, we used the main branch. After selecting, click "Save".
+
+5. **Access the Live Site**:  
+   After a short wait, you can find the link to the live website on the right sidebar of the repository, under the section labeled "Deployments". Or you can simply click on this [projectPT2](https://klurifixus.github.io/projectPT2/) link to visit our live site!
+
+Happy browsing!
 
 ## Usage
 
@@ -135,9 +167,9 @@ Follow these steps to install and run the project:
 
 ## Conclusion and Acknowledgments
 
-This project was both a journey and a significant personal challenge. What began as a vision for a spin-wheel took an unexpected turn when I chanced upon a Pomodoro clock on [YouTube](https://www.youtube.com/watch?v=vAEG6OVCass&list=PLw5h0DiJ-9PAtGd3QOzUOX6aDUkeS2Qg1). This inspiration led me to pivot my focus, driven by the utility such a tool would offer in my day-to-day life.
+This project was both a journey and a significant personal challenge. What began as a vision for a spin-wheel took an unexpected turn when I stumble upon a Pomodoro clock on [YouTube](https://www.youtube.com/watch?v=vAEG6OVCass&list=PLw5h0DiJ-9PAtGd3QOzUOX6aDUkeS2Qg1). This inspiration led me to pivot my focus, driven by the utility such a tool would offer in my day-to-day life.
 
-Throughout the developmental stages, there were moments of clarity, coupled with phases of trial and error. I frequently reconstructed the project from the ground up, driven by the pursuit of perfection. One of the crucial takeaways from this endeavor was the importance of stepping back to reassess when faced with challenges, rather than being mired in a cycle of continuous rectifications.
+Throughout the developmental stages, there were moments of clarity, mixed with phases of trial and error. I frequently reconstructed the project from the ground up, driven by the pursuit of perfection. One of the crucial takeaways from this endeavor was the importance of stepping back to reassess when faced with challenges, rather than being mired in a cycle of continuous rectifications.
 
 Leveraging platforms like Codepen was invaluable, allowing me to visualize changes holistically before integrating them. Moreover, as I delved deeper into the complexities of JavaScript, I recognized the vast potential it offers, even though the learning curve was steep.
 
@@ -149,7 +181,6 @@ An oversight I regret is the delay in documenting my journey in this README. The
 
 In closing, I'm genuinely proud of what I've accomplished. The hurdles and the triumphs of this project are reminders of both my progress and the areas ripe for further growth. Every challenge faced and every line of code written has invaluably contributed to my journey as a developer.
 
-Special thanks to all the digital tools and resources that proved indispensable, and to you, the reader, for taking the time to understand the essence of this project.
 
 ## Future Features
 1. **Notifications**: Integrate browser notifications or alerts when the timer or break is over.
@@ -201,14 +232,11 @@ Special thanks to all the digital tools and resources that proved indispensable,
 
 14. **Google Search Engine**: An invaluable resource for any developer. I frequently used Google to find solutions to challenges, explore documentation, and access a wide range of development resources.
 
-15. **Chat GDP**: Another mention of ChatGPT? As previously mentioned, it's an AI tool that provided quick answers and guidance throughout the project's development.
+15. **FontAwesome**: A comprehensive library of vector icons that can be customized and embedded in projects. I used FontAwesome to enhance the user interface of the project, providing visually appealing and recognizable icons.
 
-These tools and resources collectively played a crucial role in the successful completion of the project, each offering unique capabilities and insights.
+16. **Favicon**: Favicons are the small icons that appear in browser tabs, bookmark bars, and other user interface components. For this project, I designed a unique favicon to represent the application and make it easily identifiable among other browser tabs.
 
-16. **FontAwesome**: A comprehensive library of vector icons that can be customized and embedded in projects. I used FontAwesome to enhance the user interface of the project, providing visually appealing and recognizable icons.
-
-17. **Favicon**: Favicons are the small icons that appear in browser tabs, bookmark bars, and other user interface components. For this project, I designed a unique favicon to represent the application and make it easily identifiable among other browser tabs.
-
+17. **Pixabay**: for free images and sound.
 
 ## Contributions
 
@@ -241,3 +269,13 @@ This License applies to the WorkSmart project (the "Software"), a Pomodoro Timer
 - Name: [Pierre Nilsson]
 - Email: [pirrefixus@gmail.com]
 
+## Credits, Thanks, and Content Sources
+
+- This project is inspired by [YouTube](https://www.youtube.com/watch?v=vAEG6OVCass&list=PLw5h0DiJ-9PAtGd3QOzUOX6aDUkeS2Qg1).
+- A special thanks to my girlfriend for her continuous support and for watching the kids while I focused on my studies.
+- Gratitude to David Calikes for his inputs, especially since I didn't have a mentor readily available prior to submission.
+
+
+
+
+- 
