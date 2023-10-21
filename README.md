@@ -225,7 +225,7 @@ In closing, I'm genuinely proud of what I've accomplished. The hurdles and the t
 10. **Extensions**: Develop browser extensions for popular browsers for easier access to the timer.
 
 ## Known Bugs
-1. **Responsiveness**: The app may not be fully optimized for all mobile devices.
+1. **Responsiveness**: The app may not be fully optimized for all mobile/tablet devices.
 2. **Sound Overlap**: If the start button is clicked multiple times in succession, the sound might overlap.
 3. **Timer Continuity**: If the user changes the tab or focuses on another application, the timer might pause or become erratic on some browsers.
 4. **Input Validation**: The application currently does not handle negative numbers or non-integer inputs gracefully.
