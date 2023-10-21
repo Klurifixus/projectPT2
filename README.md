@@ -13,9 +13,104 @@
 * Session Control: Easily start, pause, or reset your session with intuitive buttons.
 * Input Validation: Ensures users only enter valid time values.
 
+
+
 ## Description
 
 WorkSmart is an intuitive Pomodoro timer designed to enhance your productivity. With our clean and stylish design, you can focus on your tasks, take structured breaks, and boost your efficiency, whether it's for work, studies, or workout sessions.
+
+## HTML Overview
+The `WorkSmart` webpage is a responsive and intuitive Pomodoro timer tool designed to boost productivity. It's perfect for work, study, and training sessions.
+
+## Features
+
+### Meta Data
+- SEO optimized with `description` and `keywords` tags.
+- Responsive design supported by the viewport meta tag.
+
+### Assets
+- Integration with [FontAwesome](https://fontawesome.com/) for icons.
+- Custom favicons for various devices and platforms.
+- External stylesheet for easy customization located at `./assets/css/style.css`.
+
+### Main Timer Components
+- A primary timer display set to 25 minutes by default.
+- A break timer display set to 5 minutes by default.
+- A cycles counter to track the number of Pomodoro sessions.
+
+### User Controls
+- Start, reset, pause, and mute buttons with accessible labels.
+- Tooltips for added user guidance.
+- Session configuration options to customize work, break durations, and set the number of cycles.
+
+### Additional Resources
+- JavaScript functionality provided by the external script `./assets/js/script.js`.
+
+
+## CSS Styling Overview
+
+### Fonts
+- Uses custom fonts from Google Fonts including 'Black Ops One', 'Lato', and 'Montserrat'.
+
+### Base Styles
+- Resets default margin, padding and sets the universal box-sizing.
+- Default font families are 'Lato' and 'Montserrat'.
+
+### Body & Layout
+- Uses flexbox for center alignment and background styling.
+
+### Timer Display
+- Includes styles for work, break, and cycle timers with responsive font sizes and alignment.
+- Pulse animations for active timers and cycles.
+- Special animation for mute functionality.
+
+### Controls & Settings
+- Flexbox designs for control buttons and timer settings.
+- Hover, active, and focus effects for buttons and input fields.
+- Tooltip feature for additional information.
+
+### Labels & Text
+- Styling for the workout label, including font properties and shadow.
+
+### Responsive Styles
+- Media queries ensure the design is responsive across devices. 
+  - Adjustments made for screens less than 1024px, 768px, and 480px in width.
+  - Includes reordering and resizing elements for smaller screens.
+
+### Tooltips
+- Positioning and hover effects to display helpful tooltips.
+
+### Miscellaneous
+- Additional styles for specific buttons and hidden elements.
+
+
+
+
+## JavaScript Functionality Overview
+
+### Initialization & References
+- Initializes references to buttons, time displays, and input fields.
+
+### Audio Feedback
+- Plays an audio effect during interactions with an option to mute.
+
+### Cycles Management
+- Allows users to set the desired number of timer cycles.
+- Provides visual feedback upon cycle count changes.
+
+### Timer Control
+- Offers start, pause, or reset functions for the timer.
+- Transitions between work and break timers.
+- Alerts the user upon completion of all set cycles.
+
+### Timer Display & Settings
+- Active timers visually pulse for clear indication.
+- Users can adjust default timer durations.
+- Ensures input values are validated for seamless operation.
+
+### UI Interactions
+- Provides a toggle feature for timer settings visibility.
+- Visual feedback is given during various setting changes.
 
 ## Installation
 
@@ -35,6 +130,7 @@ Follow these steps to install and run the project:
 5. When the work timer expires, the break timer starts automatically.
 6. Use the "Pause" and "Reset" buttons as needed.
 7. The mute button can be toggled to silence notifications.
+
 
 
 ## Conclusion and Acknowledgments
