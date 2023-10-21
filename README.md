@@ -1,10 +1,11 @@
-# [WorkSmart: Your Pomodoro Productivity Booster]
+
+# WorkSmart: Your Pomodoro Productivity Booster
 
 ![Skärmbild 2023-10-20231938](docs/amiresponsive/Skärmbild%202023-10-20231938.png)
 
 
 
-## [Features]
+## Features
 * Customizable Timer: Set custom durations for your work and break sessions.
 * Sound Notifications: Get audible cues to start your break or return to work. (With mute option available)
 * Cycles Counter: Track and set the number of Pomodoro cycles.
@@ -20,8 +21,8 @@ WorkSmart is an intuitive Pomodoro timer designed to enhance your productivity. 
 
 Follow these steps to install and run the project:
 
-1. Clone the repository: `https://github.com/Klurifixus/projectPT2.git [repository-link]`
-2. Navigate to the directory: `cd [project-name]`
+1. Clone the repository: git clone `https://github.com/Klurifixus/projectPT2.git`
+2. Navigate to the directory: `cd [projectPT2]`
 3. Install the necessary packages/libraries: `command-here`
 4. Run the program: `command-to-run`
 
