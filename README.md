@@ -1,37 +1,67 @@
 
 # WorkSmart: Your Pomodoro Productivity Booster
 
-![Skärmbild 2023-10-20231938](docs/amiresponsive/Skärmbild%202023-10-20231938.png)
+![Skärmbild 2023-10-20231938](./docs/amiresponsive/Skärmbild%202023-10-20231938.png)
 
 ## WireFrames
-![Desktop Wireframe](./docs/wireframes/startpage-desktop-wireframe.png)
-![Tablet Wireframe](./docs/wireframes/startpage-tablet-wireframe.png)
-![Mobile Wireframe](./docs/wireframes/startpage-mobile-wireframe.png)
+- ![Desktop Wireframe](./docs/wireframes/startpage-desktop-wireframe.png)
+- ![Tablet Wireframe](./docs/wireframes/startpage-tablet-wireframe.png)
+- ![Mobile Wireframe](./docs/wireframes/startpage-mobile-wireframe.png)
 
 - Hover over buttons
-![startButton](./docs/wireframes/popup-hover-start.png)
-![resetButton](./docs/wireframes/popup-hover-reset.png)
-![pauseButton](./docs/wireframes/popup-hover-pause.png)
-![muteButton](./docs/wireframes/popup-hover-mute.png)
+- ![startButton](./docs/wireframes/popup-hover-start.png)
+- ![resetButton](./docs/wireframes/popup-hover-reset.png)
+- ![pauseButton](./docs/wireframes/popup-hover-pause.png)
+- ![muteButton](./docs/wireframes/popup-hover-mute.png)
 
 - Set timer when clicked
-![before clicked](./docs/wireframes/before-click-settimer.png)
-![during clicked](./docs/wireframes/during-click-settimer.png)
-![after clicked](./docs/wireframes/after-click-settimer.png)
+- ![before clicked](./docs/wireframes/before-click-settimer.png)
+- ![during clicked](./docs/wireframes/during-click-settimer.png)
+- ![after clicked](./docs/wireframes/after-click-settimer.png)
 
 - Hover over Timer settings
-![Hover timer settings](./docs/wireframes/popup-hover-set-timer.png)
+- ![Hover timer settings](./docs/wireframes/popup-hover-set-timer.png)
 
 - Hover over input number
-![Hover over settings](./docs/wireframes/hover-input-numbers.png)
+- ![Hover over settings](./docs/wireframes/hover-input-numbers.png)
 
 - Pulse fuctions
-![Pulse while Work](./docs/wireframes/pulse-green-while-work.png)
-![Pulse while Break](./docs/wireframes/pulse-green-while-break.png)
+- ![Pulse while Work](./docs/wireframes/pulse-green-while-work.png)
+- ![Pulse while Break](./docs/wireframes/pulse-green-while-break.png)
+
+## Testing
+- W3C test for HTML
+- ![w3c test html](./docs/testing/w3chtml.png)
+
+- W3C test for CSS
+- ![w3c test css](./docs/testing/w3ccss.png)
+
+- JShint test for JavaScript
+- ![Jshint for Js](./docs/testing/jshint.png)
+
+- Lighthouse test
+- ![Lighthouse test](./docs/testing/lighthouse.png)
+
+
+
+
 
 
 
 ## Features
+- Screenshot of Page
+- ![screenshot of page](./docs/screenshot/screenshot.png)
+
+- ![screenshot of page](./docs/screenshot/shreenshotsetting.png)
+
+- Favicon
+- ![favicon](./docs/favicon/favicon.png)
+
+- ![favicon](./docs/favicon/favicon2.png)
+
+
+
+
 * Customizable Timer: Set custom durations for your work and break sessions.
 * Sound Notifications: Get audible cues to start your break or return to work. (With mute option available)
 * Cycles Counter: Track and set the number of Pomodoro cycles.
