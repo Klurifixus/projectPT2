@@ -80,6 +80,39 @@ In closing, I'm genuinely proud of what I've accomplished. The hurdles and the t
 
 Special thanks to all the digital tools and resources that proved indispensable, and to you, the reader, for taking the time to understand the essence of this project.
 
+## Tools and Programs Used
+
+1. **VS Code**: A powerful source code editor developed by Microsoft. I used it as the primary environment for writing and organizing my code.
+
+2. **Balsamiq**: A wireframing tool that allows for quick mockups of user interfaces. I utilized Balsamiq to visualize and plan the project's interface.
+
+3. **CodePen**: An online code editor and community for frontend developers. It was helpful for testing isolated pieces of code and viewing results in real-time.
+
+4. **Prettier**: An opinionated code formatter that ensures code adheres to consistent style standards, making the codebase more readable and maintainable.
+
+5. **Genie**: A tool for debugging and inspecting code. Genie assisted in pinpointing issues and optimizing the project.
+
+6. **CI-Full-Template**: A Continuous Integration template. It ensured that each code push or pull request was automatically tested, ensuring the integrity of the project.
+
+7. **ChatGPT**: An advanced conversational AI. I consulted ChatGPT for guidance on specific coding challenges and for obtaining clarifications.
+
+8. **JSHint**: A static code analysis tool for JavaScript. It helped in detecting errors and potential problems in the JavaScript code.
+
+9. **W3C for HTML & CSS**: The World Wide Web Consortium's validators for HTML and CSS ensured that the project's markup and stylesheets adhered to web standards.
+
+10. **Chrome DevTools**: A set of web developer tools built directly into the Google Chrome browser. I used the DevTools, especially the responsiveness viewer, to ensure the project looked and worked well on various device sizes.
+
+11. **Lighthouse**: An open-source, automated tool for improving the quality of web pages. It provided insights into performance, accessibility, and other best practices.
+
+12. **YouTube Tutorials**: I leveraged various YouTube tutorials to gain insights, techniques, and best practices related to specific project challenges.
+
+13. **Udemy Courses**: Online courses on Udemy provided deeper dives into certain topics, offering structured lessons and projects that further enhanced my skills.
+
+14. **Google Search Engine**: An invaluable resource for any developer. I frequently used Google to find solutions to challenges, explore documentation, and access a wide range of development resources.
+
+15. **Chat GDP**: Another mention of ChatGPT? As previously mentioned, it's an AI tool that provided quick answers and guidance throughout the project's development.
+
+These tools and resources collectively played a crucial role in the successful completion of the project, each offering unique capabilities and insights.
 
 
 ## Contact
@@ -87,4 +120,3 @@ Special thanks to all the digital tools and resources that proved indispensable,
 - Name: [Pierre Nilsson]
 - Email: [pirrefixus@gmail.com]
 
-## My 
