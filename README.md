@@ -151,6 +151,26 @@ In closing, I'm genuinely proud of what I've accomplished. The hurdles and the t
 
 Special thanks to all the digital tools and resources that proved indispensable, and to you, the reader, for taking the time to understand the essence of this project.
 
+## Future Features
+1. **Notifications**: Integrate browser notifications or alerts when the timer or break is over.
+2. **Dark Mode**: Allow users to toggle between light and dark modes.
+3. **Statistics**: Provide insights into the user's productivity. For instance, track the number of cycles completed in a day.
+4. **Background Themes**: Allow users to customize the background with various themes or even personal images.
+5. **Sound Options**: Offer multiple sound alerts to choose from.
+6. **Mobile App**: Develop a companion mobile app to allow users to use the timer on-the-go.
+7. **Sync Across Devices**: Allow users to sync their timer settings and statistics across devices.
+8. **Task Integration**: Allow users to list out tasks they want to complete within the cycles.
+9. **Leaderboard**: Implement a leaderboard to foster a community and challenge where users can compete based on productivity metrics.
+10. **Extensions**: Develop browser extensions for popular browsers for easier access to the timer.
+
+## Known Bugs
+1. **Responsiveness**: The app may not be fully optimized for all mobile devices.
+2. **Sound Overlap**: If the start button is clicked multiple times in succession, the sound might overlap.
+3. **Timer Continuity**: If the user changes the tab or focuses on another application, the timer might pause or become erratic on some browsers.
+4. **Input Validation**: The application currently does not handle negative numbers or non-integer inputs gracefully.
+5. **Mute Toggle**: If muted during an ongoing alert, the sound doesn't stop immediately.
+
+
 ## Tools and Programs Used
 
 1. **VS Code**: A powerful source code editor developed by Microsoft. I used it as the primary environment for writing and organizing my code.
