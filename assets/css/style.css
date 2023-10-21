@@ -7,7 +7,7 @@
     box-sizing: border-box;
     font-family: 'Lato', 'Montserrat';
 }
-
+/* Background image and central alignment for body content */
 body {
     display: flex;
     flex-direction: column;
@@ -16,14 +16,14 @@ body {
     height: 100vh;
     align-items: center;
 }
-
+/* Container style */
 .container {
     padding: 2rem;
     border-radius: 10px;
     width: 100%;
     max-width: 80rem;
 }
-
+/* === TIMER STYLES === */
 .timer, .break-timer, .cycles-timer {
     font-size: 3rem;
     text-align: center;
@@ -36,7 +36,7 @@ body {
 .cycles-timer {
     font-size: 2rem;
 }
-
+/* === CONTROLS STYLING === */
 .controls, .session-length-controls {
     display: flex;
     justify-content: center;
@@ -45,7 +45,7 @@ body {
     cursor: pointer;
     border-radius: 10px;
 }
-
+/* Session length controls styling */
 .session-length-controls {
     display: flex;
     flex-wrap: wrap;
@@ -61,7 +61,7 @@ body {
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
-
+/* Styling for input and buttons within session controls */
 .session-length-controls input {
     width: 60px;  
     height: 40px; 
@@ -77,7 +77,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); 
 }
-
+/* Hover and focus styles */
 .session-length-controls button:hover,
 .session-length-controls input:hover {
     background-color: rgb(59, 158, 215);
@@ -95,7 +95,7 @@ body {
     box-shadow: 0 0 0 3px rgba(89, 188, 245, 0.5);
 }
 
-
+/* === LABEL STYLING === */
 .workout-label {
     font-family: 'Black Ops One', 'Montserrat';
     display: flex;
@@ -106,25 +106,27 @@ body {
     text-shadow: 0.9px 1px 0.9px rgb(241, 238, 246);
     padding: 1rem;
 }
-
+/* Controls padding and gap */
 .controls  {
     padding-top: 0.5rem;
     gap: 1rem;
 }
-
+/* Button styling */
 #start-btn, #stop-btn, #reset-btn, #mute-btn {
     font-size: 3.1rem;
     border-radius: 30%;
     margin-bottom: 0.5rem;
     background-color: rgba(248, 244, 244, 0.5);
 }
-
+/* Hover effect for buttons and number input */
 .button:hover, input[type="number"]:hover {
     background-color: rgba(100, 100, 100, 0.1);
 }
+/* Animation styles */
 .active-timer {
     animation: pulseGreen 1s infinite alternate;
 }
+
 @keyframes pulseGreen {
     0% { transform: scale(1); color: initial; }
     50% { transform: scale(1.1); color: green; }
@@ -147,17 +149,20 @@ body {
     50% { background-color: red; }
     
 }
+/* pulse green active */
 .pulse-green {
     animation: pulseGreen 1s infinite alternate;
 }
-
+/* pulse red active */
 .pulse-red {
     animation: pulseRed 1s infinite alternate;
 }
-
+/* hide element */
 .hidden{
     display: none;
 }
+
+/* tooltip functions */
 .tooltip{
     position: relative;
     cursor: pointer;
@@ -189,13 +194,17 @@ body {
     border-style: solid;
     border-color: rgba(0,0,0,0.8) transparent transparent transparent;
 }
+
 .tooltip .tooltiptext {
     opacity: 0;
     transition: opacity 0.3s;
 }
+
 .tooltip:hover .tooltiptext {
     opacity: 1;
 }
+
+
 #timer-set{
     background-color: orangered;
     color: #fff;
@@ -235,8 +244,9 @@ body {
     padding: 1rem;
 }
 
-/* Responsive Styles */
+/* === RESPONSIVE STYLING === */
 @media screen and (max-width: 1024px) {
+    /*smaller fontsize*/
     .session-length-controls {
         padding: 1rem 1.5rem;
         font-size: 1.2rem;
