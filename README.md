@@ -1,6 +1,6 @@
 # [WorkSmart: Your Pomodoro Productivity Booster]
 
-![amiresponsive](./docs/amiresponsive/Skärmbild%202023-10-2020231938.png)
+![amiresponsive](/docs/amiresponsive/Skärmbild%202023-10-2020231938.png)
 
 
 ## [Features]
@@ -40,10 +40,10 @@ If you'd like to contribute to this project, please create a fork and submit a p
 
 ## WorkSmart License Agreement
 
-###Preamble
+### Preamble
 This License applies to the WorkSmart project (the "Software"), a Pomodoro Timer application created as a school project. This license allows you to use, modify, and distribute the Software in its original or modified form. Please read the following terms and conditions before using, modifying, or distributing this Software.
 
-###Terms and Conditions
+### Terms and Conditions
 1. Definition. "Software" refers to the WorkSmart project, including its code, assets, documentation, and all associated files.
 
 2. Grant of License. Subject to the terms and conditions of this License, the author hereby grants you a free, perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license to use, modify, and distribute the Software.
